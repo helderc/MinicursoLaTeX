@@ -1,0 +1,498 @@
+%%% -*-LaTeX-*-
+%%% demo-apendice-packages.tex -- descrição dos packages usados no LaTeX-demo.
+%%% $Id: demo-apendice-packages.tex,v 1.20 2001/01/12 02:23:38 jessen Exp $
+
+
+\section{Descrição dos \eng{Packages} Citados neste Documento}
+\index{packages@\eng{packages}!citados no documento}%
+
+Este apêndice lista todos os \eng{packages} citados neste documento.
+Nem todos foram de fato usados, alguns aparecendo apenas como
+comentários no código fonte \LaTeX.
+
+Os comandos definidos em cada \eng{package} e que foram usados ao
+longo do documento também são mostrados.
+
+Para uma descrição de todos os \eng{packages} disponíveis é fortemente
+recomendável a leitura do \eng{``The TeX Catalogue''}, disponível em:
+\url{ftp://ftp.dante.de/tex-archive/help/Catalogue/catalogue.html}.
+
+\begin{enumerate}
+
+\item{\package{a4wide}}
+
+  Este \eng{package} aumenta a área usada numa folha de papel A4\@,
+  tornando as linhas mais longas.  Este documento, entretanto, usa o
+  \eng{package} \package{geometry} (vide item~\ref{item:geometry}) por
+  ser mais poderoso e flexível na definição das dimensões das páginas.
+
+\item{\package{ae}}
+\index{PDF!package ae@\eng{package} \pack{ae}}%
+\index{PDF!encoding T1@\eng{encoding} T1}%
+\Glossary[pdf\TeX]{pdftex}{Extensão do \TeX{} que gera documentos PDF
+  em vez de DVI.}%
+\Glossary{PDF}{Portable Document Format---formato de arquivo criado
+  para representação de documentos de maneira independente da
+  aplicação, hardware e sistema operacional usados na sua criação e do
+  dispositivo de saída usado na sua exibição ou impressão.}%
+
+  Emula fontes com \eng{encoding} T1 usando as fontes CM padrão.  O
+  objetivo desse \eng{package} é produzir documentos PDF que usem
+  versões \eng{Type 1} das fontes CM em vez de usar fontes
+  \eng{bitmapped}.
+
+\item{\package{algorithm}}
+
+  Define uma nova categoria de \eng{float} para uso com algoritmos.
+
+\item{\package{algorithmic}}
+
+  Provê um environment para a descrição de algoritmos, com vários
+  comandos para a definição de repetição, condicionais, etc.
+
+\item{\package{alltt}}
+
+  Define o \eng{environment} \environ{alltt} que tem o mesmo efeito do
+  \environ{verbatim}, mas permite a inclusão de outros comandos e
+  \eng{environments}.  O \eng{environment} \environ{alltt} é usado na
+  subseção~\ref{subsec:alltt}, página~\pageref{subsec:alltt}.
+
+\item{\package{amsfonts}}
+
+  Conjunto de fontes da \eng{American Mathematical Society} que
+  aumentam os símbolos matemáticos disponíveis.  Este documento usa o
+  comando \command{mathbb} na seção~\ref{sec:amsfonts} para os
+  símbolos do conjunto dos números Naturais, Racionais, Reais, etc.
+
+\item{\package{amstext}}
+
+  Define o comando \command{text} que permite a inclusão de texto em
+  \eng{math mode}, inclusive com a utilização de
+  \eng{sub/superscripts}.  É bastante conveniente para geração de
+  acentos, que podem ser usados diretamente sem necessidade dos
+  comandos \command{hat}, \command{check}, \command{breve},
+  \command{acute}, \command{grave}, \command{tilde}, \command{dot} e
+  \command{ddot}, normalmente usados na geração de acentos em
+  \eng{math mode}.
+
+\item{\package{avant}}
+
+  Troca a fonte \eng{Sans Serif} para AvantGarde.
+
+\item{\package{babel}}
+
+  Suporte multilingual para o \LaTeX.  Várias entidades do documento
+  (como capítulo, índice, formato de datas, etc) são traduzidas para a
+  língua usada.  É possível misturar mais de uma língua ao mesmo
+  tempo.
+
+  Note que este documento usa o parâmetro \texttt{brazil} e não
+  \texttt{portuges}.  Embora semelhantes, estes estilos não são
+  iguais.  Por exemplo, nomes de meses são escritos em minúsculas no
+  Brasil e em maiúsculas em Portugal.  Para Português do Brasil o
+  primeiro deve ser utilizado.
+
+\item{\package{bookman}}
+
+  Troca as fontes \eng{Sans Serif}, \eng{Roman} e \eng{Typewriter} para
+  AvantGarde, Bookman e Courier, respectivamente.
+
+\item{\package{color}}
+
+  Suporte à cores no documento.  A seção~\ref{sec:cores} usa os
+  comandos \command{textcolor} e \command{colorbox}, definidos neste
+  \eng{package}.  Tipicamente só é possível visualizar as cores na
+  versão PostScript do documento.
+
+\item{\package{enumerate}}
+
+  Provê ao \eng{environment} \environ{enumerate} um parâmetro opcional
+  que determina o estilo do contador além de permitir que esse
+  contador seja agrupado com texto.
+
+\item{\package{float}}
+
+  Permite a criação de novos \eng{floats}, no mesmo estilo de figuras
+  e tabelas.  Este documento usa os comandos \command{floatstyle},
+  \command{newfloat}, \command{floatname} e \command{listof} na
+  criação do novo \eng{float} \environ{codigo}.
+
+  Além destes comandos define o posicionador \verb![H]! que obriga o
+  \LaTeX{} a colocar um \eng{float} na posição \eng{``here, always''}.
+
+\item{\package{fancyhdr}}
+
+  Controle sofisticado de \eng{headers} e \eng{footers}.
+
+\item{\package{fancyvrb}}
+
+  Este \eng{package} provê sofisticada capacidade de manipulação de
+  material \eng{verbatim}.  Este documento usa o comando
+  \command{VerbatimEnvironment} e o \eng{environment}
+  \environ{Verbatim} para ser usado em conjunto com o comando
+  \command{newenvironment}.
+
+  A subseção~\ref{subsec:verbframe} inclui material \eng{verbatim}
+  dentro de uma moldura usando o \eng{environment} \environ{Verbatim}
+  com o parâmetro \verb![frame=single]!.
+
+  A subseção~\ref{subsec:verbfootnotes} usa o comando
+  \command{VerbatimFootnotes} para a utilização de material
+  \eng{verbatim} dentro de \eng{footnotes}.
+
+  A inclusão de arquivos em formato \eng{verbatim} no texto foi feito
+  na subseção~\ref{subsec:verbinput} através do comando
+  \command{VerbatimInput}.
+
+  O \eng{package} \package{fancyvrb} foi copiado para junto dos demais
+  arquivos que compõem este texto.  Não é necessário que ele esteja
+  instalado no sistema.
+
+\item{\package{fontenc}}
+
+  Permite a mudança de \eng{encoding} das fontes usadas, isto é, a
+  ordem e disponibilidade das mesmas.
+
+  Se o \eng{encoding} de uma fonte não provê acesso direto a
+  caracteres acentuados, (como é o caso do \eng{encoding} OT1,
+  \eng{default} do \LaTeX) então o \TeX{} gera estes caracteres
+  sobrepondo o caracter base e o caracter do acento.  O algoritmo
+  de hifenização, contudo, não hifeniza palavras formadas dessa
+  maneira.
+
+  Se o \eng{encoding} de uma fonte já provê acesso direto a caracteres
+  acentuados, como o \eng{encoding} T1, estes caracteres são usados
+  diretamente sem prejuízo do algoritmo de hifenização.  O uso de
+  \eng{encoding} T1 é fundamental para a correta hifenização em
+  Português e é usado neste documento.
+
+  Obviamente o \eng{encoding} escolhido tem que estar disponível no
+  sistema.
+
+\item{\package{geometry}}
+  \label{item:geometry}
+
+  Usado por este documento para definir as dimensões das páginas.
+  Implementa o comando \command{geometry}.
+
+  Para uso com papel A4 e uma polegada em todas as margens foi
+  definido:
+
+\begin{codeverbatim}
+\geometry{a4paper,left=1in,right=1in,top=1in,bottom=1in}
+\end{codeverbatim}
+
+\item{\package{graphicx}}
+
+  Suporte a gráficos.  Este documento usa o comando
+  \command{includegraphics} para inclusão de gráficos em formato
+  \eng{Encapsulated PostScript}.
+
+\item{\package{helvet}}
+
+  Troca a fonte \eng{Sans Serif} por Helvetica.
+
+\item{\package{hyperref}}
+\index{PDF!package hyperref@\eng{package} \pack{hyperref}}%
+
+  Usado na versão PDF deste documento para transformar comandos que
+  referenciam páginas (\command{ref}, sumário, etc) em links e assim
+  tornar a visualização da versão eletrônica mais conveniente.
+  Também implementa suporte a \eng{bookmarks}.
+
+\item{\package{ifthen}}
+\index{testes}%
+\index{repeticoes@repetições}%
+\index{loops@\eng{loops}|see{repetições}}%
+\index{processamento condicional}%
+
+%%% Para vários exemplos de macros que usam o package ifthen consulte
+%%% o arquivo demo.sty.
+
+  Este \eng{package} implementa suporte para testes e \eng{loops}.
+  Provê o comando \command{ifthenelse}, que possui a seguinte forma:
+
+\begin{codeverbatim}
+\ifthenelse{test}{then_text}{else_text}
+\end{codeverbatim}
+
+  Na linha acima \texttt{test} é uma expressão com qualquer um dos
+  seguintes operadores: `$>$', `$=$', `$<$', \command{equal},
+  \command{lengthtest}, \command{isodd}, \command{boolean}, etc.
+  Expressões mais complexas podem ser agrupadas com \command{(},
+  \command{)}, \command{and}, \command{or} e \command{not}.
+
+  O comando \command{whiledo} é usado para fazer repetições, possuindo
+  a seguinte forma:
+
+\begin{codeverbatim}
+\whiledo{test}{body}
+\end{codeverbatim}
+
+  Enquanto \texttt{test} for verdadeiro este comando repete
+  \texttt{body}.
+
+\item{\package{indentfirst}}
+\index{indentacao@indentação!primeiro paragrafo@primeiro parágrafo}%
+
+  Indenta todo o primeiro parágrafo do documento, estilo que é adotado
+  neste documento.
+
+\item{\package{inputenc}}
+\index{acentuacao@acentuação|see{ISO-8859-1}}%
+\index{ISO-8859-1}%
+
+  Este \eng{package} adiciona suporte aos caracteres ISO-8859-1
+  diretamente no arquivo, sem necessidade de construções como
+  ``\verb!\c{c}\~ao!''.
+
+  \index{ISO-8859-1!suporte no GNU Emacs}%
+  Usando GNU Emacs você pode gerar estes caracteres adicionando no
+  seu arquivo `.emacs':
+
+\begin{codeverbatim}
+ (add-hook 'LaTeX-mode-hook
+          (lambda ()
+          (load-library "iso-acc")
+          (standard-display-european 1)
+          (iso-accents-mode 1)
+          (iso-accents-customize "portuguese")
+          (auto-fill-mode 1)
+          ))
+\end{codeverbatim}
+
+\Glossary{GNU Emacs}{GNU Emacs é uma versão do popular editor Emacs,
+  escrito pelo autor do Emacs original (para PDP-10), Richard
+Stallman.}%
+
+\item{\package{lastpage}}
+
+  Define o \eng{label} \labelname{LastPage} que permite referenciar o
+  número de páginas do documento.
+
+\item{\package{listings}}
+
+  \eng{Package} para a inclusão de código fonte em documentos.  Os
+  arquivos de programa são lidos diretamente pelo \LaTeX.
+  Palavras-chave, \eng{strings} e comentários da linguagem são
+  formatados em vários estilos.  Há suporte para diversas linguagens,
+  entre elas C, Java, perl, C$++$, etc.
+
+\item{\package{longtable}}
+
+  Define o \eng{environment} \environ{longtable}, bastante similar ao
+  \eng{environment} \environ{tabular}, mas que permite tabelas longas
+  que podem se estender por mais de uma página.
+
+\item{\package{lscape}}
+
+  Define o \eng{environment} \environ{landscape} que permite colocar
+  partes do texto rotacionadas num ângulo de $90^\circ$.
+
+\item{\package{makeidx}}
+
+  Usado na preparação do índice remissivo.  Os comandos
+  \command{makeindex} e \command{printindex} são usados neste
+  documento.
+
+\item{\package{mathrsfs}}
+
+  Define o comando \command{mathscr}, usado no símbolo das
+  transformadas de Fourier e Laplace.
+
+\item{\package{multicol}}
+
+  Permite misturar páginas com uma ou mais colunas.  Este documento
+  usa o \eng{environment} \environ{multicols} definido neste
+  \eng{package}.
+
+\item{\package{newcent}}
+
+  Troca as fontes \eng{Sans Serif}, \eng{Roman} e \eng{Typewriter} por
+  AvantGarde, NewCenturySchoolbook e Courier, respectivamente.
+
+\item{\package{palatino}}
+
+  Troca as fontes \eng{Sans Serif}, \eng{Roman} e \eng{Typewriter} por
+  Helvetica, Palatino e Courier, respectivamente.
+
+\item{\package{pandora}}
+
+  Troca as fontes \eng{Sans Serif} e \eng{Roman} por Pandora Sans e
+  Pandora Roman e Courier, respectivamente.
+
+\item{\package{pifont}}
+
+  Coleção de fontes que implementam vários símbolos especiais,
+  acessíveis pelos comandos \command{ding} e \command{dingline} e
+  pelos \eng{environments} \environ{dinglist} e
+  \environ{dingautolist}.  Alguns exemplos destas fontes são mostrados
+  na subseção~\ref{subsec:pifonts}, página~\pageref{subsec:pifonts}.
+
+\item{\package{psfrag}}
+\index{PDF!package psfrag@\eng{package} \pack{psfrag}}%
+
+  O \eng{package} \package{psfrag} permite a substituição de rótulos
+  (\eng{strings}) em arquivos EPS por construções arbitrárias (textos
+  e equações) do \LaTeX. Assim, figuras EPS produzidas por qualquer
+  aplicativo poderão incorporar fórmulas matemáticas, macros e textos
+  do \LaTeX.  Este \eng{package} não pode ser usado na versão PDF do
+  documento.
+
+  O \eng{package} \package{psfrag} foi copiado para junto dos demais
+  arquivos que compõem este texto.  Não é necessário que ele esteja
+  instalado no sistema.
+
+%%% CVS é extremamente útil para o controle de muitos arquivos .tex que
+%%% compõe um documento grande, como por exemplo uma tese.  Mais
+%%% informações podem ser obtidas em http://www.cyclic.com/ e
+%%% http://www.loria.fr/~molli/cvs-index.html.
+\Glossary{CVS}{Poderoso sistema de controle de versão, permitindo
+  manter todas as versões dos arquivos que compõem um projeto, com
+  \eng{logs} detalhados das modificações, datas e autores.  Atua
+  sobre um conjunto hierárquico de diretórios.  É útil para
+  controlar as versões de um projeto como um todo assim como a
+  edição concorrente de arquivos por múltiplos autores.  Permite
+  também operação eficiente via rede.}
+
+\item{\package{rcs}}
+
+  Permite o uso de \eng{tags} de RCS (\eng{Revision Control System})
+  diretamente no documento.
+
+\item{\package{rcsinfo}}
+
+  Extrai informações do RCS para uso no documento.
+
+\item{\package{setspace}}
+
+  Implementa os espaçamentos duplo, um e meio e simples.  Este
+  documento usa os comandos \command{doublespacing},
+  \command{onehalfspacing} e \command{singlespacing} implementados por
+  este \eng{package}.
+
+\item{\package{showidx}}
+
+  Útil na depuração do índice remissivo.  Este \eng{package} mostra
+  todos os comandos \command{index} usados, imprimindo-os nas margens
+  do documento.
+
+\item{\package{subfigure}}
+
+  Permite a criação de figuras dentro de figuras, cada uma com seu
+  próprio \eng{caption}.  Este documento usa o comando
+  \command{subfigure}, mostrado na subseção~\ref{subsec:subfigure} na
+  página~\pageref{subsec:subfigure}.
+
+\item{\package{texnames}}
+
+  Define macros para os nomes de vários programas relacionados com
+  \LaTeX{} e \TeX.  Estas macros são definidas com variantes usando
+  minúsculas e maiúsculas.  Este \eng{package} não redefine uma macro
+  caso esta já exista.
+
+  Abaixo são mostradas os nomes das macros definidas bem como o
+  resultado gerado:
+
+  \begin{itemize}
+
+  \item \command{AMSTEX}, \command{AMSTeX}, \command{AmSTeX}: \AMSTeX
+
+  \item \command{BIBTEX}, \command{BIBTeX}, \command{BibTeX}: \BibTeX
+      \label{item:bibtexlogo}
+
+  \item \command{LAMSTeX}, \command{LAmSTeX}: \LAMSTeX
+
+  \item \command{LaTeX}, \command{LATEX}: \LaTeX
+
+  \item \command{METAFONT}, \command{MF}: \MF
+
+  \item \command{SLITEX}, \command{SLITeX}, \command{SLiTeX},
+    \command{SliTeX}: \SliTeX
+
+  \end{itemize}
+
+\item{\package{textcomp}}
+
+  Coleção de fontes que implementam vários símbolos especiais.  Alguns
+  destes símbolos são mostrados na subseção~\ref{subsec:textcompanion}
+  na página~\pageref{subsec:textcompanion}.
+
+\item{\package{times}}
+
+  Troca as fontes \eng{Sans Serif}, \eng{Roman} e \eng{Typewriter} por
+  Helvetica, Times e Courier, respectivamente.
+
+\item{\package{ulem}}
+
+  Implementa vários estilos de sublinhado.  Na
+  subseção~\ref{subsec:ulem} são mostrados exemplos dos comandos
+  \command{uline}, \command{uuline}, \command{uwave}, \command{sout} e
+  \command{xout}.
+
+  Os comandos \command{dotuline} e \command{dashuline} não fazem parte
+  do \eng{package} \package{ulem}, mas foram definidos usando
+  primitivas desse \eng{package}. Esses comandos foram sugeridos por
+  Donald Arseneau numa mensagem para o \eng{Newsgroup}
+  ``\texttt{comp.text.tex}''.
+
+\item{\package{url}}
+
+  Útil para o uso com URLs, \eng{emails} e \eng{pathnames}.  É uma
+  espécie de \command{verb} que permite quebra de linha e que pode ser
+  usado como argumento para outros comandos.
+
+  A seção~\ref{sec:url} na página~\pageref{sec:url} mostra exemplos
+  dos comando \command{url}, \command{path}, \command{urlstyle} e
+  \command{email}.
+
+\item{\package{utopia}}
+
+  Troca a fonte \eng{Roman} por Utopia Roman.
+
+\item{\package{varioref}}
+
+  O \eng{package} \package{varioref} define novos comandos:
+  \command{vref} e \command{vpageref}.  O comando \command{vref} é
+  similar ao comando \command{ref} mas inclui uma referência adicional
+  da forma `na página anterior', `na próxima página' ou `na página
+  100' caso o \command{label} não esteja na mesma página.
+
+  O comando \command{vpageref} é uma variação do comando
+  \command{pageref} mas que também leva em conta a proximidade do
+  \command{label} correspondente, da mesma forma que \command{vref}.
+
+\item{\package{version}}
+\index{comentarios@comentários}%
+\index{processamento condicional}%
+
+  Permite a criação de \eng{environments} que serão incluídos ou
+  excluídos dependendo dos comandos \command{includeversion} e
+  \command{excludeversion}.  Este \eng{package} define o
+  \eng{environment} \environ{comment} que pode ser usado para comentar
+  várias linhas do documento.
+
+\item{\package{wasysym}}
+
+  Coleção de fontes que implementam vários símbolos especiais.  Alguns
+  destes símbolos são mostrados na subseção~\ref{subsec:wasy} da
+  página~\pageref{subsec:wasy}.
+
+\item{\package{wrapfig}}
+
+  Define os \eng{environments} \environ{wrapfigure} e
+  \environ{wraptable} que permitem que figuras e tabelas sejam
+  colocadas ao lado de textos, como mostrado na
+  subseção~\ref{subsec:wrapfig}, página~\pageref{subsec:wrapfig}.
+
+\end{enumerate}
+
+\index{apendice@apêndice!exemplo|)}%
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-apendice-packages.tex ends here.

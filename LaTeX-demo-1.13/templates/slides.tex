@@ -1,0 +1,149 @@
+%%% $Id: slides.tex,v 1.5 2001/01/12 02:21:55 jessen Exp $
+\documentclass[clock]{slides}
+
+%%% caracteres acentuados em ISO-8859-1
+\usepackage[latin1]{inputenc}
+
+%%% A classe slides usa fontes muito grandes em sans serif para
+%%% facilitar a leitura.  Estas fontes (neste tamanho) não estão
+%%% disponíveis em encoding T1.  Usaremos o encoding default do LaTeX, OT1.
+
+%%% Suporte para gerar o documento em Português e Inglês
+\usepackage[brazil,english]{babel}
+
+%%% Para fazer slides coloridos.  Útil também para fazer overlays.
+\usepackage{color}
+
+%%% Imprime os slides
+\onlyslides{1-99999}
+
+%%% Imprime as notas para o orador
+\onlynotes{1-99999}
+
+%%%% preamble ends here
+
+\begin{document}
+\selectlanguage{brazil}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% a classe slides a princípio não permite a inclusão de figuras
+%%% através do environment `figure'.  Isso pode ser contornado através
+%%% do uso do package float, como mostrado abaixo:
+
+%\usepackage{graphicx}
+%\usepackage{float}
+%
+%\newfloat{figure}{H}{lof}% define a new `float' called `figure',
+%                         % but make it non-floating with `H'ere placement
+%
+%\floatname{figure}{Figura}% the text used in the caption
+%
+%[...]
+%
+%  \begin{figure}
+%    \centering
+%    \includegraphics{figure.eps}
+%    \caption{Figure in/on a slide.}
+%  \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Slide 1: 2 minutos
+\addtime{120}
+
+\begin{slide}
+
+  \begin{center}
+    Esqueleto para um Documento \LaTeX:\\
+    Classe slides
+  \end{center}
+
+  Qualquer comando pode ser usado, com exceção de figuras, tabelas e
+  comandos de quebra de página.
+
+\end{slide}
+
+%%% notas para o orador
+\begin{note}
+  Não esquecer de falar sobre isso e aquilo e aquilo outro.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Slide 2: 4 minutos
+\addtime{240}
+
+\begin{slide}
+
+  %%% \textcolor{white} só aparece na versão PostScript,
+  %%% não no dvi.
+
+  Exemplo com overlays.  Foo e Bar aparecem no primeiro slide.
+  \textcolor{white}{Foobar e Foobaz aparecem no segundo slide.}
+
+  Foo
+
+  Bar
+
+  \textcolor{white}{Foobar}
+
+  \textcolor{white}{Foobaz}
+
+\end{slide}
+
+\begin{note}
+  Não esquecer de falar sobre Foo e Bar.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Slide 3: 4 minutos
+%%% Este slide vai por cima do anterior.
+
+\addtime{240}
+\begin{overlay}
+
+  \textcolor{white}{Exemplo com overlays.  Foo e Bar aparecem no
+    primeiro slide.}
+  Foobar e Foobaz aparecem no segundo slide.
+
+  \textcolor{white}{Foo}
+
+  \textcolor{white}{Bar}
+
+  Foobar
+
+  Foobaz
+
+\end{overlay}
+
+\begin{note}
+  Não esquecer de falar sobre Foobar e Foobaz.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Slide 4: 3 minutos
+
+\addtime{180}
+\begin{slide}
+
+  \begin{center}
+    Último slide: Exemplo com bullets
+  \end{center}
+
+  \begin{itemize}
+  \item{Foo}
+  \item{Bar}
+  \item{Foobar}
+  \item{FooBaz}
+  \end{itemize}
+
+\end{slide}
+
+\begin{note}
+  Não esquecer de agradecer à platéia\ldots
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%% slides.tex ends here.

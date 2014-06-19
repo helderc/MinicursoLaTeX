@@ -1,0 +1,66 @@
+%%% -*-LaTeX-*-
+%%% demo-boxes.tex -- exemplo de vários tipos de ``boxes''.
+%%% $Id: demo-boxes.tex,v 1.3 2000/08/02 01:17:42 jessen Exp $
+
+\section{\eng{Boxes}}
+\index{boxes@\eng{boxes}|(}%
+
+\subsection{makebox}
+\index{boxes@\eng{boxes}!makebox@\comm{makebox}}%
+
+Exemplos de makebox centrado, alinhados à esquerda e à direita:
+
+Isto é um \makebox[5cm]{\emph{exemplo}} de makebox.
+
+Isto é um \makebox[5cm][l]{\emph{exemplo}} de makebox.
+
+Isto é um \makebox[5cm][r]{\emph{exemplo}} de makebox.
+
+\subsection{framebox}
+\index{boxes@\eng{boxes}!framebox@\comm{framebox}}%
+
+Framebox \framebox[3cm]{\emph{centrado}},
+\framebox[3cm][l]{\emph{esquerda}} e
+\framebox[3cm][r]{\emph{direita}}.
+
+\subsection{raisebox}
+\index{boxes@\eng{boxes}!raisebox@\comm{raisebox}}%
+
+O comando \command{raisebox} pode \raisebox{2ex}{elevar} o texto.  Um
+argumento negativo faz \raisebox{-2ex}{descer} o texto.
+
+\index{boxes@\eng{boxes}|)}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\eng{Rules}}
+\index{rules@\eng{rules}|(}%
+
+\subsection{\eng{Rule Boxes}}
+\index{rules@\eng{rules}!rule boxes@\eng{rule boxes}}%
+
+%%% argumentos: raise, width, thickness
+Exemplo de Rule: \rule[1mm]{5mm}{2mm}
+
+O comando \command{rule} pode ser usado também, por exemplo, para
+criar espaços para assinatura, como nos exemplos abaixo:
+
+\vspace{5ex}
+\noindent
+\rule{75mm}{0.2mm}\\
+Fulano de Tal.
+
+\vspace{5ex}
+\noindent
+\rule{75mm}{0.2mm}\hfill\rule{75mm}{0.2mm}\\
+Beltrano de Tal.\hfill Ciclano de Tal.
+
+\index{rules@\eng{rules}|)}%
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-boxes.tex ends here.

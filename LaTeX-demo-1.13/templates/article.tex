@@ -1,0 +1,172 @@
+%%% $Id: article.tex,v 1.6 2001/01/20 02:01:05 jessen Exp $
+%%% template para artigo em uma coluna -- pode ser processado pelo
+%%% latex para a produção de DVI/PS ou pelo pdflatex para a produção
+%%% de PDF.
+\documentclass[a4paper]{article}
+
+%%% define a macro \ifpdf para compilação condicional -- PDF ou
+%%% DVI/PS.
+\newif\ifpdf
+  \ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \pdfoutput=1
+  \pdftrue
+\fi
+
+%%% caracteres acentuados em ISO-8859-1
+\usepackage[latin1]{inputenc}
+
+%%% Suporte para gerar o documento em Português e Inglês
+\usepackage[english,brazil]{babel}
+
+%%% indenta primeiro parágrafo, estilo brasileiro.
+\usepackage{indentfirst}
+
+\ifpdf
+%%% somente na versão PDF
+
+%%% Uso de Font Encoding T1 (simulado pelo package AE) -- importante
+%%% para a correta hifenização de palavras acentudas em Português.
+\usepackage{ae}
+
+%%% Para inclusão de gráficos
+\usepackage[pdftex]{graphicx}
+
+%%% dimensões do documento
+\usepackage[pdftex]{geometry}
+\geometry{a4paper,left=1in,right=1in,top=1cm,bottom=1cm}
+
+\else
+%%% somente na versão DVI/PS
+
+%%% Uso de Font Encoding T1
+\usepackage[T1]{fontenc}
+
+%%% Para inclusão de gráficos
+\usepackage[dvips]{graphicx}
+
+%%% dimensões do documento
+\usepackage[dvips]{geometry}
+\geometry{a4paper,left=1in,right=1in,top=1in,bottom=1in}
+
+\fi
+
+\title{Esqueleto para um Documento \LaTeX\\
+  Classe \textsf{article}}
+
+\author{Foobário da Silva\thanks{Foo de Oliveira Bar}\\
+  \texttt{foo@bar.org}
+  \and
+  Foobázio da Silva\\
+  \texttt{baz@baz.org}}
+
+\date{\today}
+
+%%%% preamble ends here
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+{%
+  \selectlanguage{english}
+  \begin{abstract}
+    This is a \LaTeX{} simple document skeleton.  Use it as a base for
+    your own documents.
+  \end{abstract}
+}
+
+\begin{abstract}
+  Este é um esqueleto de um documento simples em \LaTeX.  Use-o como
+  base para seus próprios documentos.
+\end{abstract}
+
+\section{Foo}
+
+Exemplo de um parágrafo de bla, bla, como descrito
+em~\cite{IB-D883079}.
+
+Este é um esqueleto de um documento simples em \LaTeX.  Use-o como
+base para seus próprios documentos.  Este é um esqueleto de um
+documento simples em \LaTeX.  Use-o como base para seus próprios
+documentos.Este é um esqueleto de um documento simples em \LaTeX.
+Use-o como base para seus próprios documentos.
+
+Este é um esqueleto de um documento simples em \LaTeX.  Use-o como
+base para seus próprios documentos.  Este é um esqueleto de um
+documento simples em \LaTeX.  Use-o como base para seus próprios
+documentos.Este é um esqueleto de um documento simples em \LaTeX.
+Use-o como base para seus próprios documentos.
+
+\section{Bar}
+
+Este é um esqueleto de um documento simples em \LaTeX.  Use-o como
+base para seus próprios documentos.  Este é um esqueleto de um
+documento simples em \LaTeX.  Use-o como base para seus próprios
+documentos.Este é um esqueleto de um documento simples em \LaTeX.
+Use-o como base para seus próprios documentos.
+
+\begin{table}[htb]
+  \centering
+    \begin{tabular}{|r|r|r|r|r|}
+      \hline
+      A &  B &  C &  D &  E \\
+      \hline\hline
+      10 & 20 & 30 & 40 & 50 \\
+      11 & 21 & 31 & 41 & 51 \\
+      \hline
+    \end{tabular}
+    \caption{Exemplo de uma tabela}
+    \label{tab:table}
+\end{table}
+
+%\begin{figure}[htb]
+%  \centering
+%  \includegraphics{foo} % inclui foo.eps na versão DVI
+%                        % e foo.png na versão PDF
+%  \caption{Exemplo de uma figura}
+%  \label{fig:figure}
+%\end{figure}
+
+Este é um esqueleto de um documento simples em \LaTeX.  Use-o como
+base para seus próprios documentos.  Este é um esqueleto de um
+documento simples em \LaTeX.  Use-o como base para seus próprios
+documentos.Este é um esqueleto de um documento simples em \LaTeX.
+Use-o como base para seus próprios documentos.
+
+\subsection{Foobar}
+
+Este é um esqueleto de um documento simples em \LaTeX.  Use-o como
+base para seus próprios documentos.  Este é um esqueleto de um
+documento simples em \LaTeX.  Use-o como base para seus próprios
+documentos.Este é um esqueleto de um documento simples em \LaTeX.
+Use-o como base para seus próprios documentos.
+
+Este é um esqueleto de um documento simples em \LaTeX.  Use-o como
+base para seus próprios documentos.  Este é um esqueleto de um
+documento simples em \LaTeX.  Use-o como base para seus próprios
+documentos.Este é um esqueleto de um documento simples em \LaTeX.
+Use-o como base para seus próprios documentos.
+
+\section{Foobaz}
+
+Este é um esqueleto de um documento simples em \LaTeX.  Use-o como
+base para seus próprios documentos.  Este é um esqueleto de um
+documento simples em \LaTeX.  Use-o como base para seus próprios
+documentos.Este é um esqueleto de um documento simples em \LaTeX.
+Use-o como base para seus próprios documentos.
+
+Este é um esqueleto de um documento simples em \LaTeX.  Use-o como
+base para seus próprios documentos.  Este é um esqueleto de um
+documento simples em \LaTeX.  Use-o como base para seus próprios
+documentos.Este é um esqueleto de um documento simples em \LaTeX.
+Use-o como base para seus próprios documentos.
+
+%%% Referencias
+\bibliography{template}
+\bibliographystyle{plain}
+
+\end{document}
+
+%%% article.tex ends here.

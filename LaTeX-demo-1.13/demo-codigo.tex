@@ -1,0 +1,137 @@
+%%% -*-LaTeX-*-
+%%% demo-codigo.tex -- exemplo de inclusão de pseudocódigo, código
+%%% fonte e algoritmos.  São usados os packages alltt, fancyvrb,
+%%% algorithm e algorithmic.
+%%% $Id: demo-codigo.tex,v 1.4 2001/01/12 02:20:30 jessen Exp $
+
+%%% Para inclusão de código considerar também o package listings:
+%%%
+%%% listings CTAN:macros/latex/contrib/supported/listings/
+%%%
+%%% A package for typesetting listings using LaTeX2e. The source code is
+%%% read directly by TeX. Keywords, comments and strings can be typeset
+%%% using different styles, e.g., default is bold for keywords, italic for
+%%% comments and no special style for strings. (9 Jun 1997)
+
+\section{Pseudocódigo, Código Fonte e Algoritmos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pseudocódigo}
+\index{pseudocodigo@pseudocódigo}%
+
+Exemplo de inclusão de pseudocódigo com o \eng{package}
+\package{alltt}.
+
+\begin{alltt}
+  while \(i \leq 100\)
+  \{
+    for \(j < \infty\)
+    do
+      foo\((i,j)\)
+    done
+  \}
+\end{alltt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Código Fonte}
+\index{codigo fonte@código fonte}%
+\label{subsec:verbinput}
+
+Para a inclusão de código fonte é conveniente a definição de um
+\eng{environment} próprio, análogo a figuras e tabelas.  Os exemplos
+abaixos usam o \eng{environment} \environ{codigo}, definido com a
+ajuda do \eng{package} \package{float}.  O código propriamente dito é
+inserido a partir de um arquivo neste \eng{environment} com o comando
+\command{VerbatimInput}, definido no \eng{package} \package{fancyvrb}.
+
+\begin{codigo}[H]
+  \small
+  \VerbatimInput[xleftmargin=20mm,obeytabs=true]{code/prog2.c}
+  \caption{função \texttt{count\_active\_tasks()}
+    definido em \protect\path{linux/kernel/sched.c}}
+  \label{code:prog2}
+\end{codigo}
+
+O código~\ref{code:prog2} mostra um exemplo de inclusão de código com
+margem esquerda de \unidade{20}{mm}.  Este material foi incluído no
+documento com:
+
+\begin{codeverbatim}
+\begin{codigo}[H]
+  \small
+  \VerbatimInput[xleftmargin=20mm,obeytabs=true]{code/prog2.c}
+  \caption{função \texttt{count\_active\_tasks()}
+    definido em \protect\path{linux/kernel/sched.c}}
+  \label{code:prog2}
+\end{codigo}
+\end{codeverbatim}
+
+É possível também numerar as linhas de código incluído.  O
+código~\ref{code:prog3} foi incluído no documento com:
+
+\begin{codeverbatim}
+\begin{codigo}[H]
+  \small
+  \VerbatimInput[xleftmargin=20mm,numbers=left,obeytabs=true]{code/prog3.c}
+  \caption{função \texttt{calc\_load()}
+    definido em \protect\path{linux/kernel/sched.c}}
+  \label{code:prog3}
+\end{codigo}
+\end{codeverbatim}
+
+\begin{codigo}[H]
+  \small
+  \VerbatimInput[xleftmargin=20mm,numbers=left,obeytabs=true]{code/prog3.c}
+  \caption{função \texttt{calc\_load()}
+    definido em \protect\path{linux/kernel/sched.c}}
+  \label{code:prog3}
+\end{codigo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Algoritmos}
+\index{algoritmos}%
+
+\enlargethispage{1cm}%
+
+Exemplo de inclusão de algoritmos com os \eng{packages}
+\package{algorithm} e \package{algorithmic}.
+
+\begin{algorithm}
+
+  \caption{Método da Secante}
+
+  \begin{algorithmic}
+    \STATE \textbf{Entrada:} Valor da aproximação, $x_{0}$ e $x_{-1}$,
+    para a raiz $r$ e o limite de erro, $\delta$
+
+    \STATE \textbf{Saída:} Valor aproximado da raiz da função,
+    $\tilde{r}$, ou mensagem de erro
+
+    \FOR{$n=0$ até $N_{max}$}
+
+    \STATE Calcular $\displaystyle x_{n+1} =
+    \frac{x_{n-1}f(x_{n})-x_{n}f(x_{n-1})}{f(x_{n})-f(x_{n-1})}$
+
+    \IF{$\displaystyle \left| \frac{x_{n+1}-x_{n}}{x_{n+1}} \right|
+      < \delta$}
+
+    \STATE Apresente $x_{n+1}$ como raiz; FIM
+
+    \ENDIF
+
+    \STATE Fazer $x_{n-1} = x_{n}$ e $x_{n} = x_{n+1}$
+
+    \ENDFOR
+
+    \STATE Método falhou em $n$ iterações; FIM
+  \end{algorithmic}
+
+\end{algorithm}
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-codigo.tex ends here.

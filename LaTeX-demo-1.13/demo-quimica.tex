@@ -1,0 +1,183 @@
+%%% -*-LaTeX-*-
+%%% demo-quimica.tex -- exemplo de reações químicas
+%%% $Id: demo-quimica.tex,v 1.6 2000/08/01 00:32:55 jessen Exp $
+
+\section{Química}
+\index{quimica@química!exemplos|(}%
+\index{reacoes quimicas@reações químicas|see{química}}%
+
+Esta seção mostra alguns exemplos de reações químicas usando os
+\eng{environments} \environ{equation} e \environ{eqnarray}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\index{acentuacao@acentuação!em math mode@em \eng{math mode}}%
+\index{acentuacao@acentuação!em math mode@em \eng{math mode}!usando
+text@usando \comm{text}}%
+\begin{equation}
+  \underbrace{A+B+\cdots}_{\text{Reagentes}} \rightleftharpoons
+  \underbrace{X,Y,\cdots}_{\text{Intermediários}} \rightleftharpoons
+  \underbrace{P+Q+\cdots}_{\text{Produtos}}
+\end{equation}
+
+%%% Equação idêntica a anterior, mas gera acentos em math mode
+%%% diretamente, sem o uso da macro \text.
+% \begin{equation}
+%   \underbrace{A+B+\cdots}_{\mathrm{Reagentes}} \rightleftharpoons
+%   \underbrace{X,Y,\cdots}_{\mathrm{Intermedi\acute{a}rios}}
+%   \rightleftharpoons
+%   \underbrace{P+Q+\cdots}_{\mathrm{Produtos}}
+% \end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{eqnarray}
+  \left.
+    \begin{array}{l}
+      A+Y \rightarrow X + P \nonumber \\
+      X+Y \rightarrow 2P \nonumber
+    \end{array}
+  \right\}
+  \mathrm{Processo~A} \\
+  \left.
+    \begin{array}{l}
+      A+X \rightarrow 2X +Z \nonumber \\
+      2X \rightarrow A + P \nonumber
+    \end{array}
+  \right\}
+  \mathrm{Processo~B} \\
+  \left.
+    \begin{array}{l}
+      Z \rightarrow \mathit{f} \cdot Y
+    \end{array}
+  \right\}
+  \mathrm{Processo~C}
+\end{eqnarray}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  \mathrm{HBrO}_{2}+\mathrm{BrO}^{-}_{3}+3\mathrm{H}^{+}+2\mathrm{Fe}(II)
+  \rightleftharpoons
+  2\mathrm{Fe}(III) + 2\mathrm{HBrO}_{2}+\mathrm{H}_{2}\mathrm{O}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  \mathrm{Zn}_{(s)} + {\mathrm{H}_{2}\mathrm{SO}_{4}}_{(sol)} =
+  {\mathrm{ZnSO}_{4}}_{(sol)} + {\mathrm{H}_{2}}_{(g)}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  \mathrm{C}_{10}\mathrm{H}_{8 (s)} + 12\,\mathrm{O}_{2 (g)} =
+  10\,\mathrm{CO}_{2 (g)} + 4\,\mathrm{H}_{2}\mathrm{O}_{(l)}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  \mathrm{H}_{2}\mathrm{O}_{(s)} = \mathrm{H}_{2}\mathrm{O}_{(l)}
+  \Delta \mathrm{H}_{273} = 1438\, \mathrm{cal} \cdot \mathrm{mol}^{-1}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  \mathrm{H}_{2}\mathrm{O}_{(l)} =
+  \mathrm{H}_{2}\mathrm{O}_{(\mathrm{g}, \ 0.0313\,\mathrm{atm})}
+  \Delta \mathrm{H} = 10514\,\mathrm{cal} \cdot \mathrm{mol}^{-1}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  \mathrm{C}_{p} = 10.0 + 4.84 \times 10^{-3}\,\mathrm{T} -
+  0.1080 \times 10^{-6}\mathrm{T}^{-2}\, \mathrm{cal}
+  \cdot \mathrm{mol}^{-1} \cdot \mathrm{K}^{-1}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{eqnarray}
+  R & = & 0.0820569 \, \mathrm{atm} \cdot \mathrm{mol}^{-1}
+  \cdot \mathrm{K}^{-1} \nonumber \\
+  & = & 8.31441 \, \mathrm{J} \cdot \mathrm{mol}^{-1}
+  \cdot \mathrm{K}^{-1} \nonumber \\
+  & = & 1.98719 \, \mathrm{cal} \cdot \mathrm{mol}^{-1}
+  \cdot \mathrm{K}^{-1}
+\end{eqnarray}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  K_{e}= \frac{R T_{o}^{2} M_{1}}
+  {1000 \,\Delta \mathrm{H}_{e}} = 2.16
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  \nu = - \frac{d[\mathrm{AAS}]}{dt} =
+  - \frac{d[\mathrm{OH}^{-}]}{dt} =
+  \frac{d[\mathrm{AS}]}{dt} = \frac{d[\mathrm{Ac}^{-}]}{dt}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  \mathrm{AAS} + \mathrm{OH}^{-} \rightleftharpoons
+  [\mathrm{HO} \cdots Salic \cdots \mathrm{OAc}]
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{equation}
+  [\mathrm{AAS}]_{t} \propto (A_{\infty} - A_{t}) = \mathcal{A}_{t}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% From: asnd@erich.triumf.ca (Donald Arseneau)
+%%% Subject: Re: Formatting chemical equations
+%%% Newsgroups: comp.text.tex
+%%% Date: 4 Jan 2000 16:25 PST
+
+\newcommand\eqnhline{%
+  \noalign{\nobreak\vskip-\ht\strutbox\vskip\dp\strutbox}%
+  \multispan3{\hrulefill}\cr}
+
+\begin{eqnarray}
+  A + B & \rightarrow & C + D \nonumber \\
+  C + D & \rightarrow & F \nonumber \\
+  \eqnhline
+  A + B & \rightarrow & F
+\end{eqnarray}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%A Eq.~\ref{eq:cte_de_equilibrio} é um exemplo de uso de constantes de
+%equilíbrio.
+%\index{quimica@química!constantes de equilíbrio}%
+
+%\begin{equation}
+%  \label{eq:cte_de_equilibrio}
+%  A+B\overset{k_a}{\underset{k_b}{\rightleftharpoons}}C
+%\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\index{quimica@química!isótopos}%
+Exemplo de representação de um isótopo: $\nucl{16}{8}{O}$.
+
+\index{quimica@química!exemplos|)}%
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-quimica.tex ends here.

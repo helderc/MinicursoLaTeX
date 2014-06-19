@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+
+\begin{document}
+
+\begin{figure}[!htb]
+	\label{figura_01}
+	\begin{center}
+		\includegraphics{logo.pdf}	 % figura 01
+	\end{center}
+	\caption{Legenda que irá aparacer no texto.}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\label{figura_02}
+	\includegraphics[width=12cm]{logo.pdf}	 % % figura 02
+	\caption{Legenda que irá aparacer no texto.}
+\end{figure}
+
+
+\begin{figure}
+	\label{figura_03}
+	\includegraphics[width=1in]{logo.pdf}  % figura 03
+	\caption{Você reconhece esta imagem?}
+\end{figure}
+
+
+\begin{figure}
+	\includegraphics[angle=60, width=1in]{logo.pdf}		% figura 04
+	\caption{Você reconhece esta imagem?}
+\end{figure}
+
+
+\begin{figure}
+  	\begin{center}
+		\includegraphics[scale = 0.30]{logo.pdf}		% figura 05
+	\end{center}
+	\caption{Esta bela figura sofreu uma operação de escala de um fator igual a $0.3$.}
+\end{figure}
+
+\end{document}
+

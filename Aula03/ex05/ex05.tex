@@ -1,0 +1,37 @@
+\documentclass[leqno]{article}
+% fleqn - as equações ficam a esquerda
+% leqno - a numeração fica a esquerda
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+
+\begin{document}
+
+\section{Ambiente de Equações}
+
+\subsection{Série de Taylor}
+
+Usando o {\verb"\begin{displaymath} ... \end{displaymath}"}
+\begin{displaymath}
+	T(x) = \sum_{n = 0}^{\infty}{a_n(x-a)^n}
+\end{displaymath}
+
+
+Agora usando {\verb"\[ ... \]"}
+\[
+	T(x) = \sum_{n = 0}^{\infty}{a_n(x-a)^n}
+\]
+
+
+
+\subsection{Função W de Lambert}
+
+Equação com {\verb"\begin{equation} ... \end{equation}"}
+\begin{equation}
+W_0(x) = \sum_{n=1}^{\infty}{\frac{(-n)^{n-1}}{n!}x^n}\ para\ |x|<\frac{1}{e}
+\end{equation}
+
+
+
+
+\end{document}

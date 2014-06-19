@@ -1,0 +1,858 @@
+%%% -*-LaTeX-*-
+%%% demo-tables.tex -- exemplo de tabelas.
+%%% $Id: demo-tables.tex,v 1.9 2001/01/12 02:28:44 jessen Exp $
+
+\section{Tabelas}
+\index{tabelas|(}%
+
+%%% l == column left-aligned
+%%% r == column right-aligned
+%%% c == column centered
+%%% | vertical line
+%%% || double vertical line
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\eng{Caption} abaixo da Tabela}
+\index{tabelas!caption abaixo@\eng{caption} abaixo}%
+\index{caption@\eng{caption}!abaixo!tabela}%
+
+Exemplo de \eng{caption} abaixo da Tab.~\ref{tab:vert-duplas}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{||lll||}
+    \hline
+    \emph{Foo}   & \emph{Bar}         & \emph{Foobar} \\
+    \hline
+    1000         &          2000         &          3000 \\
+    2000         &          2000         &          3000 \\
+    3000         &          2000         &          3000 \\
+    4000         &          2000         &          3000 \\
+    5000         &          2000         &          3000 \\
+    \hline
+  \end{tabular}
+  \caption{Linhas verticais duplas externas}
+  \label{tab:vert-duplas}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Tabelas com linhas mais grossas que o \eng{default}}
+\index{tabelas!linhas grossas}%
+
+Na Tab.~\ref{tab:ext-int} a espessura das linhas da tabela foi
+definida com o dobro da largura \eng{default} alterando-se a medida
+\lengthname{arrayrulewidth} através do comando \command{setlength}.
+
+\index{footnote@\eng{footnote}!dentro de tabela}%
+\begin{table}[htbp]
+  \begin{minipage}{\linewidth}
+    \centering
+    \setlength{\arrayrulewidth}{2\arrayrulewidth}
+    \begin{tabular}{|l|l|l|}
+      \hline
+      Foo\footnote{Exemplo de \command{footnote} dentro da tabela
+        usando o \eng{environment} \environ{minipage}.}
+      &          Bar          &          Foobar \\
+      \hline
+      1000         &          2000         &          3000 \\
+      2000         &          2000         &          3000 \\
+      3000         &          2000         &          3000 \\
+      4000         &          2000         &          3000 \\
+      5000         &          2000         &          3000 \\
+      \hline
+    \end{tabular}
+    \caption{Linhas verticais externas e internas mais largas
+      que o \eng{default}}
+    \label{tab:ext-int}
+  \end{minipage}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aumento do Espaçamento entre as Linhas}
+\index{footnote@\eng{footnote}!dentro de minipage!alterando
+numeracao@alterando numeração}%
+\index{footnote@\eng{footnote}!eliminando a linha de
+separacao@eliminando a linha de separação}%
+
+Na Tab.~\ref{tab:stretch} \command{arraystretch} foi usado para
+aumentar o espaçamento entre as linhas da tabela.
+
+\begin{table}[htbp]
+  \begin{minipage}{\linewidth}
+  \centering
+  \renewcommand{\footnoterule}{}    %%% sem linha de separação
+  \renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+  \renewcommand{\arraystretch}{1.5} %%% fator de multiplicação
+  \begin{tabular}{|r|r|r|r|r|}
+    \hline
+       Foo\footnote{Exemplo de \command{footnote} dentro da tabela
+        usando o \eng{environment} \environ{minipage}.  Nesse caso o
+       tipo de numeração foi modificado alterando-se
+       \command{thempfootnote}.  A linha horizontal que separa o
+       \eng{footnote} foi eliminada alterando-se
+       \command{footnoterule}.} &
+       Bar &    Baz & Foobar & Foobaz \\
+    \hline\hline
+      1000 &   2000 &   3000 &   4000 &   5000 \\
+      1000 &   2000 &   3000 &   4000 &   5000 \\
+      1000 &   2000 &   3000 &   4000 &   5000 \\
+    \hline
+  \end{tabular}
+  \caption{Aumento do espaçamento entre as linhas da tabela}
+  \label{tab:stretch}
+  \end{minipage}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\eng{Caption} acima da Tabela}
+\index{tabelas!caption acima@\eng{caption} acima}%
+\index{caption@\eng{caption}!acima!tabela}%
+\index{caption@\eng{caption}!diminuindo espaco@diminuindo espaço!antes
+de tabela}%
+
+Exemplo de \eng{caption} acima da Tab.~\ref{tab:hor-extern}.  A
+distância entre o \eng{caption} e a tabela foi ajustada para
+\unidade{10}{pt} alterando-se a medida \lengthname{belowcaptionskip}
+com o comando \command{setlength}.
+
+\begin{table}[htbp]
+  \centering
+  \setlength{\belowcaptionskip}{10pt}
+  %%% o valor default de \belowcaptionskip definido para a classe
+  %%% article é de 0pt.
+  \caption{Linhas horizontais externas duplas e verticais simples}
+  \label{tab:hor-extern}
+  \begin{tabular}{|l|l|l|}
+    \hline
+    \hline
+    \emph{Foo}   &    \emph{Bar}         & \emph{Foobar} \\
+    \hline
+    1000         &          2000         &          3000 \\
+    2000         &          2000         &          3000 \\
+    3000         &          2000         &          3000 \\
+    4000         &          2000         &          3000 \\
+    5000         &          2000         &          3000 \\
+    \hline
+    \hline
+  \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Tabela não centralizada}
+\index{tabelas!nao centralizada@não centralizada}%
+
+Tab.~\ref{tab:n-centr}, exemplo de tabela não centralizada.
+
+%%% IMPORTANTE: notar o posicionador H, definido no package float.
+%%% Este posicionador é mais enfático do que h ou !h, *realmente*
+%%% indicando ``here'', mesmo que isso deixe areas em branco no
+%%% texto.
+\begin{table}[H]
+  \begin{tabular}{ccc}
+    \hline
+    \hline
+    \emph{Foo}   &    \emph{Bar}         & \emph{Foobar} \\
+    \hline
+    1000         &          2000         &          3000 \\
+    2000         &          2000         &          3000 \\
+    3000         &          2000         &          3000 \\
+    4000         &          2000         &          3000 \\
+    5000         &          2000         &          3000 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{Não centralizada, com linhas horizontais externas duplas}
+  \label{tab:n-centr}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Tabela com \eng{multicolumn}}
+\index{tabelas!com multicolumn@com \comm{multicolumn}}%
+
+A Tab.~\ref{tab:multi} usa \command{multicolumn}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|l|r|}
+    \hline
+    \hline
+    \emph{Foo}   &          \multicolumn{2}{c|}{\emph{Bar}} \\
+    \hline
+    1000         &          2000         &          3000 \\
+    2000         &          2000         &          3000 \\
+    3000         &          2000         &          3000 \\
+    4000         &          2000         &          3000 \\
+    5000         &          2000         &          3000 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{Uso de \comm{multicolumn}}
+  \label{tab:multi}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\subsection{Tabela com \eng{multicolumn} e \eng{cline}}
+\index{tabelas!com multicolumn e cline@com \comm{multicolumn} e \comm{cline}}%
+\index{tabelas!diminuindo o tamanho}%
+\index{tabelas!diminuindo o espaco entre colunas@diminuindo o espaço
+entre colunas}%
+
+A Tab.~\ref{tab:cline} usa \command{multicolumn} e \command{cline}.
+Seu tamanho foi reduzido colocando-se \command{footnotesize} logo após
+o início da tabela.  A distância entre colunas foi reduzida para
+\unidade{3}{pt} alterando-se a medida \lengthname{tabcolsep} com o
+comando \command{setlength}.
+
+\begin{table}[htbp]
+  \setlength{\tabcolsep}{3pt}
+  %%% o valor default de \tabcolsep é de 6pt.
+  \footnotesize
+  \centering
+  \begin{tabular}{|l|lr|}
+    \hline
+    \emph{Foo}   &          \multicolumn{2}{c|}{\emph{Bar}} \\
+    \hline
+    1000         &          2000         &          3000 \\
+    \cline{2-3}  &          2000         &          3000 \\
+    \hline
+    3000         &          2000         &          3000 \\
+    \cline{2-3}  &          2000         &          3000 \\
+    \hline
+    5000         &          2000         &          3000 \\
+    \cline{2-3}  &          2000         &          3000 \\
+    \hline
+    7000         &          2000         &          3000 \\
+    \hline
+  \end{tabular}
+  \caption{\comm{multicolumn} e \comm{cline} com redução do
+    tamanho}
+  \label{tab:cline}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Tabela com \eng{parbox}}
+\index{tabelas!com parbox@com \comm{parbox}}%
+\index{caption@\eng{caption}!diminuindo espaco@diminuindo
+espaço!depois da tabela}%
+
+A Tab.~\ref{tab:parbox} usa \eng{parbox} na coluna mais à direita.  A
+distância entre a tabela e seu \eng{caption} foi diminuída para
+\unidade{5}{pt} alterando-se a medida \lengthname{abovecaptionskip}
+com o comando \command{setlength}.
+
+\begin{table}[htbp]
+  \centering
+  \setlength{\abovecaptionskip}{5pt}
+  %%% o valor default de \abovecaptionskip definido para a classe
+  %%% article é de 10pt.
+  \begin{tabular}{|c|c|p{10em}|}
+    \hline
+    \hline
+    \emph{Foo}   &    \emph{Bar}         & \emph{Foobar} \\
+    \hline
+
+    1000         &          2000         &          3000000 \\
+    2000         &          2000         &          30000 \\
+    3000         &          2000         &          30000000000 \\
+    4000         &          2000         &          300000 \\
+    5000         &          2000         &          3000000 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{Linhas horizontais externas duplas e uso de parbox}
+  \label{tab:parbox}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Repetindo entradas em Tabelas}
+
+Na Tab.~\ref{tab:rep} os elementos na segunda coluna foram repetidos
+usando-se `\verb!@{1000}!'.  Na Tab.~\ref{tab:alinhamento} foram
+usados `\verb!r@{.}l!' e `\verb!r@{:}l!' para o alinhamento vertical
+nos elementos `.' e `:' das colunas `Número' e `Tempo'.  Este é um
+procedimento bastante interessante quando deseja-se alinhar entradas
+com tamanhos distintos.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|r|l@{1000$\;$}|r|r|}
+    \hline
+    \multicolumn{1}{|c|}{Foo} &
+    \multicolumn{1}{c|}{Bar} &
+    \multicolumn{1}{c|}{Foobar} &
+    \multicolumn{1}{c|}{Foobaz} \\
+    \hline\hline
+    1 & & 3 & 4 \\
+    2 & & 5 & 5 \\
+    3 & & 6 & 7 \\
+    \hline
+  \end{tabular}
+  \caption{Repetindo elementos na segunda coluna}
+  \label{tab:rep}
+\end{table}
+
+\clearpage
+
+\begin{table}[htbp]
+\index{tabelas!alinhamento de colunas com ponto e dois
+pontos@alinhamento de colunas com `.' e `:'}%
+  \centering
+  \begin{tabular}{|r|r@{.}l|r@{:}l|}
+    \hline
+    \# &
+    \multicolumn{2}{c|}{Número} &
+    \multicolumn{2}{c|}{Tempo} \\
+    \hline\hline
+    1 & 37  & 788  & 2   & 09 \\
+    2 & 148 & 614  & 88  & 11 \\
+    3 & 7   & 341  & 118 & 38 \\
+    4 & 69  & 902  & 83  & 28 \\
+    5 & 327 & 717  & 7   & 55 \\
+    \hline
+  \end{tabular}
+  \caption{Alinhamento de colunas com `.' e `:'}
+  \label{tab:alinhamento}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exemplo de Cronograma Usando Tabela}
+\index{tabelas!exemplo de cronograma}%
+
+%%% Exemplo de \newcommand no corpo do documento.
+%%% Embora possível, é recomendável que todas as definições do
+%%% usuário fiquem reunidas no preâmbulo ou ainda num package.
+%\newcommand{\X}{\checked}
+\newcommand{\X}{\textbullet}
+
+A Tab.~\ref{tab:bullets} é um exemplo típico de cronograma.  O símbolo
+`\X' foi usado neste exemplo, mas qualquer outro poderia ter sido
+usado.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l||c|c|c|c|c|}
+    \hline
+    \multicolumn{6}{|c|}{\textbf{1998}} \\
+    \hline
+    \hline
+    Fase  &  Março  &  Abril  &  Maio  &  Junho  &  Julho \\
+    \hline
+    1     &   \X    &         &        &         &        \\
+    2     &         &    \X   &   \X   &         &        \\
+    3     &         &         &   \X   &   \X    &        \\
+    4     &         &         &        &   \X    &   \X   \\
+    5     &         &         &        &         &   \X   \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{Exemplo de cronograma usando \eng{bullets}}
+  \label{tab:bullets}
+\end{table}
+
+%%% \raisebox usado para elevar a entrada da tabela colocando-a no
+%%% meio de duas linhas
+\newcommand{\up}[1]{\raisebox{1.5ex}[0pt]{#1}}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c||c|l|c|l|c|l|}
+    \hline
+    & \multicolumn{2}{c|}{8:00--12:00} &
+    \multicolumn{2}{c|}{13:00--17:00} &
+    \multicolumn{2}{c|}{18:00--22:00} \\
+    \cline{2-7}
+    Dia & & Prof. & & Prof. & & Prof. \\
+    & \up{Palestra} & Sala & \up{Palestra} & Sala & \up{Palestra} & Sala \\
+    \hline
+    \hline
+
+    %%% Segunda
+    & & Prof.~Foo & & Prof.~Bar & & Prof.~Baz \\
+    \up{Seg} & \up{\LaTeX} & Sala~1 &
+    \up{\BibTeX} & Sala~2 &
+    \up{\TeX} & Sala~3 \\
+    \hline
+
+    %%% Terça
+    & & Prof.~Foobar & \multicolumn{2}{c|}{} & & Prof.~Foobaz \\
+    \up{Ter} & \up{GNU Emacs} & Sala~1 &
+    \multicolumn{2}{c|}{\up{\textbf{Cancelado}}}
+    & \up{\LaTeX} & Sala~2 \\
+    \hline
+
+    %%% Quarta
+    & & Prof.~Bar & & Prof.~Foo & & Prof.~Baz \\
+    \up{Qua} & \up{\TeX} & Sala~1 &
+    \up{\gnuplot} & Sala~2 &
+    \up{xfig} & Sala~3 \\
+    \hline
+
+    %%% Quinta
+    & & Prof.~Baz & & Prof.~Foobar & & Prof.~Foobaz \\
+    \up{Qui} & \up{MakeIndex} & Sala~1 &
+    \up{\TeX} & Sala~2 &
+    \up{AUC~\TeX} & Sala~3 \\
+    \hline
+
+    %%% Sexta
+    & & Prof.~Foo & & Prof.~Bar & \multicolumn{2}{c|}{} \\
+    \up{Sex} & \up{Linux} & Sala~1 &
+    \up{\LaTeX} & Sala~2 &
+    \multicolumn{2}{c|}{\up{\textbf{Cancelado}}} \\
+    \hline
+  \end{tabular}
+  \caption{Outro exemplo de cronograma}
+  \label{tab:crono}
+\end{table}
+
+Na Tab.~\ref{tab:crono} as entradas `Palestra' e `\textbf{Cancelado}'
+foram posicionadas com \command{raisebox} de modo a ficar no meio de
+duas linhas.
+
+\Glossary[te\TeX]{teTeX}{Uma das mais completas distribuições de
+  (La)\TeX{} disponíveis para o mundo Unix. Por distribuição
+  entende-se o conjunto de programas, fontes e \eng{packages}
+  necessários para ter uma instalação (La)\TeX{} funcional.}%
+
+\Glossary[MiK\TeX]{MiKTeX}{Distribuição de (La)\TeX{} para Windows
+  NT/9x.  É \eng{free} e todo o código fonte está disponível.}%
+
+\Glossary[AUC~\TeX]{AUCTeX}{Ambiente integrado de edição de arquivos
+  \TeX{} e \LaTeX{} para GNU Emacs.}%
+
+\Glossary{MakeIndex}{Programa usado na construção de índices
+  remissivos em documentos \LaTeX.}%
+
+\Glossary{xfig}{Programa para X Window que permite a construção e
+  manipulação de figuras.}%
+
+%%% Outro Exemplo de Cronograma
+
+\begin{table}[H] %%% uso do de `H' para forçar o posicionamento.
+  \small
+  \renewcommand{\arraystretch}{1.414}
+  \centering
+  \begin{tabular}{|r|p{3cm}|p{6cm}|p{3cm}|}
+    \hline
+    \# & Data & Descrição & Instrutores \\
+    \hline
+    \hline
+    1 &
+
+    21--28/03/2000 &
+
+    Curso 1, Curso 3, Curso 4, Curso 8, Seminário &
+
+    Prof.~Foo \newline
+    Prof.~Baz \\
+
+    \hline
+
+    2 &
+
+    18--23/06/2000 &
+
+    Curso 2 e Curso 10 &
+
+    Prof.~Foo \newline
+    Prof.~Bar \newline
+    Prof.~Foobaz \\
+
+    \hline
+
+  \end{tabular}
+  \caption{Mais um exemplo de cronograma}
+  \label{tab:crono2}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Tabelas Lado a Lado}
+\label{sec:tab-syde-by-side}%
+\index{tabelas!lado a lado}%
+
+Tabelas podem ser colocadas lado a lado, como a Tab.~\ref{tab:esq} e
+Tab.~\ref{tab:dir}.  Para um exemplo similar usando figuras ver
+seção~\ref{sec:fig-syde-by-side} na
+página~\pageref{sec:fig-syde-by-side}.
+
+\begin{table}[htb]
+  \begin{minipage}[b]{.46\linewidth}
+
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{Foo}   &    \textbf{Bar}         & \textbf{Foobar} \\
+      \hline\hline
+      1000           &          2000           &          3000 \\
+      2000           &          2000           &          3000 \\
+      3000           &          2000           &          3000 \\
+      4000           &          2000           &          3000 \\
+      \hline
+    \end{tabular}
+    \caption{Tabela da Esquerda}
+    \label{tab:esq}
+
+  \end{minipage}\hfill
+  \begin{minipage}[b]{.46\linewidth}
+
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{Foo}   &    \textbf{Bar}         & \textbf{Foobar} \\
+      \hline\hline
+      1000           &          2000           &          3000 \\
+      2000           &          2000           &          3000 \\
+      3000           &          2000           &          3000 \\
+      4000           &          2000           &          3000 \\
+      5000           &          2000           &          3000 \\
+      6000           &          2000           &          3000 \\
+      \hline
+    \end{tabular}
+    \caption{Tabela da Direita}
+    \label{tab:dir}
+  \end{minipage}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Tabelas Longas com Quebra de Página}
+\index{tabelas!com quebra de pagina@com quebra de página}%
+\index{tabelas!longas}%
+\index{tabelas!package longtable@\eng{package} \pack{longtable}}%
+
+O \eng{package} \package{longtable} define o \eng{environment}
+\environ{longtable} que permite que tabelas longas se extendam por
+mais de uma página.  Um exemplo desse tipo de tabela com quebra de
+página é mostrado na Tab.~\ref{tab:big}.
+
+\begin{longtable}[c]{|r|r|c|l|}
+  %%%
+  %%% firsthead -- essa seção aparece apenas no primeiro cabeçalho.
+  %%%
+  \caption{Exemplo de uma tabela muito longa\label{tab:big}} \\
+  \hline
+  bytes & linhas & Assinatura MD5 & Nome do Arquivo \\
+  \hline\hline
+  \endfirsthead
+  %%%
+  %%% head -- essa seção aparece nos demais cabeçalhos.
+  %%%
+  \caption[]{Exemplo de uma tabela muito longa (continuação)} \\
+  \hline
+  bytes & linhas & Assinatura MD5 & Nome do Arquivo \\
+  \hline\hline
+  \endhead
+  %%%
+  %%% lastfoot -- essa seção aparece apenas no último rodapé.
+  %%%
+  \hline\hline
+  \endlastfoot
+  %%%
+  %%% foot -- essa seção aparece nos demais rodapés.
+  %%%
+  \hline
+  \multicolumn{4}{r}{\footnotesize{}continua na próxima página} \\
+  \endfoot
+  %%% os dados da tabela começam aqui.
+  400 & 14669 & \texttt{2b79e60ddfc0f58bfac03c66739c9ed0} &
+  \path{etex/latex/misc/etex.sty} \\
+
+  229 & 9320 & \texttt{7eff7c9007ddb8c823d8f04e5ad127da} &
+  \path{generic/babel/babel.sty} \\
+
+  98 & 3974 & \texttt{63e6bfaf5d2f6d5d6e4c451c2b684d84} &
+  \path{generic/babel/bahasa.sty} \\
+
+  98 & 3974 & \texttt{a0c7ab54fbe3661517d955ee53112487} &
+  \path{generic/babel/breton.sty} \\
+
+  98 & 3978 & \texttt{02f604473032df843300e2ac662b088c} &
+  \path{generic/babel/catalan.sty} \\
+
+  98 & 3982 & \texttt{aef1d044d3bb33938adfe1643596d8a7} &
+  \path{generic/babel/croatian.sty} \\
+
+  98 & 3970 & \texttt{fae5754bec5b35ffe76ebaa399f49d0d} &
+  \path{generic/babel/czech.sty} \\
+
+  98 & 3974 & \texttt{c0e6a70c5fea0e6806d7721c69c2368c} &
+  \path{generic/babel/danish.sty} \\
+
+  99 & 3996 & \texttt{62be7de0364db68c59b4e23f1faaad3e} &
+  \path{generic/babel/dutch.sty} \\
+
+  99 & 4006 & \texttt{2f5999c21b497898288be5d2ce4b71ca} &
+  \path{generic/babel/english.sty} \\
+
+  98 & 3982 & \texttt{5e0dfdf05d5bd502e9f23fb1c130aa3e} &
+  \path{generic/babel/esperant.sty} \\
+
+  98 & 3982 & \texttt{164cdae87c20706fda74306a51a96b66} &
+  \path{generic/babel/estonian.sty} \\
+
+  98 & 3978 & \texttt{dbacc4c5d265d932d9157305632d75ee} &
+  \path{generic/babel/finnish.sty} \\
+
+  99 & 4010 & \texttt{df195643ac8da4b07ab7a9255c3d5f93} &
+  \path{generic/babel/francais.sty} \\
+
+  98 & 3982 & \texttt{fbd706bbb7f1802b40ec7e5ca5877b38} &
+  \path{generic/babel/galician.sty} \\
+
+  99 & 4005 & \texttt{16c05cdc701c629429e5473eed63b87d} &
+  \path{generic/babel/germanb.sty} \\
+
+  98 & 3970 & \texttt{fe423f6b5d1978e14a03e9073e1e965b} &
+  \path{generic/babel/irish.sty} \\
+
+  98 & 3978 & \texttt{624aa3f0e88e6d690fbca533573bd4bd} &
+  \path{generic/babel/italian.sty} \\
+
+  98 & 3982 & \texttt{2d075fa36c5dbe52b19b82fbef758d14} &
+  \path{generic/babel/lsorbian.sty} \\
+
+  99 & 4001 & \texttt{4c0a01728340ded247e00e289b81a3c9} &
+  \path{generic/babel/magyar.sty} \\
+
+  99 & 3996 & \texttt{d9c6a8e9d9f48a1156be3c568cd738f1} &
+  \path{generic/babel/norsk.sty} \\
+
+  98 & 3974 & \texttt{8cf81481c82b5824c4ee62fb301063d2} &
+  \path{generic/babel/polish.sty} \\
+
+  99 & 4011 & \texttt{6e0528f87f4ed476864b633c8595f3cd} &
+  \path{generic/babel/portuges.sty} \\
+
+  98 & 3982 & \texttt{c8d33983e76fc71486b8547fd1548154} &
+  \path{generic/babel/romanian.sty} \\
+
+  98 & 3982 & \texttt{f7cd5f6efb71cd8e2919f6986fbbeb38} &
+  \path{generic/babel/scottish.sty} \\
+
+  98 & 3974 & \texttt{70470bb31c419f8b6bd952ffb62cd54e} &
+  \path{generic/babel/slovak.sty} \\
+
+  98 & 3978 & \texttt{53ef5e9884d4dfb0bf7b67df2cf3009e} &
+  \path{generic/babel/slovene.sty} \\
+
+  98 & 3978 & \texttt{a5fc86c145ac235844ff74c522c9672b} &
+  \path{generic/babel/spanish.sty} \\
+
+  98 & 3978 & \texttt{a25f1f0bb5dea66d8541cdb8692df448} &
+  \path{generic/babel/swedish.sty} \\
+
+  98 & 3978 & \texttt{8d18606e3eed34f049d43f7fe898918c} &
+  \path{generic/babel/turkish.sty} \\
+
+  98 & 3982 & \texttt{74e44682ff61225986ceaf87867a2fff} &
+  \path{generic/babel/usorbian.sty} \\
+
+  98 & 3970 & \texttt{0ebf0d6289f75acf06496a830b4b9b43} &
+  \path{generic/babel/greek.sty} \\
+
+  98 & 3970 & \texttt{807ce78e2e9f0cd1aa77070bed0ba68f} &
+  \path{generic/babel/welsh.sty} \\
+
+  98 & 3992 & \texttt{fbdf072cd3b99df3978009f0d490c96d} &
+  \path{generic/babel/hebrew.sty} \\
+
+  333 & 14122 & \texttt{2f8d66b7eb899bef70a5b097737eb863} &
+  \path{generic/misc/path.sty} \\
+
+  995 & 28879 & \texttt{b7138842aa065aeab12c31a9acaf7ee8} &
+  \path{generic/misc/psfig.sty} \\
+
+  328 & 13396 & \texttt{999cf6f407fd49c0adb04264fc2d53df} &
+  \path{generic/misc/texnames.sty} \\
+
+  153 & 5965 & \texttt{2e1f0fdae9adb4fe71d0a35c72664bd8} &
+  \path{generic/misc/localloc.sty} \\
+
+  16 & 273 & \texttt{bedb35a60b77f4d43af16560013566cb} &
+  \path{generic/pictex/pictex.sty} \\
+
+  18 & 376 & \texttt{eaa7b320717ab2388a83295c23bc7f10} &
+  \path{generic/pictex/pictexwd.sty} \\
+
+  681 & 25977 & \texttt{c23cb3040bd8dd57675287199ca4136f} &
+  \path{generic/german/german.sty} \\
+
+  687 & 26156 & \texttt{a574943e8825f53ce7a874a12045dea6} &
+  \path{generic/german/ngerman.sty} \\
+
+  48 & 1268 & \texttt{db8694b5276b121c41941269886dbfae} &
+  \path{generic/texdraw/texdraw.sty} \\
+
+  3 & 108 & \texttt{3a53b9f94afe6707e6b66205e15ed88b} &
+  \path{generic/pstricks/multido.sty} \\
+
+  3 & 105 & \texttt{41b67636ae49e50083f881467d70ee84} &
+  \path{generic/pstricks/pst-3d.sty} \\
+
+  15 & 443 & \texttt{79736df36e18c058ec3fd2d165f96e32} &
+  \path{generic/pstricks/pst-all.sty} \\
+
+  3 & 111 & \texttt{0d11f443b097004b895c4ab7ded5012a} &
+  \path{generic/pstricks/pst-char.sty} \\
+
+  3 & 111 & \texttt{a6b9fa69506b91e13a43bad268724f38} &
+  \path{generic/pstricks/pst-coil.sty} \\
+
+  3 & 108 & \texttt{749001b9baf8decd4414b03a5b23ef80} &
+  \path{generic/pstricks/pst-eps.sty} \\
+
+  5 & 176 & \texttt{d1ae3120f0fb9e913927cdc02ceb3854} &
+  \path{generic/pstricks/pst-fill.sty} \\
+
+  3 & 112 & \texttt{c6a6ab1c335decf86e5ca43dc5447343} &
+  \path{generic/pstricks/pst-ghsb.sty} \\
+
+  3 & 111 & \texttt{fe06c6b5aa4fe24391043ad627a01441} &
+  \path{generic/pstricks/pst-grad.sty} \\
+
+  3 & 108 & \texttt{953c94d9012da91561a842a85cffa7cd} &
+  \path{generic/pstricks/pst-key.sty} \\
+
+  3 & 111 & \texttt{905050d0146ff4ba023eed35ca9935d2} &
+  \path{generic/pstricks/pst-node.sty} \\
+
+  3 & 111 & \texttt{e26831b2c8796c1d690fe46cd1f55b17} &
+  \path{generic/pstricks/pst-plot.sty} \\
+
+  3 & 111 & \texttt{e321a1c3e452f098eea552e37003ebb5} &
+  \path{generic/pstricks/pst-poly.sty} \\
+
+  3 & 111 & \texttt{cceec77f0b2b6f4f388e5d08f083e9db} &
+  \path{generic/pstricks/pst-text.sty} \\
+
+  3 & 111 & \texttt{6dfdf11eff82fc6375427a7c54b3e367} &
+  \path{generic/pstricks/pst-tree.sty} \\
+
+  3 & 111 & \texttt{f87c3e28819c57bd086a070a18d15f43} &
+  \path{generic/pstricks/pstricks.sty} \\
+
+  103 & 3709 & \texttt{e65d5aa7bca08a21934634afa9356a99} &
+  \path{generic/xypic/xy.sty} \\
+
+  29 & 857 & \texttt{a9ddea1c84627c84ad1e7375a55c4c3a} &
+  \path{generic/xypic/xypic.sty} \\
+  %%% os dados da tabela terminam aqui.
+ \end{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\subsection{Tabelas com Rotação de $90^\circ$}
+%%% a linha acima teve que ser substituída pois a versão PDF não
+%%% suporta o símbolo \circ nos bookmarks do documento.
+\subsection{Tabelas com Rotação}
+\index{tabelas!com rotacao de 90@com rotação de $90^\circ$}%
+\index{tabelas!em landscape@em \eng{landscape}}%
+
+A Tab.~\ref{tab:landscape} \vpageref{tab:landscape} sofreu rotação de
+$90^\circ$ através do \eng{environment} \environ{landscape}, definido
+no \eng{package} \package{lscape}.  Esta tabela não é mostrada de
+maneira correta na versão DVI---o efeito de rotação só é visível nas
+versões \eng{PostScript} e PDF.
+
+\Glossary{mktable}{Script em perl útil para a criação de tabelas no
+  formato \LaTeX.  O script lê uma tabela em formato tabular (colunas
+  de dados separados por espaço ou tabs) e gera uma tabela no formato
+  do \LaTeX}
+
+\begin{landscape}
+\begin{table}[htbp]
+  %%% Generated by mktable on Wed Jan 26 00:48:23 2000
+  %%% Started by jessen with args: mktable
+  \centering
+  \begin{tabular}{|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+    \hline
+    C01 & C02 & C03 & C04 & C05 & C06 & C07 & C08 & C09 & C10 &
+    C11 & C12 & C13 & C14 & C15 & C16 & C17 & C18 & C19 & C20 \\
+    \hline\hline
+    470 & 570 & 378 &  15 & 596 & 397 & 734 & 890 & 839 & 341 &
+      5 & 324 & 259 & 881 & 704 & 313 & 597 & 502 & 347 &  23 \\
+     55 & 974 & 245 & 595 & 542 & 514 & 313 & 432 & 346 & 421 &
+    614 & 331 & 728 & 276 & 851 & 283 & 371 & 315 & 529 & 301 \\
+    182 &  42 &   8 & 110 & 402 & 706 & 162 &  44 & 490 & 715 &
+    863 &   5 & 767 & 582 &  13 & 807 & 263 & 515 & 336 & 764 \\
+    758 & 219 & 655 & 869 & 476 &  23 & 870 & 390 & 402 & 917 &
+    355 & 243 & 687 & 596 & 993 & 983 & 119 & 102 & 571 & 746 \\
+    121 & 161 & 748 &   3 & 246 & 808 & 322 & 451 & 640 & 386 &
+      3 & 904 & 440 & 533 & 433 & 509 & 578 & 220 & 636 & 149 \\
+    956 & 468 & 659 & 354 & 460 & 810 & 590 & 593 & 797 & 104 &
+    682 & 267 & 590 & 797 & 811 & 249 & 745 & 212 & 974 & 335 \\
+    516 & 981 &  53 & 421 & 263 & 195 & 555 & 771 & 368 & 369 &
+    564 & 216 & 268 & 826 & 604 & 613 &  78 & 585 & 644 & 433 \\
+    787 & 346 & 961 & 798 & 465 & 671 &  77 & 825 & 485 & 949 &
+    495 & 614 & 200 & 249 & 442 & 731 &  64 & 636 & 351 & 519 \\
+    649 &  67 & 293 &  93 & 544 & 443 &  73 & 347 & 586 & 917 &
+    223 & 840 & 412 &  53 & 597 & 877 & 782 & 928 & 794 & 651 \\
+    653 & 770 & 125 & 783 & 471 & 230 & 345 &  92 & 649 & 876 &
+    867 & 961 & 691 &   4 & 677 & 123 & 957 & 365 & 667 & 224 \\
+    496 & 894 & 612 & 994 & 963 &  44 & 496 & 382 &  47 & 804 &
+    426 & 496 & 409 &  15 & 825 & 683 & 578 &  61 & 157 & 606 \\
+    793 & 533 & 868 & 647 & 235 & 964 & 789 & 496 & 649 & 231 &
+    706 & 257 & 791 & 699 & 313 & 918 & 699 & 731 & 283 & 536 \\
+    235 & 630 & 655 & 968 & 878 & 622 & 275 & 500 & 237 & 970 &
+    490 & 220 & 240 & 815 & 838 & 474 & 490 & 825 & 924 & 243 \\
+    732 & 273 & 229 & 801 & 922 & 607 &  50 & 482 & 848 & 121 &
+    300 & 908 & 788 & 831 & 385 & 521 & 157 & 120 & 872 & 759 \\
+    633 & 282 & 178 & 724 & 703 & 526 & 980 & 681 & 132 & 558 &
+    591 & 240 & 286 & 320 & 993 & 557 & 809 & 988 & 763 & 396 \\
+    608 & 815 & 610 & 407 & 619 & 924 & 735 & 454 & 310 & 633 &
+    735 & 335 & 419 & 411 & 269 & 750 & 864 &  63 & 216 & 849 \\
+    309 & 228 & 522 & 207 & 358 & 792 & 475 & 568 & 839 & 306 &
+    612 & 216 & 145 &   7 & 995 & 289 & 107 & 523 &  47 & 907 \\
+    369 & 879 & 698 & 441 & 720 & 870 &  34 & 777 & 372 & 418 &
+    187 & 907 & 635 & 994 & 666 & 705 & 967 & 702 & 870 & 222 \\
+    871 & 119 & 977 & 342 & 592 & 484 & 953 & 152 & 103 & 333 &
+    877 & 866 & 337 & 169 & 315 & 638 & 127 & 262 & 960 & 125 \\
+    847 & 175 & 250 & 123 & 193 & 110 & 190 & 144 &  98 & 660 &
+     91 & 251 & 229 &  77 & 454 &  16 &  53 & 628 & 704 & 938 \\
+    925 & 153 &   3 & 159 & 183 & 408 & 861 & 829 & 699 & 285 &
+    755 & 959 & 875 & 513 & 485 & 113 & 537 & 920 & 480 & 773 \\
+    707 & 867 & 772 & 728 & 710 & 925 & 860 & 324 & 600 & 414 &
+    185 & 933 & 359 & 877 & 422 & 460 & 847 &  94 & 327 & 260 \\
+    966 & 731 & 344 & 287 &  14 & 203 & 688 & 833 & 688 & 867 &
+    143 & 687 & 716 & 119 & 263 &  72 & 576 & 503 & 230 & 198 \\
+    274 & 412 &  51 & 767 & 662 & 491 & 346 & 284 & 237 & 321 &
+    424 & 521 & 926 & 485 & 870 & 963 & 788 & 612 & 374 & 585 \\
+    135 & 482 &   1 & 823 &  19 & 805 & 635 &  47 & 559 & 741 &
+    817 & 412 &  85 & 784 & 678 & 412 & 556 &  77 & 211 & 991 \\
+    230 & 775 & 581 & 549 &  45 & 527 & 698 & 681 & 692 & 699 &
+    778 &  15 & 838 & 395 &  97 & 965 & 476 & 908 & 677 & 758 \\
+    860 & 668 &  93 & 582 &  10 & 287 & 159 & 186 & 236 & 810 &
+    668 & 786 & 671 & 735 & 946 & 619 & 259 & 930 & 409 & 982 \\
+    188 &  18 & 851 & 112 & 224 & 326 & 694 & 738 & 917 &   6 &
+    895 & 656 & 149 & 401 & 751 & 172 & 997 & 272 & 305 & 751 \\
+    364 & 956 & 587 & 716 & 374 &  75 & 387 & 354 & 971 & 861 &
+    803 & 249 & 707 & 716 & 267 & 208 & 188 &  92 & 271 & 610 \\
+    140 & 269 & 517 & 533 & 565 & 156 & 699 & 486 & 961 & 682 &
+    650 & 110 &  70 & 880 &  59 & 673 & 123 & 263 & 488 & 721 \\
+    \hline
+  \end{tabular}
+  \caption{Exemplo de Tabela com Rotação de $90^\circ$}
+  \label{tab:landscape}
+\end{table}
+\end{landscape}
+
+\index{tabelas|)}%
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-tables.tex ends here.

@@ -1,0 +1,73 @@
+%%% $Id: letter.tex,v 1.3 2001/01/15 01:21:34 jessen Exp $
+\documentclass[a4paper,12pt]{letter}
+
+%%% define a macro \ifpdf para compilação condicional -- PDF ou
+%%% DVI/PS.
+\newif\ifpdf
+  \ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \pdfoutput=1
+  \pdftrue
+\fi
+
+%%% caracteres acentuados em ISO-8859-1
+\usepackage[latin1]{inputenc}
+
+%%% Suporte para gerar o documento em Português
+\usepackage[brazil]{babel}
+
+\ifpdf
+
+\usepackage{ae}
+
+%%% dimensões do documento
+\usepackage[pdftex]{geometry}
+\geometry{a4paper,left=1in,right=1in,top=1in,bottom=1in}
+
+\else
+
+\usepackage[T1]{fontenc}
+
+%%% dimensões do documento
+\usepackage[dvips]{geometry}
+\geometry{a4paper,left=1in,right=1in,top=1in,bottom=1in}
+
+\fi
+
+
+%%% End. remetente
+\address{Av.\ Foobar, 1024 apto.\ 1234\\
+  00000-001, Foobaz-SP}
+
+\date{\today}
+
+%%% Nome do remetente
+\signature{\noindent\rule{60mm}{0.2mm}\\
+  Sr.\ Foo de Oliveira Bar}
+
+%%% Sem a linha para assinatura fica apenas:
+%\signature{Sr.\ Foo de Oliveira Bar}
+
+\begin{document}
+
+%%% Destinatário
+\begin{letter}{Sr.\ Foobário da Silva\\
+    Travessa Foo, 8192\\
+    00000-001, Foobaz-SP}
+
+%%% opcional: Cc (em português fica ``cópia para:'')
+%\cc{Sra.\ Foobiana Oliveira
+%  Largo dos Foos, 2048\\
+%  00000-001, Foobaz-SP}
+
+\opening{Caro Sr.\ Foobário,}
+
+Este é um esqueleto de um documento \LaTeX: classe letter.
+
+\closing{Respeitosamente,}
+
+\end{letter}
+\end{document}
+
+%%% letter.tex ends here.

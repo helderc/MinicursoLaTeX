@@ -1,0 +1,182 @@
+%%% demo-src.tex -- todos os arquivos fonte usados pelo LateX-demo.
+%%% $Id: demo-src.tex,v 1.13 2001/01/15 10:49:36 jessen Exp $
+
+%%% Este documento pode ser livremente copiado e modificado desde que
+%%% atendidas as seguintes condições:
+%%%
+%%% É permitido fazer e distribuir cópias inalteradas deste documento,
+%%% completo ou em partes, contanto que a mensagem de copyright e esta
+%%% nota sobre a distribuição sejam mantidas em todas as cópias.  Se
+%%% este documento for distribuído apenas em partes, instruções de como
+%%% obtê-lo por completo devem ser incluídas.
+%%%
+%%% É permitido fazer e distribuir cópias modificadas deste documento
+%%% sob as mesmas condições do item anterior, contanto que todo o
+%%% trabalho derivado seja distribuído sob estas mesmas condições.
+%%%
+%%% É permitida a inclusão de exemplos de código LaTeX mostrados neste
+%%% trabalho em qualquer documento.  Tal uso é completamente livre e não
+%%% está sujeito à nenhuma restrição.
+
+\documentclass[11pt,a4paper]{article}
+
+%%% Este package define copyright/data/versão do documento.
+\usepackage{demo-version}
+
+\usepackage{demo-src}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\LaTeX{} demo: Exemplos com \LaTeXe\\
+  Os Arquivos Fonte}
+
+\author{\demoreleasecopyright\\
+  Klaus Steding-Jessen%
+  \thanks{Lenimar Nunes de Andrade sugeriu a criação deste documento
+    com a listagem de todos os arquivos
+    usados no documento ``\LaTeX{} demo: Exemplos com \LaTeXe''}\\
+  \email{jessen@acm.org}}
+
+\date{\demoreleasedate\\
+  {\small Versão: \demoreleaseversion}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%% Screen Output
+\typeout{****}
+\ifpdf
+\typeout{* LaTeX-demo-src \demoreleaseversion: todos os arquivos
+  usados no LaTeX-demo (Versao PDF)}
+\else
+\typeout{* LaTeX-demo-src \demoreleaseversion: todos os arquivos
+  usados no LaTeX-demo (Versao DVI)}
+\fi
+\typeout{****}
+
+\ifpdf
+%%% 0==chapter, 1==section, último argumento é um anchorname único
+\pdfbookmark[1]{LaTeX-demo-src \demoreleaseversion: os
+Arquivos Fonte}{bookmarktitle}
+\fi
+\maketitle
+\thispagestyle{empty}
+\pagestyle{plain}
+
+\ifpdf\pdfbookmark[1]{\abstractname}{bookmarkabstract}\fi
+\begin{abstract}
+  Este documento contém os fontes do documento ``\LaTeX{} demo:
+  Exemplos com \LaTeXe''.  Todos os arquivos usados na criação do
+  documento são listados com numeração de linha e agrupados por
+  categoria.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Página com as condições de Distribuição deste documento.
+\clearpage
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{Distribuição}
+\input{demo-distrib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\contentsname}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\section{Misc}
+\insertfile{INSTALL}
+\insertfile{README}
+\insertfilewithtabs{Makefile}
+
+\clearpage
+\section{Packages \LaTeX}
+\insertfile{demo.sty}
+\insertfile{demo-version.sty}
+\insertfile{makeglo.sty}
+
+\clearpage
+\section{Fontes \LaTeX}
+\insertfile{demo.tex}
+\insertfile{demo-distrib.tex}
+\insertfile{demo-thanks.tex}
+\insertfile{demo-package-fontes.tex}
+\insertfile{demo-texto.tex}
+\insertfile{demo-simbolos.tex}
+\insertfile{demo-lists.tex}
+\insertfile{demo-espaco.tex}
+\insertfile{demo-fontes.tex}
+\insertfile{demo-quotation.tex}
+\insertfile{demo-poesia.tex}
+\insertfile{demo-colunas.tex}
+\insertfile{demo-length.tex}
+\insertfile{demo-espacamento.tex}
+\insertfile{demo-boxes.tex}
+\insertfile{demo-center.tex}
+\insertfile{demo-counter.tex}
+\insertfile{demo-tables.tex}
+\insertfile{demo-graphics.tex}
+\insertfile{demo-pdf-graphics.tex}
+\insertfile{demo-cores.tex}
+\insertfile{demo-referencias.tex}
+\insertfile{demo-url.tex}
+\insertfile{demo-typed.tex}
+\insertfile{demo-codigo.tex}
+\insertfile{demo-matematica.tex}
+\insertfile{demo-quimica.tex}
+\insertfile{demo-biblio.tex}
+\insertfile{demo-apendice-packages.tex}
+\insertfile{demo-apendice.tex}
+
+\clearpage
+\section[Fonte BibTeX]{Fonte \BibTeX}
+\insertfile{refs.bib}
+
+\clearpage
+\section{Fontes \gnuplot}
+\insertfile{gnuplot/gnuplot-1.cmd}
+\insertfile{gnuplot/gnuplot-2.cmd}
+\insertfile{gnuplot/hosts.dat}
+\insertfile{gnuplot/gnuplot-png-1.cmd}
+\insertfile{gnuplot/gnuplot-png-2.cmd}
+
+\clearpage
+\section{Fontes \xfig}
+\insertfilewithtabs{xfig/pendulo.fig}
+
+\clearpage
+\section{Fragmentos de Código Incluídos}
+\insertfile{code/prog1.el}
+\insertfilewithtabs{code/prog2.c}
+\insertfilewithtabs{code/prog3.c}
+
+\clearpage
+\section{Arquivo de Estilo para Makeindex}
+\insertfile{demo-index.ist}
+\insertfile{makeglo.ist}
+
+\clearpage
+\section{Diretório templates}
+\insertfile{templates/README}
+\insertfilewithtabs{templates/Makefile}
+\insertfile{templates/article.tex}
+\insertfile{templates/articletwocolumn.tex}
+\insertfile{templates/book.tex}
+\insertfile{templates/letter.tex}
+\insertfile{templates/report.tex}
+\insertfile{templates/slides.tex}
+\insertfile{templates/template.bib}
+
+\end{document}
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo-src.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-src.tex ends here.

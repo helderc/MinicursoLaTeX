@@ -1,0 +1,96 @@
+%%% -*-LaTeX-*-
+%%% demo-src.sty -- package com definições e packages usados por demo-src.tex.
+%%% $Id: demo-src.sty,v 1.8 2001/01/15 10:53:35 jessen Exp $
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{demo-src}
+
+%%% define a macro \ifpdf para compilação condicional.  Desse modo é
+%%% possível definir blocos que só são processados na versão PDF.
+\newif\ifpdf
+  \ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \pdfoutput=1
+  \pdftrue
+\fi
+
+\RequirePackage[latin1]{inputenc}
+\RequirePackage[brazil]{babel}
+
+\ifpdf
+\RequirePackage[pdftex]{geometry}
+\RequirePackage{ae}
+\else
+\RequirePackage[T1]{fontenc}
+\RequirePackage[dvips]{geometry}
+\fi
+
+%%% Usa página tamanho `A4'.  Para produzir esse documento em
+%%% tamanho `letter', comente o comando abaixo e descomente o comando
+%%% seguinte, que usa o tamanho `letterpaper'.
+\geometry{a4paper,left=1in,right=1in,top=1in,bottom=1in}
+
+%%% Usa página tamanho `letter'.  Para produzir esse documento em
+%%% tamanho `A4', comente o comando abaixo e descomente o comando
+%%% acima, que usa o tamanho `a4paper'.
+%\geometry{letterpaper,left=1in,right=1in,top=1in,bottom=1in}
+
+\RequirePackage{url}
+
+%%% o package fancyvrb foi copiado para junto dos demais arquivos que
+%%% compõem este demo.  Não é necessário que ele esteja instalado no
+%%% sistema para funcionar.
+\RequirePackage{fancyvrb}
+
+\ifpdf
+%%% versão PDF
+\RequirePackage[pdftex]{hyperref}
+
+\hypersetup{colorlinks,
+  linkcolor=blue,  %%% cor do tableofcontents, \ref, \footnote, etc
+  citecolor=blue,  %%% cor do \cite
+  urlcolor=blue,   %%% cor do \url e \href
+  bookmarksopen=true,
+  pdftitle={LaTeX-demo-src \demoreleaseversion: os Arquivos Fonte},
+  pdfauthor={Klaus Steding-Jessen <jessen@acm.org>},
+  pdfsubject={Todos os arquivos usados no LaTeX-demo},
+  pdfkeywords={\docpdfkeywords}}
+\fi
+
+%%% macro para typesetting de palavras em Inglês.
+\newcommand{\eng}[1]{\textit{#1}}
+
+%%% BiBTeX Logo
+\newcommand{\BibTeX}{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em\TeX}}
+
+%%% GNUPLOT Logo
+\newcommand{\gnuplot}{\textsf{gnuplot}}
+
+%%% xfig Logo
+\newcommand{\xfig}{\textsf{xfig}}
+
+\newcommand{\email}{\begingroup \urlstyle{tt}\Url}
+
+%%% aumenta o tamanho da fonte usada no número de linhas
+\renewcommand{\theFancyVerbLine}{%
+{\footnotesize{\arabic{FancyVerbLine}}}}
+
+\newcommand{\insertfile}[1]{%
+\subsection{#1}
+\VerbatimInput[frame=lines,numbers=left]{#1}%
+\clearpage}
+
+\newcommand{\insertfilewithtabs}[1]{%
+\subsection{#1}%
+\VerbatimInput[obeytabs=true,frame=lines,numbers=left]{#1}%
+\clearpage}
+
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo-src.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-src.sty ends here.

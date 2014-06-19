@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[brazilian]{babel}
+
+\usepackage{listings}
+%\usepackage{color} % necessario quando usar \color...
+
+% showstringspaces=false
+% numbers=left
+
+% frame=single
+% frame=trBL
+% frameround=fttt
+
+% emph={printf}, emphstyle=\color{red}
+
+
+\begin{document}
+\lstset{language=C}
+	\begin{lstlisting}
+		#include <stdio.h>
+		
+		int main() {
+
+			printf("Hello World!\n");
+			printf("Usando Listings");
+			return 0
+		}
+	\end{lstlisting}
+
+
+Outro código...
+
+\lstset{language=Python}
+	\begin{lstlisting}
+		#!/usr/bin/env python
+		# -*- coding=utf-8 -*-
+		
+		import sys
+
+		print "Hello World"
+	\end{lstlisting}
+\end{document}

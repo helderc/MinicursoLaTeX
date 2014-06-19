@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+
+\begin{document}
+
+\section{Equações em Múltiplas Linhas}
+
+\vspace{2cm}
+
+%%%%% Lembrar o uso do &
+%%%%% nonumber - não numera a equação
+
+Usando {\verb"\begin{eqnarray} ... \end{eqnarray}"}
+\center {$\vdots$}
+
+\begin{eqnarray}
+(x, y, z) & = & x(1, 0, 1) + y(0, 1, -1) + (-x+y+z)(0, 0, 1) \\
+T(x, y, z) & = & xT(1, 0, 1) + yT(0, 1, -1) + (-x+y+z)T(0, 0, 1) \nonumber \\
+T(x, y, z) & = & x(0, 0, 0, 0) + y(0, 0, 0, 0) + (-x+y+z)(1, 0, -1, 0) \\
+T(x, y, z) & = & (-x+y+z, 0, x-y-z, 0)
+\end{eqnarray}
+
+\vspace{2cm}
+
+\flushleft {Agora usando {\verb"\begin{eqnarray*} ... \end{eqnarray*}"}}
+\center {$\vdots$}
+
+% repare na falta do & 
+\begin{eqnarray*}
+(x, y, z) = x(1, 0, 1) + y(0, 1, -1) + (-x+y+z)(0, 0, 1) \\
+T(x, y, z) = xT(1, 0, 1) + yT(0, 1, -1) + (-x+y+z)T(0, 0, 1) \\
+T(x, y, z) = x(0, 0, 0, 0) + y(0, 0, 0, 0) + (-x+y+z)(1, 0, -1, 0) \\
+T(x, y, z) = (-x+y+z, 0, x-y-z, 0)
+\end{eqnarray*}
+
+
+
+\end{document}

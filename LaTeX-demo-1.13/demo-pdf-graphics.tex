@@ -1,0 +1,380 @@
+%%% -*-LaTeX-*-
+%%% demo-pdf-graphics.tex -- exemplo de inclusao de gráficos.  Esse
+%%% arquivo é incluído apenas na versão PDF.
+%%% $Id: demo-pdf-graphics.tex,v 1.1 2001/01/04 03:12:27 jessen Exp $
+
+\section{Figuras}
+
+\index{graficos@gráficos|see{figuras}}%
+\index{figuras|(}%
+\index{figuras!Encapsulated PostScript@\eng{Encapsulated PostScript}}%
+\index{Encapsulated PostScript@\eng{Encapsulated PostScript}}%
+\index{EPS|see{\eng{Encapsulated PostScript}}}%
+
+Esta seção mostra exemplos de inclusão de figuras \eng{Encapsulated
+  PostScript} (EPS) bem como várias operações sobre essas figuras:
+alteração de largura e altura, rotação, espelhamento, mudança de
+escala, etc.
+
+\Glossary{EPS}{Encapsulated PostScript.  Formato muito usado para
+  inclusão de figuras em documentos \LaTeX.  Um arquivo EPS é
+  essencialmente um arquivo PostScript com algumas restrições---não
+  pode conter código que altere o estado global do interpretador
+  PostScript e deve conter uma linha com um \eng{bounding box} que
+  descreve as dimensões da figura.}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Figuras com \eng{caption} abaixo da Imagem}
+\index{figuras!caption abaixo@\eng{caption} abaixo}%
+\index{caption@\eng{caption}!abaixo!figura}%
+
+Na figura~\ref{fig:gnu} temos um exemplo com \eng{caption} bastante
+longo abaixo da imagem.  A distância entre a figura e seu
+\eng{caption} foi diminuída para \unidade{5}{pt} alterando-se a medida
+\lengthname{abovecaptionskip} com o comando \command{setlength}.
+
+%%% h == here ou t == top ou b == botton
+\begin{figure}[htb]
+  \index{figuras!de um gnu}%
+  \setlength{\abovecaptionskip}{5pt}
+  %%% o valor default de \abovecaptionskip definido para a classe
+  %%% article é de 10pt.
+  \centering
+  %%% VIDE ABAIXO COMENTÁRIO SOBRE USO DE DIRETÓRIOS NO PATHNAME
+  %%% DOS ARQUIVOS INCLUÍDOS.
+  \includegraphics{figures/gnu.pdf}
+  \caption[Exemplo de um gnu com \eng{caption} longo]{Exemplo de um
+    gnu---Notar que um \eng{caption} não é restrito a uma única linha.
+    Entretanto isso pode ser um problema por deixar a entrada na Lista
+    de Figuras muito longa.  Este problema pode ser contornado
+    passando-se um parâmetro extra ao \eng{caption}, informando-o da
+    entrada a ser usada na Lista de Figuras.}
+  \label{fig:gnu}
+\end{figure}
+
+%%% O uso de subdiretórios no pathname dos arquivos que se deseja incluir
+%%% pode deixar o documento menos portável.  O separador `/' não fará
+%%% muito sentido em outros ambientes, como VMS, MacOS, etc.
+%%%
+%%% Uma alternativa é o uso da variável de ambiente TEXINPUTS:
+%%%
+%%% export TEXINPUTS=:~/foodir//
+%%%
+%%% fará com que o LaTeX procure os documentos definidos nos seus comandos
+%%% \input, \include e \includegraphics no diretório ~/foodir e seus
+%%% subdiretórios.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Figuras com \eng{caption} acima da Imagem}
+\index{figuras!caption acima@\eng{caption} acima}%
+\index{caption@\eng{caption}!acima!figura}%
+\index{figuras!center environment@\eng{center environment}}%
+\index{figuras!centering@\comm{centering}}%
+\index{figuras!centering e center@\comm{centering} e%
+\eng{center}!diferencas@diferenças}%
+
+Na figura~\ref{fig:platypus} temos um exemplo com \eng{caption} acima
+da imagem.  A largura da imagem foi definida em \unidade{8}{cm}.  A
+distância entre o \eng{caption} e a figura foi ajustada para
+\unidade{10}{pt} alterando-se a medida \lengthname{belowcaptionskip}
+com o comando \command{setlength}.
+
+\begin{figure}[htb]
+  \index{figuras!de um platypus}%
+  \setlength{\belowcaptionskip}{10pt}
+  %%% o valor default de \belowcaptionskip definido para a classe
+  %%% article é de 0pt.
+  \begin{center}
+    \caption{Um platypus com \eng{caption} acima da imagem}
+    \includegraphics[width=8cm]{figures/platypus.jpg}
+    \label{fig:platypus}
+  \end{center}
+\end{figure}
+
+A Fig.~\ref{fig:platypus} usa o \eng{environment} \environ{center}
+para centralizar sua imagem.  Todas as demais figuras dessa seção usam
+o comando \command{centering} para essa finalidade.  Notar como o uso
+do \eng{environment} \environ{center} aumenta o espaço em branco ao
+redor da figura.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Alterando as Dimensões das Figuras}
+\index{figuras!alterando dimensoes@alterando dimensões}%
+\index{figuras!width@\eng{width}}%
+\index{figuras!largura|see{\eng{width}}}%
+\index{figuras!height@\eng{height}}%
+\index{figuras!altura|see{\eng{height}}}%
+
+Na figura~\ref{fig:tux} temos um exemplo com alteração da largura e da
+altura da imagem.  Neste exemplo as dimensões foram definidas em
+\unidade{10}{em}\footnote{\unidade{1}{em} é aproximadamente igual à
+largura de um ``M'', levando em conta a fonte e o estilo corrente.}
+e \unidade{20}{ex}\footnote{\unidade{1}{ex} é aproximadamente igual à
+altura de um ``x'', levando em conta a fonte e o estilo corrente.}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=10em,height=20ex]{figures/tux.png}
+  \caption[Tux---Exemplo de um pingüim]{Tux\footnotemark---Exemplo
+    de um pingüim}
+  \label{fig:tux}
+\end{figure}
+
+\index{footnote@\eng{footnote}!dentro de caption@dentro de \eng{caption}}%
+A Fig.~\ref{fig:tux} usa um \eng{footnote} no \eng{caption} com os
+comandos \command{footnotemark} e \command{footnotetext}.
+
+\footnotetext{Este \eng{logo} foi criado por Larry Ewing.  Outras
+  versões estão disponíveis em
+  \url{http://www.isc.tamu.edu/~lewing/linux/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Rotação e Espelhamento de Figuras}
+\index{figuras!rotacao@rotação}%
+\index{figuras!espelhamento}%
+
+Na figura~\ref{fig:gnu-rotated} temos um exemplo com rotação da
+imagem.
+
+\begin{figure}[htb]
+  \index{figuras!rotacao de 90@rotação de $90^\circ$}%
+  \centering
+  \includegraphics[angle=90]{figures/gnu.pdf}
+  \caption{Gnu com rotação de $90^\circ$}
+  \label{fig:gnu-rotated}
+\end{figure}
+
+Na figura~\ref{fig:gnu-reflected} temos um exemplo com espelhamento da
+imagem.
+
+\begin{figure}[htb]
+  \index{figuras!espelhamento}%
+  \centering
+    \reflectbox{\includegraphics{figures/gnu.pdf}}
+    \caption{Gnu com espelhamento}
+    \label{fig:gnu-reflected}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\eng{Scale Factor} de Figuras}
+\index{figuras!scale@\eng{scale}}%
+\index{figuras!dentro de frame@dentro de \eng{frame}}%
+
+Na figura~\ref{fig:gnu-scale} temos um exemplo de aumento do tamanho
+original usando o parâmetro $scale=1.5$.  A figura foi colocada dentro
+de um \eng{frame} com o comando \command{fbox}.
+
+%%% IMPORTANTE: notar o posicionador H, definido no package float.
+%%% Este posicionador é mais enfático do que h ou !h, *realmente*
+%%% indicando ``here'', mesmo que isso deixe areas em branco no
+%%% texto.
+\begin{figure}[H]
+  \index{figuras!scale=1.5@$scale=1.5$}%
+  \index{figuras!package float@\eng{package} \pack{float}}%
+  \centering
+  \fbox{\includegraphics[scale=1.5]{figures/gnu.pdf}}
+  \caption{Gnu dentro de \eng{frame} com $scale=1.5$}
+  \label{fig:gnu-scale}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Figuras Lado a Lado}
+\label{sec:fig-syde-by-side}%
+\index{figuras!figuras lado a lado}%
+
+É possível colocar figuras lado a lado, como por exemplo a
+figura~\ref{fig:esq} e a figura~\ref{fig:dir}.  Para um exemplo
+similar usando tabelas ver seção~\ref{sec:tab-syde-by-side} na
+página~\pageref{sec:tab-syde-by-side}.
+
+\begin{figure}[htb]
+  \begin{minipage}[b]{.46\linewidth}
+    \index{figuras!scale=0.45@$scale=0.45$}%
+    \centering \includegraphics[scale=0.45]{figures/platypus.jpg}
+    \caption{Platypus com $scale = 0.45$}
+    \label{fig:esq}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{.46\linewidth}
+    \index{figuras!rotacao de 270@rotação de $270^\circ$}%
+    \index{figuras!scale=0.7@$scale=0.7$}%
+    \centering
+    \includegraphics[scale=0.7,angle=270]{figures/tux.png}
+    \caption{Tux com rotação de $270^\circ$}
+    \label{fig:dir}
+  \end{minipage}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Figuras Dentro de Figuras}
+\label{subsec:subfigure}
+\index{figuras!figuras dentro de figuras}%
+\index{figuras!package subfigure@\eng{package} \pack{subfigure}}%
+
+O \eng{package} \package{subfigure} foi usado na criação da
+Fig.~\ref{fig:3gnus}.  Esta figura contém de fato 3 figuras:
+figura~\ref{fig:gnu-1}, figura~\ref{fig:gnu-2} e
+figura~\ref{fig:gnu-3}.
+
+\begin{figure}[htbp]
+  \centering
+  \mbox{%
+   %%% Notar o \qquad, aumentando o espaçamento entre as figuras.
+   %%% Pode-se usar apenas \quad, dando um espaçamento menor
+   %%% ou simplesmente aceitar o espaçamento default.
+    \subfigure[$scale=1.8$]{\label{fig:gnu-1}%
+      \includegraphics[scale=1.8]{figures/gnu.pdf}}\qquad
+    \subfigure[$scale=1.6$]{\label{fig:gnu-2}%
+      \includegraphics[scale=1.6]{figures/gnu.pdf}}\qquad
+    \subfigure[$scale=1.4$]{\label{fig:gnu-3}%
+      \includegraphics[scale=1.4]{figures/gnu.pdf}}
+    }
+  \caption{Comparação de tamanho entre três gnus}
+  \label{fig:3gnus}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Figuras ao Lado de Texto}
+\label{subsec:wrapfig}
+\index{figuras!figuras ao lado de texto}%
+\index{figuras!package wrapfig@\eng{package} \pack{wrapfig}}%
+
+Com os \eng{environments} \environ{wrapfigure} e \environ{wraptable},
+definidos no \eng{package} \package{wrapfig}, é possível colocar texto
+ao lado de figuras e tabelas.  Um exemplo deste tipo de
+\eng{environment} é mostrado na Fig.~\ref{fig:wrapgnu}.
+
+\begin{wrapfigure}[6]{r}{8em}
+  \centering
+  \includegraphics{figures/gnu.pdf}
+  \caption[Gnu ao lado de texto]{Gnu}
+  \label{fig:wrapgnu}
+\end{wrapfigure}
+
+O \eng{environment} \environ{wrapfigure} recebe dois parâmetros
+opcionais e dois obrigatórios como segue:
+
+\begin{codeverbatim}
+\begin{wrapfigure}[nlines]{placement}[overhang]{width}
+\end{wrapfigure}
+\end{codeverbatim}
+
+\begin{description}
+\item [\textit{nlines}] (opcional) Número de linhas que vão ao lado da
+  figura.  Este valor é normalmente calculado pela altura da figura,
+  mas pode ser opcionalmente colocado.
+
+\item [\textit{placement}] O posicionamento da figura pode ser `r',
+  `l', `i', `o' para o posicionamento à direita, esquerda, ``dentro''
+  e ``fora'' da página, respectivamente.
+
+\item [\textit{overhang}] (opcional) Define a distância da figura em
+  relação à margem.
+
+\item [\textit{width}] Largura da figura.
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aumentando as Bordas de Figuras}
+\index{figuras!aumentando as bordas}%
+
+A Fig.~\ref{fig:gnu-aumento-borda} teve todas as suas bordas
+aumentadas em \unidade{1}{cm}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[trim=-1cm -1cm -1cm -1cm]{figures/gnu.pdf}
+  %%% [trim=left, bottom, right, top]
+  \caption{Gnu com aumento de borda de 1cm}
+  \label{fig:gnu-aumento-borda}
+\end{figure}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Incluindo Figuras Geradas com \gnuplot{}}
+\index{figuras!gnuplot@\gnuplot}%
+\index{gnuplot@\gnuplot}%
+
+\Glossary{GNUPLOT}{Programa interativo para construção de gráficos de
+  função.  Também pode gerar gráficos a partir de pontos
+  de um arquivo.}%
+
+\subsubsection{Exemplo do Gráfico de uma Função}
+\index{gnuplot@\gnuplot!grafico de funcao@gráfico de função}%
+
+\begin{figure}[htbp]
+  \index{figuras!criadas no gnuplot@criadas no \gnuplot}%
+  \centering
+  \includegraphics[scale=0.6]{figures/gnuplot-1.png}
+  \caption{Gráfico de $\cos e^{x^2}$ criado com \gnuplot{}}
+  \label{fig:gnuplot-example-1}
+\end{figure}
+
+A Fig.~\ref{fig:gnuplot-example-1} foi criada no \gnuplot{} com:
+\index{gnuplot@\gnuplot!comandos}%
+
+\begin{codeverbatim}
+set terminal png monochrome small
+set output 'gnuplot-1.png'
+set title 'Usando figuras do gnuplot no LaTeX'
+g(x) = cos(exp(x**2))
+set samples 500
+set size 0.75, 0.75
+plot [-pi/2:pi/2] g(x) title 'cos e^{x^2}'
+\end{codeverbatim}
+
+A figura gerada foi incorporada ao documento com:
+
+\index{figuras!incluindo figuras do gnuplot@incluindo figuras do \gnuplot}%
+\begin{codeverbatim}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.6]{figures/gnuplot-1.png}
+\end{figure}
+\end{codeverbatim}
+
+\subsubsection{Exemplo de Gráfico de um Arquivo de Dados}
+\index{gnuplot@\gnuplot!grafico de um arquivo de dados@gráfico de
+um arquivo de dados}%
+
+\begin{figure}[htbp]
+  \index{figuras!criadas no gnuplot@criadas no \gnuplot}%
+  \centering
+  \includegraphics[scale=0.6]{figures/gnuplot-2.png}
+  \caption{Gráfico de um arquivo de dados criado com \gnuplot{}}
+  \label{fig:gnuplot-example-2}
+\end{figure}
+
+A Fig.~\ref{fig:gnuplot-example-2} foi criada no \gnuplot{} a partir
+de um arquivo de dados contendo um ponto $(x,y)$ por linha com os
+seguintes comandos:
+
+\index{gnuplot@\gnuplot!comandos}%
+\begin{codeverbatim}
+set terminal png monochrome small
+set output 'gnuplot-2.png'
+set title 'Crescimento de hosts na Internet de 1989--1997'
+set size 0.75, 0.50
+set ylabel "hosts (10^6)"
+set xlabel 'Ano'
+plot 'hosts.dat' thru x/1000000 title 'hosts' with linespoints
+\end{codeverbatim}
+\index{figuras|)}%
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-pdf-graphics.tex ends here.

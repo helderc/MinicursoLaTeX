@@ -1,0 +1,203 @@
+%%% -*-LaTeX-*-
+%%% demo-counter.tex -- exemplo de counters.
+%%% $Id: demo-counter.tex,v 1.6 2000/08/02 01:17:42 jessen Exp $
+
+\section{\eng{Counters}}
+
+Cada número produzido pelo \LaTeX{} (número de seção, \eng{footnote},
+etc.) tem um \eng{counter} associado, tipicamente um número inteiro
+positivo.  Para imprimir esse número, o \LaTeX{} executa um comando
+que é formado somando-se \verb!\the! ao nome do \eng{counter}
+associado.  Por exemplo, o comando \command{thefootnote} imprime o
+número do \eng{counter} \countername{footnote}, tipicamente com
+números arábicos.  Se redefinirmos esse comando poderemos mudar a
+forma como esse número é impresso.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Mostrando o Valor de um \eng{Counter}}
+\index{counters@\eng{counters}!mostrando}%
+
+Os seguintes comandos mostram o valor de um \eng{counter} em diversos
+formatos: \command{arabic}, \command{roman}, \command{Roman},
+\command{alph} e \command{Alph}.  Um exemplo com o \eng{counter}
+\countername{section} é mostrado abaixo:
+
+\begin{tabbing}
+  XXXXXXXXXXXXX            \=XXXXX
+  \=XXXXXXXXXXXXX          \=XXXXX \kill
+  cmd                      \> Saída \>
+  cmd                      \> Saída \\
+  \verb!\arabic{section}!  \> \arabic{section} \>
+  \verb!\roman{section}!   \> \roman{section}  \\
+  \verb!\Roman{section}!   \> \Roman{section}  \>
+  \verb!\alph{section}!    \> \alph{section}   \\
+  \verb!\Alph{section}!    \> \Alph{section}
+\end{tabbing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Alterando o Valor de um \eng{Counter}}
+\index{counters@\eng{counters}!alterando}%
+
+Para atribuir um determinado valor a um \eng{counter} usa-se o comando
+\command{setcounter}.  Para usar na atribuição o valor de outro
+\eng{counter} existe o comando \command{value}, como mostrado abaixo:
+
+\begin{codeverbatim}
+\setcounter{foo}{\value{bar}}
+\end{codeverbatim}
+
+O comando \command{stepcounter} incrementa o \eng{counter} de um e o
+comando \command{addtocounter} soma um determinado valor a um
+\eng{counter}.
+
+\begin{codeverbatim}
+\stepcounter{foo}
+\end{codeverbatim}
+
+\begin{codeverbatim}
+\addtocounter{bar}{10}
+\end{codeverbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Criando um novo \eng{Counter}}
+\index{counters@\eng{counters}!criando}%
+
+Um novo \eng{counter} é criado com o comando \command{newcounter},
+tendo seu valor inicial igual a zero.  Por \eng{default}, o comando
+\verb!\the...!  associado ao novo \eng{counter} imprime seu valor como
+um número arábico.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Redefinindo o Formato de alguns \eng{counters} usados pelo
+  \LaTeX}
+\index{counters@\eng{counters}!redefinindo}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Numeração de \eng{Footnotes}}
+\index{footnote@\eng{footnote}!alterando numeracao@alterando numeração}%
+
+Neste exemplo o comando \command{thefootnote} foi redefinido com o
+comando \command{renewcommand} para a geração de símbolos e letras,
+respectivamente:
+
+\begin{codeverbatim}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\end{codeverbatim}
+
+\begin{codeverbatim}
+\renewcommand{\thefootnote}{\alph{footnote}}
+\end{codeverbatim}
+
+%%% altera thefootnote para gerar símbolos.
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+
+Exemplo usando símbolo\footnote{Esse \eng{footnote} usa um símbolo
+  como índice.}
+%%% altera thefootnote para gerar letras.
+\renewcommand{\thefootnote}{\alph{footnote}}%
+%
+ou letra\footnote{Esse \eng{footnote} usa uma letra como índice.} como
+índice de \eng{footnote}.
+
+%%% de volta ao original.
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\eng{Caption} das Tabelas}
+\index{tabelas!alterando numeracao do caption@alterando numeração do
+\eng{caption}}%
+
+A numeração do \eng{caption} de tabelas também pode ser mudada de
+maneira análoga.  Neste exemplo o número da tabela é formado por dois
+\eng{counters}: o número da seção seguido do número da tabela,
+representado por uma letra minúscula.
+
+\begin{codeverbatim}
+\renewcommand{\thetable}{\arabic{section}\alph{table}}
+\end{codeverbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\eng{Caption} das Figuras}
+\index{figuras!alterando numeracao do caption@alterando numeração do
+\eng{caption}}%
+
+No exemplo abaixo o número da figura será mostrado em algarismos
+romanos maiúsculos:
+
+\begin{codeverbatim}
+\renewcommand{\thefigure}{\Roman{figure}}
+\end{codeverbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Listas Numeradas}
+\index{listas!mudando o estilo de numeracao@mudando o estilo de numeração}%
+
+Para um exemplo de uso de algarismos romanos e letras no
+\eng{environment} \environ{enumerate} consulte a
+subseção~\ref{subsec:enumerate} na página~\pageref{subsec:enumerate}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exemplo de um \eng{Environment} que usa \eng{counters}}
+
+O exemplo a seguir cria um novo \eng{environment} que utiliza
+\eng{counters} na definição de uma lista de exercícios.  São definidos
+dois \eng{counters} com o comando \command{newcounter}:
+\countername{exemajor} e \countername{exeminor}.  O primeiro indica o
+número da lista de exercícios e o segundo o número do exercício dentro
+dessa lista.  Cada vez que esse \eng{environment} é utilizado o
+\eng{counter} \countername{exemajor} é incrementado.  Depois de cada
+item o \eng{counter} \countername{exeminor} também é incrementado.
+Por \eng{default} a lista começa a ser numerada em $1$, mas o
+\eng{counter} \countername{exemajor} pode ser inicializado com
+qualquer valor através do comando \command{setcounter}.
+
+As definições abaixo foram usadas no preâmbulo do documento:
+
+\begin{codeverbatim}
+\newcounter{exemajor}
+\newcounter{exeminor}
+
+\newenvironment{exercicio}{%
+\begin{list}{\arabic{exemajor}.\arabic{exeminor}}
+{\usecounter{exeminor}\stepcounter{exemajor}}}
+{\end{list}}
+\end{codeverbatim}
+
+\noindent Primeira série de exercícios:
+
+\begin{exercicio}
+\item Primeiro exercício da primeira lista.
+
+\item Segundo exercício da primeira lista.
+
+\item Terceiro exercício da primeira lista.
+\end{exercicio}
+
+\noindent Segunda série de exercícios:
+
+\begin{exercicio}
+\item Primeiro exercício da segunda lista.
+
+\item Segundo exercício da segunda lista.
+\end{exercicio}
+
+Para outro exemplo do uso de \eng{counters} na definição de um
+\eng{environment} consulte a seção~\ref{sec:quotation-numbered} na
+página~\pageref{sec:quotation-numbered}.
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-counter.tex ends here.

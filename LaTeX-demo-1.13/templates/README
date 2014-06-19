@@ -1,0 +1,53 @@
+### $Id: README,v 1.6 2001/01/16 03:04:51 jessen Exp $
+
+DESCRIÇÃO
+
+  Este diretório possui templates de várias classes de documentos
+  LaTeX: article, book, report, letter e slides.  Um template de
+  arquivo de referencias BibTeX também está disponível.
+
+  Todos os arquivos tem suporte para a geração de DVI e PDF, podendo
+  ser processados pelos comandos ``latex'' e ``pdflatex''.
+
+  Você pode gerar todos os arquivos .dvi, .ps e .pdf simplesmente
+  digitando ``make''.  Para saber os comandos usados na geração de
+  cada documento por favor consulte o arquivo ``Makefile'' deste
+  diretório.
+
+  Para apagar os arquivos intermediários digite ``make clean''.  Use
+  ``make distclean'' para apagar todos os arquivos criados, inclusive
+  os arquivos .dvi, .ps e .pdf.
+
+ARTICLE.TEX
+
+  O arquivo ``article.tex'' é um template da classe article usando uma
+  coluna.  É usado bibtex para a geração das referências.
+
+ARTICLETWOCOLUMN.TEX
+
+  O arquivo ``articletwocolumn.tex'' é um template da classe article
+  usando duas colunas.  É usado bibtex para a geração das referências.
+
+BOOK.TEX
+
+  O arquivo ``book.tex'' é um template da classe book.  É usado
+  makeindex para a geração do índice remissivo e bibtex para a geração
+  das referências.
+
+LETTER.TEX
+
+  O arquivo ``letter.tex'' é um template da classe letter.
+
+REPORT.TEX
+
+  O arquivo ``report.tex'' é um template da classe report.  É usado
+  makeindex para a geração do índice remissivo e bibtex para a geração
+  das referências.
+
+SLIDES.TEX
+
+  O arquivo ``slides.tex'' é um template da classe slides.  Note que o
+  efeito de sobreposição (overlay) só aparece nas versões PostScript e
+  PDF.
+
+### templates/README ends here.

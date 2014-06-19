@@ -1,0 +1,29 @@
+
+\hspace{-7mm}{\Large{\bf Abstract }} \\ [6mm]
+
+
+This work presents some results related to the bidimensional automatic triangular
+finite element mesh generation, in particular, on the theme of Delaunay refinements.
+In that sense, three algorithmic principles very popular in the literature were studied and 
+properly implemented, namely, the criterios of Chew, of Ruppert and the one of Shewchuck.
+Every accomplished implementation was incorporate to the adaptive preprocessing system called Remexe-2D 
+that is in development and whose architecture is based on the topological data structure "modified winged-edge".
+Activities of Delaunay adaptive refinements are fundamental in adaptive Numeric Simulation Systems based in the finite elements method and they are presented in the simulation of physical phenomena through the computer, relate to different areas of the human knowledge, then the importance e relevance of the studies that were done.\\
+
+\vspace{15mm}
+
+\hspace{-7mm}{\Large {\bf Keywords}}\\
+
+\hspace{-7mm} Triangular Automatic Mesh Generation \\ [2mm]
+Adaptive Delaunay Refinement \\ [2mm]
+Finite Elements Method \\ [2mm]
+Adaptive Analysis\\ [2mm]
+Delaunay Triangulation \\ [2mm]
+Topological data structures \\ [2mm]
+
+
+ 
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "tese"
+%%% End: 

@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{hyperref}
+
+\begin{document}
+
+\tableofcontents
+
+
+\section{Exemplo NÃO eficiente!}
+Aqui usaremos a bibliografia inclusa no próprio .tex. Para ``citar'' um autor,
+basta usar \verb"\cite{autor}" como em: \cite{baumgart} ou poderemos \cite{berg}.
+
+Lembre-se !!!! 
+
+É necessário compilar o .tex várias vezes para que as referências
+sejam ``linkadas''.
+
+
+
+
+
+
+
+%\bibliographystyle{plain}
+
+\begin{thebibliography}{99}
+
+\bibitem{baumgart} BAUMGART, B.G. {\bf Geometric modeling for computer vision}. 1974. 463. Relat\'orio t\'ecnico - Stanford Artificial Intelligence Laboratory, Computer Sciences Department, Stanford University, CA.
+
+\bibitem{baumgart2} BAUMGART, B.G. {\bf Windge-edge polyhedron representation}. 1972. 320. Relat\'orio T\'ecnico - Computer Science Department, Standford University, Palo Alto, CA.
+
+\bibitem{berg} BERG, M. K.; OVERMARS, M.V.; SCHWARZKOPF, M. O. {\bf Computational geometry}: algorithms and applications. Springer-Verlag, 1977.
+
+\bibitem{bowyer} BOWYER, A.; WOODWARK, J. {\bf A programmer's geometry}. Butterworths, 1983.
+
+\end{thebibliography}
+
+
+\end{document}

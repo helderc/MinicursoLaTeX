@@ -1,0 +1,120 @@
+%%% -*-LaTeX-*-
+%%% demo-fontes.tex -- exemplo de mudança de tipo, estilo, série e
+%%% tamanho de fontes.
+%%% $Id: demo-fontes.tex,v 1.2 1998/11/29 03:21:42 jessen Exp $
+
+\section{Fontes}
+\index{fontes|(}%
+
+A fonte \eng{default} usada pelo \LaTeX\ é a Computer Modern.  Outras
+fontes podem ser usadas através de diversos \eng{packages}, como na
+Tabela~\ref{tab:fontes}\footnote{As fontes \emph{não} estão
+  demonstradas, apenas seus nomes.}.
+\index{fontes!escolhendo}%
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|l|l|l|}
+    \hline
+    \eng{Package}      &  Sans Font  & Roman Font   & Typewriter Font\\
+    \hline\hline
+    &  Comp. Mod. Sans & Comp. Mod. Roman & Comp. Mod. Typewriter\\
+    \package{times}    &  Helvetica  & Times         & Courier\\
+    \package{palatino} &  Helvetica  & Palatino      & Courier\\
+    \package{helvet}   &  Helvetica  &  & \\
+    \package{avant}    &  Avantgarde &  & \\
+    \package{newcent}  &  Avantgarde &  NewCenturySchoolbook & Courier\\
+    \package{bookman}  &  Avantgarde &  Bookman & Courier \\
+    \package{pandora}  &  Pandora Sans &  Pandora Roman & \\
+    \hline
+  \end{tabular}
+  \caption{\eng{Packages} e fontes}
+  \label{tab:fontes}
+\end{table}
+\subsection{Trocando Estilo das Fontes}
+
+Mudando o \emph{shape}:
+\index{fontes!shape@\eng{shape}}%
+\index{fontes!shape@\eng{shape}!upright@\eng{upright}}%
+\index{fontes!shape@\eng{shape}!italic@\eng{italic}}%
+\index{fontes!shape@\eng{shape}!slanted@\eng{small caps}}%
+\index{fontes!shape@\eng{shape}!small caps@\eng{small caps}}%
+
+\begin{tabbing}
+  XXXXXXXXX  \=XXXXXXXXX  \=XXXXXXXXX\kill
+  cmd               \>  decl              \> Exemplo\\
+  \command{textup}  \>  \command{upshape} \> \textup{Upright Shape
+                                                   (\eng{default})} \\
+  \command{textit}  \>  \command{itshape} \> \textit{Italic Shape}  \\
+  \command{textsl}  \>  \command{slshape} \> \textsl{Slanted Shape} \\
+  \command{textsc}  \>  \command{scshape} \> \textsc{Small Caps Shape}
+\end{tabbing}
+
+Mudando o \emph{series}:
+\index{fontes!series@\eng{series}}%
+\index{fontes!series@\eng{series}!medium@\eng{medium}}%
+\index{fontes!series@\eng{series}!boldface@\eng{boldface}}%
+
+\begin{tabbing}
+  XXXXXXXXX  \=XXXXXXXXX  \=XXXXXXXXX\kill
+  cmd              \>  decl               \> Exemplo \\
+  \command{textmd} \>  \command{mdseries} \> \textrm{Medium Series
+                                             (\eng{default})} \\
+  \command{textbf} \>  \command{bfseries} \> \textbf{Boldface Series}
+\end{tabbing}
+
+Mudando o \emph{family}:
+\index{fontes!family@\eng{family}}%
+\index{fontes!family@\eng{family}!roman@\eng{roman}}%
+\index{fontes!family@\eng{family}!sans serif@\eng{sans serif}}%
+\index{fontes!family@\eng{family}!typewriter@\eng{typewriter}}%
+
+\begin{tabbing}
+  XXXXXXXXX  \=XXXXXXXXX  \=XXXXXXXXX\kill
+  cmd               \>  decl               \> Exemplo \\
+  \command{textrm}  \>  \command{rmfamily} \> \textrm{Roman Family
+                                              (\eng{default})} \\
+  \command{textsf}  \>  \command{sffamily} \> \textsf{Sans Serif Family} \\
+  \command{texttt}  \>  \command{ttfamily} \> \texttt{Typewriter Family}
+\end{tabbing}
+
+\subsection{Trocando Tamanho das Fontes}
+\index{fontes!tamanho}%
+\index{fontes!tamanho!tiny@\eng{tiny}}%
+\index{fontes!tamanho!large@\eng{large}}%
+\index{fontes!tamanho!scriptsize@\eng{scriptsize}}%
+\index{fontes!tamanho!large@\eng{large}}%
+\index{fontes!tamanho!huge@\eng{huge}}%
+\index{fontes!tamanho!footnotesize@\eng{footnotesize}}%
+\index{fontes!tamanho!Large@\eng{Large}}%
+\index{fontes!tamanho!Huge@\eng{Huge}}%
+\index{fontes!tamanho!small@\eng{small}}%
+
+\begin{tabbing}
+  XXXXX  \=XXXXXXXXXXXXXXX  \=XXXXX  \=XXXXXXXXXXXXXXX  \=XXXXX
+  \=XXXXXXXXXXXXXXX \kill
+
+  \tiny         Foo \normalsize \> \command{tiny}
+  \>            Foo \normalsize \> \command{normalsize}
+  \>\large      Foo \normalsize \> \command{LARGE}\\
+
+  \scriptsize   Foo \normalsize \> \command{scripsize}
+  \> \large     Foo \normalsize \> \command{large}
+  \> \huge      Foo \normalsize \> \command{huge}\\
+
+  \footnotesize Foo \normalsize \> \command{footnotesize}
+  \> \Large     Foo \normalsize \> \command{Large}
+  \> \Huge      Foo \normalsize \> \command{Huge}\\
+
+  \small Foo \normalsize \> \command{small}\\
+
+\end{tabbing}
+\index{fontes|)}%
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-fontes.tex ends here.

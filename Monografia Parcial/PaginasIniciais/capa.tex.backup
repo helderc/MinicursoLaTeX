@@ -1,0 +1,52 @@
+\newpage
+
+\thispagestyle{empty}
+
+\begin{figure}[htbp]
+  \leavevmode
+  %\epsfig{file = Unesp-1.eps, height = 2cm, width = 3.95cm}
+  \includegraphics[scale = 0.4]{PaginasIniciais/unesp_logo.eps}
+\end{figure}
+
+\hspace{15mm}
+\vspace{23mm}
+\begin{minipage}{155mm}
+\vskip-30mm
+\begin{center}
+\Large UNIVERSIDADE ESTADUAL PAULISTA \\ "J\'{U}LIO DE MESQUITA FILHO" \\[2mm]
+\normalsize  C\^{a}mpus de Presidente Prudente 
+\end{center}
+\end{minipage}
+
+%\vspace{10mm}
+
+%\vspace{60mm}
+
+%\hspace*{-5mm}
+\vspace{-15mm}
+
+\begin{center}
+\Large  {\bf Triangula\c{c}\~{a}o de Delaunay no Plano: Algoritmos de Inser\c{c}\~{a}o}
+\end{center}
+\vspace{10mm}
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+    \epsfig{file = PaginasIniciais/fig_capa.eps,height=8cm, width=8cm}
+ \end{center}
+\end{figure}
+\vspace{2mm}
+\begin{center}
+\large {\bf Anderson Greg\'orio da Silva}\\
+\normalsize Monografia para Conclus\~{a}o de Curso \\[5mm]
+%\vspace{mm}
+\large {\bf Orientador: Marco Ant\^{o}nio Piteri }\\
+\vspace{26mm}
+%\vspace{4mm}
+%Documento Provis\'{o}rio
+\large \bf PRESIDENTE PRUDENTE \\ DEZEMBRO DE 2007
+\end{center}
+
+
+%\thispagestyle{empty}
+%\phantom{text}

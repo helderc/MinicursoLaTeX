@@ -1,0 +1,36 @@
+%%% -*-LaTeX-*-
+%%% demo-espaco.tex -- exemplo de diversos tipos de espaço.
+%%% $Id: demo-espaco.tex,v 1.3 2000/07/26 04:44:35 jessen Exp $
+
+\section{Espaço em Branco}
+\index{espaco em branco@espaço em branco}%
+
+\index{espaco em branco@espaço em branco!pequeno}%
+\command{,} produz um pequeno espaço, como em ``foo `bar'\,''.
+
+\index{espaco em branco@espaço em branco!entre palavras}%
+\index{" @\texttt{\symbol{'134}}\verb*# #}%
+\index{comando!" @\texttt{\symbol{'134}}\verb*# #}%
+
+\verb*!\ ! produz um espaço entre palavras, como em Sr.\ bar.
+
+\index{espaco em branco@espaço em branco!sem quebra de linha}%
+\verb!~! produz um espaço entre palavras, onde quebra de linha não
+pode ocorrer, como em número~1.
+
+\LaTeX{} sempre assume que um ponto termina uma sentença, a não ser que
+o ponto venha logo após um letra maiúscula.
+
+\index{espaco em branco@espaço em branco!sentence-ending@
+\eng{sentence-ending}}%
+\command{@} produz um espaço ``\eng{sentence-ending}'', nos casos em que
+um ponto deve terminar uma sentença, independente do caracter que
+venha antes, como vitamina C\@.  É isso.
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-espaco.tex ends here.

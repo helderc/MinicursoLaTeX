@@ -1,0 +1,62 @@
+%%% -*-LaTeX-*-
+%%% demo-biblio.tex -- exemplo de referências bibliográficas com BibTeX.
+%%% $Id: demo-biblio.tex,v 1.6 2000/08/02 01:17:42 jessen Exp $
+
+\section{Referências Bibliográficas}
+\index{referencias@referências!bibliograficas@bibliográficas!com
+BibTeX@com \BibTeX}%
+\index{BibTeX@\BibTeX!referencias bibliograficas@referências bibliográficas}%
+\index{referencias@referências!bibliograficas@bibliográficas!obtendo
+entradas BibTeX@obtendo entradas \BibTeX}%
+\index{BibTeX@\BibTeX!obtendo entradas}%
+
+\index{epigrafo@epígrafo!exemplo de}%
+\index{proverbio chines@provérbio chinês|see{epígrafo}}%
+\epigraph{``Cada pessoa equivale a um grão de areia, mas uma multidão
+é como uma pedra de ouro.''}{Provérbio Chinês}
+
+{\setlength{\parskip}{0.7em} %%% default da classe letter
+
+\index{paragrafos@parágrafos!aumentando o espaco entre@aumentando
+o espaço entre}%
+\index{espacamento@espaçamento!entre paragrafos@entre parágrafos}%
+
+Esta seção\footnote{Esta seção mostra também um exemplo de alteração
+  do espaçamento entre parágrafos através da medida
+  \lengthname{parskip}.}
+mostra exemplos de uso de referências bibliográficas com \BibTeX{} e
+do comando \command{cite}.  Todas as entradas da
+página~\pageref{sec:refs} foram obtidas de:
+\url{http://liinwww.ira.uka.de/bibliography/index.html}.  Outro grande
+repositório de referências já em formato \BibTeX{} está disponível em:
+\url{http://www.math.utah.edu/~beebe/bibliographies.html}.
+
+O comando \command{nocite} não produz texto, mas permite que a entrada
+seja incluída nas referências.  O comando \command{nocite\{*\}} faz
+com que todas as entradas do arquivo de dados do \BibTeX{} sejam
+incluídas nas referências.
+\nocite{texbook}
+
+Existem vários livros sobre \LaTeX{}, como
+\cite{Buerger:LES90,Hahn:LE91,Kopka:1995:GDP}, embora os mais famosos
+sejam sem dúvida \cite{IB-D883079} e \cite{Goossens:1994:LCb}.  Para
+converter documentos \LaTeX{} para HTML veja \cite[pg.
+1--10]{DrakosNiko94d}.
+
+\index{referencias@referências!bibliograficas@bibliográficas!cite com
+parametro opcional@\comm{cite} com parâmetro opcional}%
+\index{BibTeX@\BibTeX!cite com parametro
+opcional@\comm{cite} com parâmetro opcional}%
+\index{HTML!convertendo LaTeX para@convertendo \LaTeX{} para}%
+
+Veja também na página~\pageref{item:bibtexlogo} como gerar o
+\eng{logo} \BibTeX.
+}
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-biblio.tex ends here.

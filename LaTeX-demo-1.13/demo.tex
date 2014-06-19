@@ -1,0 +1,365 @@
+%%% demo.tex -- Exemplos usando \LaTeXe e vários packages
+%%% GNU Emacs e AUC-TeX foram usados para a criação deste texto.
+%%% $Id: demo.tex,v 1.24 2001/01/16 01:31:50 jessen Exp $
+
+%%% Este documento pode ser livremente copiado e modificado desde que
+%%% atendidas as seguintes condições:
+%%%
+%%% É permitido fazer e distribuir cópias inalteradas deste documento,
+%%% completo ou em partes, contanto que a mensagem de copyright e esta
+%%% nota sobre a distribuição sejam mantidas em todas as cópias.  Se
+%%% este documento for distribuído apenas em partes, instruções de como
+%%% obtê-lo por completo devem ser incluídas.
+%%%
+%%% É permitido fazer e distribuir cópias modificadas deste documento
+%%% sob as mesmas condições do item anterior, contanto que todo o
+%%% trabalho derivado seja distribuído sob estas mesmas condições.
+%%%
+%%% É permitida a inclusão de exemplos de código LaTeX mostrados neste
+%%% trabalho em qualquer documento.  Tal uso é completamente livre e não
+%%% está sujeito à nenhuma restrição.
+
+\documentclass[11pt,a4paper]{article}
+%%% Para versões não-finais do seu documento tente usar:
+%%% \documentclass[11pt,a4paper,draft]{article}
+%%% Não inclui figuras.  Útil para visualizar ``overfull hbox'', etc.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% preamble starts here
+
+%%% Este package define copyright/data/versão/keywords do documento.
+\usepackage{demo-version}
+
+%%% Este package contém defições e packages usados no documento.  A
+%%% criação de packages dessa maneira é util para reutilização de
+%%% código bem como para diminuir o tamanho do preâmbulo dos documentos.
+\usepackage{demo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Título
+
+%%% Exemplo de footnote no título
+\title{\LaTeX{} demo: Exemplos com \LaTeXe
+  \footnotemark%
+  \addtocounter{footnote}{0}%
+  \footnotetext{Incluindo vários \eng{packages}.}
+}
+
+\author{\demoreleasecopyright\\
+  Klaus Steding-Jessen%
+  \thanks{Com a contribuição de diversas pessoas, vide seção
+    ``Agradecimentos''.}\\
+  \email{jessen@acm.org}}
+
+\date{\demoreleasedate\\
+  {\small Versão: \demoreleaseversion}}
+
+%%% Para produzir data na qual o documento foi processado:
+%%% \date{\today} ou simplesmente \date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Para a criação de Índice
+\makeindex
+
+%%% Para a criação do glossário
+\makeglossary
+
+%%%% preamble ends here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%% Screen Output
+\typeout{****}
+\ifpdf
+\typeout{* LaTeX-demo \demoreleaseversion: Exemplos com LaTeX2e (Versao PDF)}
+\else
+\typeout{* LaTeX-demo \demoreleaseversion: Exemplos com LaTeX2e (Versao DVI)}
+\fi
+\typeout{****}
+
+\index{footnote@\eng{footnote}!dentro de titulo@dentro de título}%
+
+\ifpdf
+%%% 0==chapter, 1==section, último argumento é um anchorname único
+\pdfbookmark[1]{LaTeX-demo \demoreleaseversion:
+Exemplos com LaTeX2e}{bookmarktitle}
+\fi
+\maketitle
+\thispagestyle{empty}
+
+%%% Pode ser empty, plain, headings.
+\pagestyle{plain}
+
+%%% Para maior controle sobre os headers e footers existe o package
+%%% fancyhdr:
+%%% fancyhdr CTAN:macros/latex/contrib/supported/fancyhdr/
+%%% Support for sophisticated control of page headers and footers in
+%%% LaTeX2e. It supersedes the older fancyheadings package which should no
+%%% longer be used.  Latest recorded version is 1.99b. (17 Jun 1997)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Abstract
+
+%%% O label LastPage é definido pelo package lastpage.
+
+\ifpdf\pdfbookmark[1]{\abstractname}{bookmarkabstract}\fi
+{%
+  %%% Inglês fica restrito a esse bloco.  O idioma default do
+  %%% documento continua sendo Português.
+  \selectlanguage{english}
+  \begin{abstract}
+    This \pageref{LastPage}~pages document is a \LaTeX{} use example.
+    \LaTeXe{} is required.  The following packages are used:
+    \usedpackages{}.
+
+    \begin{description}
+    \item[Keywords] \dockeywords.
+    \end{description}
+  \end{abstract}
+}
+
+\begin{abstract}
+  Este documento de \pageref{LastPage}~páginas é um exemplo de uso de
+  \LaTeX{} e exige o uso de \LaTeXe.  Os seguintes \eng{packages} são
+  usados: \usedpackages{}.
+
+  \begin{description}
+  \item[Palavras-chave] \docpalavraschave.
+  \end{description}
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Página com as condições de Distribuição deste documento e
+%%% Agradecimentos.
+\clearpage
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{Distribuição}
+\input{demo-distrib}
+
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{Agradecimentos}
+\input{demo-thanks}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% start of Table of Contents, List of Figures and List of Tables.
+
+\clearpage
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\contentsname}
+\tableofcontents
+
+\clearpage
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+
+%\clearpage
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+
+\clearpage
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\listofcodename}
+\listof{codigo}{\listofcodename}
+
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\listalgorithmname}
+\listofalgorithms
+
+\clearpage
+%%% end of Table of Contents, List of Figures and List of Tables.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% comentários usando o package version
+\begin{comment}
+  Comentário
+  Comentário
+  Comentário
+  Comentário
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Exemplo de Texto Comum
+
+\input{demo-texto}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Símbolos
+
+\input{demo-simbolos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Lists
+
+\input{demo-lists}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Espaços
+
+\input{demo-espaco}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Fontes
+
+\input{demo-fontes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Quotation
+
+\input{demo-quotation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Poesia
+
+\input{demo-poesia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Colunas
+
+\input{demo-colunas}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Length
+
+\input{demo-length}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Espaçamento horizontal e vertical
+
+\input{demo-espacamento}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Boxes
+
+\input{demo-boxes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Centering and ``Flushing''
+
+\input{demo-center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Counters
+
+\input{demo-counter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Tabelas
+
+\clearpage
+\input{demo-tables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Figuras
+
+\clearpage
+
+\ifpdf
+\input{demo-pdf-graphics}
+\else
+\input{demo-graphics}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Cores
+
+\clearpage
+\input{demo-cores}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Referências
+
+\input{demo-referencias}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% URLs
+
+\input{demo-url}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Typed text
+
+\clearpage
+\input{demo-typed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Pseudocódigo, Código Fonte e Algoritmos
+
+\clearpage
+\input{demo-codigo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Matemática
+
+\clearpage
+\input{demo-matematica}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Química
+
+\clearpage
+\input{demo-quimica}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Referências Bibliográficas
+
+\clearpage
+\input{demo-biblio}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Exemplos de Apêndice
+
+%\clearpage
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\appendixname}
+\appendix
+\input{demo-apendice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Apêndice: descrição dos packages usados no LaTeX-demo
+
+\clearpage
+\input{demo-apendice-packages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Indice Remissivo
+
+\clearpage
+\index{indice remissivo@índice remissivo}%
+%\addcontentsline{toc}{section}{\protect\numberline{}\indexname}
+% a forma com \numberline{} reserva espaço à esquerda
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\indexname}
+\printindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Glossário
+
+\clearpage
+\index{glossario@glossário}%
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\glossaryname}
+\printglossary
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Referências
+
+\clearpage
+\index{referencias@referências}%
+%\addcontentsline{toc}{section}{\protect\numberline{}\bibname}
+\ifpdf\phantomsection\fi
+\addcontentsline{toc}{section}{\refname}
+\bibliography{refs}\label{sec:refs}
+\bibliographystyle{plain}
+
+\end{document}
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo.tex ends here.

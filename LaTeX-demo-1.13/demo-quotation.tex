@@ -1,0 +1,63 @@
+%%% -*-LaTeX-*-
+%%% demo-quotation.tex -- exemplo de quotation environment.
+%%% $Id: demo-quotation.tex,v 1.3 2000/08/02 01:17:42 jessen Exp $
+
+\section{\eng{Quotation}}
+\index{quotation@\eng{quotation}}%
+
+Dan Quayle declarou:
+
+\index{quotation@\eng{quotation}!Dan Quayle}%
+\begin{quotation}
+  ``Uma palavra resume a responsabilidade de qualquer
+  vi\-ce-pre\-si\-den\-te.  E essa palavra é: `estar preparado'\,''.
+\end{quotation}
+
+\label{sec:quotation-numbered}
+É possível ainda criar novos \eng{environments} para mostrar este tipo
+de material, como por exemplo sem e com numeração, mostrados abaixo:
+
+%%% Vide demo.sty para a definição dos environments ``CITATION'' e
+%%% ``Citation''.
+
+{%
+  %%% Inglês fica restrito a esse bloco.  O idioma default do
+  %%% documento continua sendo Português.
+  \selectlanguage{english}
+  \index{quotation@\eng{quotation}!Brooke Shields}%
+  \begin{CITATION}{Brooke Shields.}
+    ``Smoking kills. If you're killed, you've lost a very important part
+    of your life.''
+  \end{CITATION}
+
+  \index{quotation@\eng{quotation}!Dan Quayle}%
+  \begin{Citation}{Former U.S. Vice-President Dan Quayle.}
+    ``I was recently touring Latin America, and the only regret I have was
+    that I didn't study Latin harder in school, so I could converse with
+    those people.''
+  \end{Citation}
+
+  \index{quotation@\eng{quotation}!Dan Quayle}%
+  \begin{Citation}{Former U.S. Vice-President Dan Quayle.}
+    ``It isn't pollution that's harming the environment.  It's the
+    impurities in our air and water that are doing it.''
+  \end{Citation}
+
+  \index{quotation@\eng{quotation}!Dan Quayle}%
+  \begin{Citation}{Former U.S. Vice-President Dan Quayle.}
+    ``The loss of life will be irreplaceable.''
+  \end{Citation}
+
+  \index{quotation@\eng{quotation}!Dan Quayle}%
+  \begin{Citation}{Former U.S. Vice-President Dan Quayle.}
+    ``I love California.  I practically grew up in Phoenix.''
+  \end{Citation}
+}
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-quotation.tex ends here.

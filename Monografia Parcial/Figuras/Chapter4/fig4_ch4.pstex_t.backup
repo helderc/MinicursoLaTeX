@@ -1,0 +1,20 @@
+\begin{picture}(0,0)%
+\includegraphics{Figuras/Chapter4/fig4_ch4.pstex}%
+\end{picture}%
+\setlength{\unitlength}{4144sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(4472,1066)(521,-591)
+\put(4529, -2){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}${\bf v}_2$}}}
+\put(884,-272){\rotatebox{5.0}{\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\em ciclo}$_1$}}}}
+\put(2443,-47){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\tt mev}}}}
+\put(4439,-272){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}${\bf e}$}}}
+\put(4259,-542){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}${\bf v}_1$}}}
+\put(749,-542){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}${\bf v}_1$}}}
+\put(4169,178){\rotatebox{285.0}{\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\em ciclo}$_1$}}}}
+\end{picture}

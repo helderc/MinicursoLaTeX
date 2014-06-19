@@ -1,0 +1,40 @@
+%%% -*-LaTeX-*-
+%%% demo-referencias.tex -- exemplo de referências.
+%%% $Id: demo-referencias.tex,v 1.4 2001/01/12 02:21:11 jessen Exp $
+
+\section{Referências}
+\index{referencias@referências!exemplo}%
+\label{sec:referencias}
+
+Referências são implementadas com os comandos \command{label},
+\command{ref} e \command{pageref}.  Exemplos: Tab.~\ref{tab:cline} na
+página~\pageref{tab:cline}, Fig.~\ref{fig:gnu} na
+página~\pageref{fig:gnu}, Eq.~\ref{eq:sum} na página~\pageref{eq:sum},
+Teorema~\ref{theorem:chasles} na página~\pageref{theorem:chasles},
+item~\ref{list:bar} da página~\pageref{list:bar}.
+
+\subsection{Referências com o \eng{package} \pack{varioref}}
+\index{referencias@referências!com package varioref@com o
+\eng{package} \package{varioref}}%
+
+O \eng{package} \package{varioref} define novos comandos:
+\command{vref} e \command{vpageref}.  O comando \command{vref} é
+similar ao comando \command{ref} mas adiciona uma referência adicional
+da forma `na página anterior', `na próxima página' ou `na página 100'
+caso o \command{label} não esteja na mesma página.
+
+O comando \command{vpageref} é uma variação do comando
+\command{pageref} mas que também leva em conta a proximidade do
+\command{label} correspondente, da mesma forma que \command{vref}.
+
+Exemplos: seção~\vref{sec:referencias} \vpageref{sec:referencias},
+Fig.~\vref{fig:gnuplot-example-2}, seção~\vref{sec:typed-text},
+Teorema~\vref{theorem:chasles}.
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-referencias.tex ends here.

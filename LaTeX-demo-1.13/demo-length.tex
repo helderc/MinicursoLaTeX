@@ -1,0 +1,97 @@
+%%% -*-LaTeX-*-
+%%% demo-length.tex -- exemplo de lengths.
+%%% $Id: demo-length.tex,v 1.2 1998/11/29 03:22:53 jessen Exp $
+
+\section{\eng{Lengths}}
+
+\eng{Length} é uma medida de distância, positiva ou negativa,
+representado por um número seguido de uma unidade.  Algumas das
+unidades mais comuns são mostradas na Tab.~\ref{tab:units}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|r|r|}
+    \hline
+    Unidade     &       Nome & Equivalência \\
+    \hline\hline
+    \texttt{pt} &\eng{Point} & $\unidade{1}{pt} = \unidade{1/72.27}{in}$ \\
+    \texttt{mm} &  Milímetro & $\unidade{1}{mm} = \unidade{2.845}{pt}$ \\
+    \texttt{pc} & \eng{Pica} & $\unidade{1}{pc} = \unidade{12}{pt}$ \\
+    \texttt{cm} & Centímetro & $\unidade{1}{cm} = \unidade{10}{mm}$ \\
+    \texttt{in} &   Polegada & $\unidade{1}{in} = \unidade{25.4}{mm}$ \\
+    \texttt{ex} &         Ex & Altura de um ``x'' \\
+    \texttt{em} &         Em & Largura de um ``M'' \\
+    \hline
+  \end{tabular}
+  \caption{Algumas das Unidades de Distância usadas pelo \LaTeX}
+  \label{tab:units}
+\end{table}
+
+Além da possibilidade de usar medidas diretamente (como
+\unidade{10}{cm}, \unidade{1}{ex}, etc.), \LaTeX{} também define
+\eng{length commands}, isto é, comandos cujos valores são
+\eng{lengths}.  Por exemplo, \lengthname{parindent} contém a medida da
+indentação usada no começo de um parágrafo.  Para uma descrição de
+todos os \eng{length commands} e como eles afetam o estilo de um
+documento \LaTeX{} consulte~\cite[Apêndice~C]{IB-D883079}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Mostrando o Valor de um \eng{Length}}
+\index{lengths@\eng{lengths}!mostrando}%
+
+O valor de um \eng{length command} pode ser mostrado com o comando
+\command{the} seguido do nome da medida.  Por exemplo,
+\lengthname{parindent} = \the\parindent.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Alterando o Valor de um \eng{Length}}
+\index{lengths@\eng{lengths}!alterando}%
+
+O valor de um \eng{length command} pode ser alterado com o comando
+\command{setlength}.  Por exemplo, para zerar \lengthname{parindent}
+temos:
+
+\begin{codeverbatim}
+\setlength{\parindent}{0pt}
+\end{codeverbatim}
+
+Note que um \eng{length command} pode ser definido em função de outro.
+No exemplo abaixo \lengthname{abovecaptionskip} (espaço acima do
+\eng{caption} e sua figura/tabela) é definido como duas vezes
+seus valor original:
+
+\begin{codeverbatim}
+\setlength{\abovecaptionskip}{2\abovecaptionskip}
+\end{codeverbatim}
+
+Também é possível somar um valor a um \eng{length command} com o
+comando \command{addtolength}, como mostrado no exemplo abaixo, onde
+\lengthname{parindent} é aumentado em \unidade{10}{pt}:
+
+\begin{codeverbatim}
+\addtolength{\parindent}{10pt}
+\end{codeverbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Criando um novo \eng{Length}}
+\index{lengths@\eng{lengths}!criando}%
+
+O comando \command{newlength} define um novo \eng{length command}, com
+valor inicial igual a 0, como mostrado no exemplo abaixo:
+
+\begin{codeverbatim}
+\newlength{\foo}
+\end{codeverbatim}
+
+Caso o \eng{length command} já exista um erro é reportado.
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-length.tex ends here.

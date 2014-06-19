@@ -1,0 +1,133 @@
+### $Id: INSTALL,v 1.12 2001/01/20 02:32:11 jessen Exp $
+
+VERIFICANDO A INTEGRIDADE DOS ARQUIVOS
+
+  É muito importante que você verifique a integridade dos arquivos que
+  copiou.  Rode os comandos `sha1' e `md5' em cada um dos arquivos
+  `.gz' e `.pdf' e compare com o conteúdo do arquivo CHECKSUM,
+  disponível no mesmo local de onde voce copiou os demais arquivos.
+
+  Por exemplo:
+
+  sha1 *.gz *.pdf ; md5 *.gz *.pdf; echo ; cat CHECKSUM
+
+  Obs: Em alguns sistemas o comando `md5' chama-se `md5sum'.  Nem
+  todos os sistemas possuem o comando `sha1' instalado por default.
+
+INSTALANDO
+
+  Para abrir os arquivos do LaTeX-demo, digite:
+
+  gunzip -c LaTeX-demo-VER.tar.gz | tar xvf -
+
+  gunzip -c LaTeX-demo-ps-VER.tar.gz | tar xvf -
+
+  onde VER é o número da versão.
+
+SOFTWARE NECESSÁRIO
+
+  Este documento *exige* LaTeX2e.  Definitivamente não funcionará com
+  a versão 2.09 do LaTeX.  Vários packages e fontes também são
+  necessários.
+
+  As versões DVI e PS deste documento foram testadas com sucesso com a
+  distribuição teTeX 0.4, 0.9 e 1.0.x nos seguintes sistemas:
+
+  * AIX 4.1 e 4.3.2;
+  * FreeBSD 3.2, 3.3, 3.4, 4.0 e 4.2;
+  * Linux (Slackware 3.4, 4.0, 7; Debian 2.1; Red Hat 6.2;
+           SuSe 7.0; Conectiva 5.0);
+  * OpenBSD 2.5, 2.6, 2.7 e 2.8;
+  * Solaris 2.5.1 e 2.7 (sparc).
+
+  Espera-se que qualquer sistema Unix com teTeX (qualquer das versões
+  acima) instalado e corretamente configurado seja capaz de gerar as
+  versões DVI e PS deste documento.
+
+  Para a geração da versão PDF é necessário que o pdftex esteja
+  disponível -- como por exemplo nas versões mais recentes de teTeX
+  (1.0.x).  Para a visualização destes documentos em formato PDF é
+  necessária a utilização de um PDF viewer como Acrobat Reader ou
+  xpdf.
+
+  Você pode pegar a distribuição teTeX para o seu sistema em:
+
+  http://www.tug.org/teTeX/
+
+CONFIGURAÇÃO NECESSÁRIA
+
+  Além de estar instalado em seu sistema, sua distribuição de LaTeX
+  deve estar configurada para hifenizar em Português.  No caso do teTeX,
+  você configura isso rodando o programa `texconfig', indo na opção
+  `HYPHEN' e removendo o caracter `%' da frente da linha:
+
+  %portuges pthyph.tex
+
+  Para a geração da versão PDF seu pdftex deve ter um valor de
+  `pool_size' razoavelmente grande.  Edite o arquivo `texmf.cnf',
+  aumentando o valor de `pool_size' para 150000, por exemplo.
+
+GERANDO O DOCUMENTO
+
+  Para gerar as versões PostScript deste documento digite:
+
+  make demo.ps
+  make demo-src.ps
+
+  Para gerar as versões PDF digite:
+
+  make demo.pdf
+  make demo-src.pdf
+
+  Para apagar todos os arquivos gerados, com exceção dos arquivos
+  .dvi, .ps e .pdf digite:
+
+  make clean
+
+  Se desejar apagar todos os arquivos gerados, permanecendo apenas com
+  os arquivos originais da distribuição, digite:
+
+  make distclean
+
+  Você pode, se preferir, executar cada passo manualmente, como
+  descrito abaixo.
+
+  Para gerar os arquivos .dvi:
+
+  latex demo
+  bibtex demo
+  latex demo
+  makeindex -s demo-index.ist demo
+  makeindex -s makeglo.ist -o demo.gls demo.glo
+  latex demo
+  makeindex -s demo-index.ist demo
+  latex demo
+  latex demo-src
+  latex demo-src
+  latex demo-src
+
+  Para gerar os arquivos .ps:
+
+  dvips demo.dvi -o demo.ps
+  dvips demo-src.dvi -o demo-src.ps
+
+  Para gerar os arquivos .pdf:
+
+  pdflatex demo
+  bibtex demo
+  pdflatex demo
+  makeindex -s demo-index.ist demo
+  makeindex -s makeglo.ist -o demo.gls demo.glo
+  pdflatex demo
+  makeindex -s demo-index.ist demo
+  pdflatex demo
+  pdflatex demo-src
+  pdflatex demo-src
+  pdflatex demo-src
+
+README
+
+  Maiores detalhes bem como soluções para possíveis problemas na
+  geração desse documento podem ser obtidos no arquivo README.
+
+### INSTALL ends here.

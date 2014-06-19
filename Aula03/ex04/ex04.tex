@@ -1,0 +1,37 @@
+\documentclass{article}
+
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{amsmath}
+
+
+\begin{document}
+
+\section{Regra de L'Hospital}
+
+As regras de L'Hospital, que vamos enunciar a seguir e que cujas demonstrações 
+são deixadas para o final da seção, aplicam-se a cálculos de limites que 
+apresentam indeterminações dos tipos $\frac{0}{0}$ e $\frac{\infty}{\infty}$.
+\\ \\
+A primeira regra diz: Sejam $f$ e $g$ deriváveis em $]p-r, p[$ e em 
+$]p,\ p+r[\ (r > 0)$, com $g'(x) \neq 0$ para $0 < |x-p| < r$. 
+Nessas condições, se
+
+\[
+	\lim_{x\rightarrow p}{f(x)}\ =\ 0, \quad 
+	\lim_{x\rightarrow p}{g(x)}\ =\ 0
+\]
+
+e se $\lim\limits_{x\rightarrow p}{\frac{f'(x)}{g'(x)}}$ existir 
+(finito ou infinito), então $\lim\limits_{x\rightarrow p}{\frac{f(x)}{g(x)}}$
+existirá e
+
+\[
+	\lim_{x\rightarrow p}{\frac{f(x)}{g(x)}}\ =\ 
+	\lim_{x\rightarrow p}{\frac{f'(x)}{g'(x)}}.
+\]
+
+\end{document}
+

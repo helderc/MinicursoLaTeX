@@ -1,0 +1,108 @@
+\documentclass{beamer}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{graphicx}
+
+%\usetheme{Frankfurt}
+%\usetheme{Dresden}
+\usetheme{Copenhagen}
+%\usetheme{Warsaw}
+%\usetheme{Luebeck}
+
+%\usecolortheme{seagull}
+%\usecolortheme{whale}
+%\usecolortheme{dolphin}
+
+
+\begin{document}
+\title{Modelo de Slides}
+
+\author[Helder]{Helder C. R. de Oliveira}
+
+\institute[FCT-UNESP]{
+	UNESP - Universidade Estadual Paulista\\
+	``\emph{Júlio de Mesquita Filho}'' \\
+	Câmpus de Presidente Prudente\\
+}
+
+\logo{\includegraphics[scale=0.1]{img/unesp.pdf}}
+
+\date{\today}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+\section{Introdução}
+\begin{frame}
+	\frametitle{Primeiro Slide}
+	%Content goes here
+\end{frame}
+
+\begin{frame}
+	\frametitle{This is the second slide}
+	\framesubtitle{A bit more information about this}
+	%More content goes here
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{This is the second slide}
+	\framesubtitle{A bit more information about this}
+	  \begin{itemize}
+  \item With a lot of useless -- but pretty -- features
+  \item But without some useful features
+  \item Well suited for short talks, for longer talks you should use themes
+        with navigation bars
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\textbf{Step1:} Compute the maximal suffix of $w$ with respect to $\preceq_l$ (say $v$) and the
+maximal suffix of $w$ with respect to $\preceq_r$ (say $v’$).
+\pause
+
+\textbf{Step 2:} Find words $u$, $u’$ such that
+$w = uv = u’v’$.
+\pause
+
+\textbf{Step 3:} If $|v| \le |v’|$, then output
+$(u,v)$. Otherwise, output$(u’,v’)$.
+\end{frame}
+
+
+\begin{frame}
+    \alert{Alert on all slides}
+
+    \alert<2>{Alert on slide 2}
+
+    \alert<3>{Alert on slide 3}
+
+    \alert<1,3>{Alert on slides 1 and 3}
+
+    \alert<-2,4>{Alert on slides 1,2 and 4}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{itemize}
+    \item<1> $abcadcabc$
+    \item<1-2> $abcabcabc$
+    \item<1-2> $accaccacc$
+    \item<1> $bacbccbac$
+    \item<1,3> $cacdaccac$
+    \item<1-2> $caccaccac$
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,64 @@
+%%% -*-LaTeX-*-
+%%% demo-url.tex -- exemplo de uso de URLs, paths e emails
+%%% com o package url.
+%%% $Id: demo-url.tex,v 1.4 2000/08/01 00:32:55 jessen Exp $
+
+\section{URLs, \eng{Paths} e \eng{Emails}}
+\label{sec:url}
+
+O uso de URLs, \eng{paths} e \eng{emails} em documentos pode ser um
+problema devido à dificuldade do \LaTeX{} em realizar quebra de linha
+nestes casos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{URLs}
+\index{urls}%
+\index{urls!muito longas}%
+
+O \eng{package} \package{url} define o comando \command{url}, uma
+espécie de \command{verb} que permite quebra de linha e que pode ser
+usado como argumento para outros comandos. (ao contrário do comando
+\command{verb}).
+
+Um exemplo de uma URL muito longa:
+\url{http://www.cis.ohio-state.edu/hypertext/faq/usenet/radio/ham-radio/
+digital-faq/faq.html}.
+
+\index{urls!mudando o estilo}%
+Estilo pode ser mudado com \command{urlstyle}, como por exemplo em:
+\urlstyle{sf}
+\url{http://ptolemy.eecs.berkeley.edu/~pino/Ptolemy/papers/96/dtmf_ict/}.
+%%% volta ao estilo default, tt
+\urlstyle{tt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\eng{Paths}}
+\index{paths@\eng{paths}}%
+
+O \eng{package} \package{url} define também o comando \command{path},
+útil para o uso de \eng{pathnames} muito longas, como por exemplo:
+\path{/usr/local/src/ftp.win.tue.nl/tcp_wrappers/
+tcp_wrappers_7.6.tar.gz}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\eng{Mails}}
+\index{email@\eng{email}!definicao de macro@definição de macro}%
+
+Note que o \eng{package} \package{url} não define \command{email}.
+Entretanto, pode-se defini-lo, por exemplo, como:
+
+\begin{codeverbatim}
+\newcommand\email{\begingroup \urlstyle{tt}\Url}
+\end{codeverbatim}
+
+Assim \eng{emails} podem ser usados, como em:
+\email{alan@lxorguk.ukuu.org.uk} e
+\email{jnweiger@immd4.informatik.uni-erlangen.de}.
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-url.tex ends here.

@@ -1,0 +1,267 @@
+%%% -*-LaTeX-*-
+%%% demo-simbolos.tex -- exemplo de vários símbolos.  São usadas as
+%%% fontes Text Companion, AMS e Wasy.
+%%% $Id: demo-simbolos.tex,v 1.9 2001/01/12 02:24:47 jessen Exp $
+
+\section{Símbolos Gráficos}
+\index{simbolos graficos@símbolos gráficos!exemplos|(}%
+
+\begin{multicols}{2}
+\index{colunas!package multicol@\eng{package} \pack{multicol}}%
+\index{colunas!multicols environment@\env{multicols} \eng{environment}}%
+\envidx{multicols}%
+\index{colunas!package multicol@\eng{package}%
+\pack{multicol}!diferenças com onecolumn@diferenças com \comm{onecolumn}}%
+\index{colunas!package multicol@\eng{package} \pack{multicol}!exemplo
+com 2 colunas}%
+
+Os exemplos desta seção usam o \eng{package} \package{multicol} para a
+seleção de múltiplas colunas.  Ao contrário de \command{onecolumn} e
+\command{twocolumn}, que sempre iniciam uma nova página, o
+\environ{multicols} \eng{environment} permite trocar o número de
+colunas numa mesma página.  Outra característica importante é que este
+pacote distribui melhor o texto evitando colunas da direita vazias ou
+apenas parcialmente ocupadas.
+\end{multicols}
+
+\subsection{Fonte Zapfdingbats}
+\label{subsec:pifonts}
+\index{simbolos graficos@símbolos gráficos!fonte zapfdingbats}%
+
+Alguns dos símbolos definidos pelo \eng{package} \package{pifonts}.
+Exemplo de \verb!\begin{multicols}{5}! na construção de cinco colunas:
+\index{colunas!package multicol@\eng{package} \pack{multicol}!exemplo
+com 5 colunas}%
+
+\begin{multicols}{5}
+\begin{enumerate}
+
+\item \ding{61}
+\item \ding{62}
+\item \ding{63}
+\item \ding{64}
+\item \ding{65}
+\item \ding{66}
+\item \ding{67}
+\item \ding{68}
+\item \ding{69}
+\item \ding{70}
+
+\end{enumerate}
+\end{multicols}
+
+Um caso de lista usando símbolos:
+\index{simbolos graficos@símbolos gráficos!lista de}%
+
+\begin{multicols}{5}
+\begin{dinglist}{242}
+
+\item item 1
+\item item 2
+\item item 3
+\item item 4
+\item item 5
+
+\end{dinglist}
+\end{multicols}
+
+Outro exemplo de lista usando sím\-bo\-los grá\-fi\-cos com
+\verb!\begin{multicols}{3}!.
+\index{simbolos graficos@símbolos gráficos!lista de}%
+\index{colunas!package multicol@\eng{package} \pack{multicol}!exemplo
+com 3 colunas}%
+
+\begin{multicols}{3}
+\begin{dingautolist}{202}
+
+\item item 1
+\item item 2
+\item item 3
+\item item 4
+\item item 5
+
+\end{dingautolist}
+\end{multicols}
+
+Enchendo uma li\-nha com sím\-bo\-los grá\-fi\-cos:\\
+\index{simbolos graficos@símbolos gráficos!linha de}%
+
+\dingline{35}
+
+\subsection{Fonte Text Companion}
+\label{subsec:textcompanion}
+\index{simbolos graficos@símbolos gráficos!fonte text companion@fonte
+\eng{text companion}}%
+
+\index{colunas!package multicol@\eng{package}%
+  \pack{multicol}!separador de colunas}%
+
+Alguns dos símbolos definidos pelo \eng{package} \package{textcomp}
+são mostrados abaixo:
+
+\setlength{\columnseprule}{0.4pt}
+
+\ifpdf
+
+%%% o package textcomp não foi carregado na versao PDF.
+%%%
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item 1\textordmasculine % símbolo de ordinal masculino
+\index{simbolos graficos@símbolos gráficos!ordinal masculino}%
+\item 2\textordfeminine  % símbolo de ordinal feminino
+\index{simbolos graficos@símbolos gráficos!ordinal feminino}%
+\item 25\,\textdegree{}C   % símbolo de graus Celsius
+\index{simbolos graficos@símbolos gráficos!graus Celsius}%
+\item 90\textdegree        % símbolo de graus
+\index{simbolos graficos@símbolos gráficos!graus}%
+\item \textsection
+\item \textbackslash
+\item \textbullet
+\end{enumerate}
+\end{multicols}
+
+\else
+
+%%% Versão DVI/PS
+
+\begin{multicols}{5}
+\begin{enumerate}
+\item 1\textordmasculine % símbolo de ordinal masculino
+\index{simbolos graficos@símbolos gráficos!ordinal masculino}%
+\item 2\textordfeminine  % símbolo de ordinal feminino
+\index{simbolos graficos@símbolos gráficos!ordinal feminino}%
+
+%%% Com a utilização do package inputenc (com a opção `latin1')
+%%% é possível a utilização direta no texto dos símbolos de ordinal,
+%%% isto é, os caracteres ASCII 186 e 170.  Internamente o package
+%%% transforma esses simbolos em \textordmasculine e \textordfeminine.
+
+%%% É possível, entretanto, produzir símbolos de ordinal masculino e
+%%% feminino sem a utilização dos símbolos acima definidos no package
+%%% textcomp.
+%%% Andrzej Solecki, num mail para a lista tex-br sugeriu a seguinte
+%%% solução:
+%%%
+%%% \newcommand{\ele}{\raise1ex\hbox{\underbar{\scriptsize o}}}
+%%% \newcommand{\ela}{\raise1ex\hbox{\underbar{\scriptsize a}}}
+%%%
+%%% João Candido Dovicchi também sugeriu:
+%%%
+%%% 1$^{\underline{o}}$
+%%% 2$^{\underline{a}}$
+
+%%% Versões mais antigas do package ``textcomp'' definiam a macro
+%%% ``\textcentigrade'', enquanto que versões mais recentes definem a macro
+%%% ``\textcelsius''.  Por questões de compatibilidade escolheu-se
+%%% usar ``\textdegree{}C'' na construção do símbolo de graus Celsius.
+%%% Veja em demo.sty, na definição da macro ``temp'', para outra
+%%% sugestão de como gerar esses símbolos.
+
+\item 25\,\textdegree{}C   % símbolo de graus Celsius
+\index{simbolos graficos@símbolos gráficos!graus Celsius}%
+\item 90\textdegree        % símbolo de graus
+\index{simbolos graficos@símbolos gráficos!graus}%
+
+\item \textpertenthousand
+\item \textsection
+\item \textmu
+\item \textohm
+\item \textbigcircle
+\item \textdied
+\item \textdivorced
+\item \textmarried
+\item \textcent
+\item \textcentoldstyle
+\item \textflorin
+\item \textguarani
+\item \textpeso
+\item \textlira
+\item \textbackslash
+\item \textbullet
+\end{enumerate}
+\end{multicols}
+
+\fi
+
+
+No exemplo acima a medida \lengthname{columnseprule} foi fixada em
+\unidade{0.4}{pt} com o comando \command{setlength} para a criação do
+separador entre colunas.  Para fazer este separador desaparecer basta
+fixar essa medida em \unidade{0}{pt}.
+
+\subsection{Fonte Wasy}
+\label{subsec:wasy}
+\index{simbolos graficos@símbolos gráficos!fonte wasy}%
+
+Alguns dos símbolos definidos pelo \eng{package} \package{wasysym}:
+
+\begin{multicols}{5}
+  \begin{enumerate}
+  \item \pointer
+  \item \RIGHTarrow
+  \item \LEFTarrow
+  \item \UParrow
+  \item \DOWNarrow
+  \item \phone
+  \item \clock
+  \item \lightning
+  \item \recorder
+  \item \currency
+  \end{enumerate}
+\end{multicols}
+
+\subsection{AMS Fonts}
+\label{sec:amsfonts}
+\index{simbolos graficos@símbolos gráficos!AMS fonts}%
+\index{colunas!package multicol@\eng{package} \pack{multicol}!exemplo
+com 2 colunas}%
+
+Símbolos do conjunto dos números Naturais, Racionais, Reais,
+etc.\ definidos pelo \eng{package} \package{amsfonts}.
+
+%%% sem coluna separadora.
+\setlength{\columnseprule}{0pt}
+
+%%% Algumas anternativas para a criação destes símbolos incluem:
+%%%
+%%% 1) AmSTeX:
+%%%
+%%% \usepackage{amssymb}
+%%% $\mathbb{N, Z, Q, R, C}$
+%%%
+%%% 2) Bbold
+%%%
+%%% usepackage{bbold}
+%%% $\mathbb{N, Z, Q, R, C}$
+%%%
+%%% 3) bbm
+%%%
+%%% \usepackage{bbm}
+%%% $\mathbbm{N, Z, Q, R, C}$
+%%%
+%%% 4) dsfont
+%%%
+%%% \usepackage{dsfont}
+%%% $\mathds{N, Z, Q, R, C}$
+
+\begin{multicols}{5}
+\begin{enumerate}
+\item $\mathbb{N}$
+\item $\mathbb{Z}$
+\item $\mathbb{Q}$
+\item $\mathbb{R}$
+\item $\mathbb{C}$
+\end{enumerate}
+\end{multicols}
+
+\index{simbolos graficos@símbolos gráficos!exemplos|)}%
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-simbolos.tex ends here.

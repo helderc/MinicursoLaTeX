@@ -1,0 +1,154 @@
+%%% -*-LaTeX-*-
+%%% demo-texto.tex -- exemplo de texto simples com uma e duas colunas,
+%%% sublinhado, espaçamento duplo, etc.
+%%% $Id: demo-texto.tex,v 1.5 2000/07/26 04:44:35 jessen Exp $
+
+%%% coloca o texto a seguir em modo duas colunas
+\twocolumn
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Texto Comum}
+
+Exemplo de um parágrafo comum\footnote{Exemplo de \eng{footnote}.} de
+texto.  Os exemplos de texto desta página estão em duas colunas usando
+\command{twocolumn}.
+\index{footnote@\eng{footnote}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Espaçamento entre Linhas}
+\index{espacamento@espaçamento!entre linhas}%
+
+O \eng{package} \package{setspace} provê alguns comandos para a
+alteração do espaçamento entre linhas.  Espaçamento duplo pode ser
+útil num texto destinado a revisão, deixando espaço entre linhas que
+podem ser usados para comentários.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Espaçamento Duplo}
+\index{espacamento@espaçamento!entre linhas!duplo}%
+\index{texto!espacamento@espaçamento!duplo}%
+
+\doublespacing
+O comando \command{doublespacing} permite o uso de espaçamento duplo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Espaçamento Um e Meio}
+\index{espacamento@espaçamento!entre linhas!um e meio}%
+\index{texto!espacamento@espaçamento!um e meio}%
+
+\onehalfspacing
+Espaçamento um e meio através do comando \command{onehalfspacing}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Espaçamento Normal}
+\index{texto!espacamento@espaçamento!normal}%
+\index{espacamento@espaçamento!entre linhas!simples}%
+
+\singlespacing
+Espaçamento normal pode ser obtido com o comando
+\command{singlespacing}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Notas nas Margens}
+\index{margens!notas nas}%
+\index{notas!nas margens}%
+
+Notas \marginpar{\raggedleft\hspace{0pt}Exemplo de nota na margem.}
+nas margens são possíveis com o comando \command{marginpar}, como
+mostrado ao lado.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Números}
+\index{texto!numeros@números}%
+\index{texto!numeros (old style)@números (\eng{old style})}%
+\index{footnote@\eng{footnote}!duas entradas com mesmo indice@duas
+entradas com mesmo índice}%
+
+Números\footnote{``Números'' e ``texto'' compartilham o mesmo índice
+de \eng{footnote}.}\addtocounter{footnote}{-1} podem ser usados
+diretamente no texto\footnotemark, como em `0123456789' ou mudando-se
+o estilo com o comando \command{oldstylenums}, como em
+`\oldstylenums{0123456789}'.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sublinhado}
+\label{subsec:ulem}
+\index{sublinhado}%
+
+Sublinhar texto não é considerado uma o\-pe\-ra\-ção tipográfica para
+introduzir ênfase.  \LaTeX{} normalmente usa \emph{itálico} nesta
+operação.  Entretanto, sublinhado pode ser necessário num manuscrito a
+ser submetido para publicação.  O \eng{package} \package{ulem}
+\index{sublinhado!package ulem@\eng{package} \pack{ulem}}%
+pode ser usado nestes casos para produção de diversos tipos de texto
+sublinhado, como mostrado abaixo:
+
+\begin{tabbing}
+  XXXXXXXXX  \=XXXXXXXXX\kill
+  cmd                 \> Exemplo \\
+  \command{uline}     \> \uline{sublinhado} \\
+  \index{sublinhado!uline@\comm{uline}}%
+  \command{uuline}    \> \uuline{duplo-sublinhado} \\
+  \index{sublinhado!uuline@\comm{uuline}}%
+  \command{uwave}     \> \uwave{curvo-sublinhado} \\
+  \index{sublinhado!uwave@\comm{uwave}}%
+  \command{sout}      \> \sout{riscado} \\
+  \index{sublinhado!sout@\comm{sout}}%
+  \command{xout}      \> \xout{sobrescrito} \\
+  \index{sublinhado!xout@\comm{xout}}%
+  \command{dotuline}  \> \dotuline{pontilhado} \\
+  \index{sublinhado!xout@\comm{dotuline}}%
+  \command{dashuline} \> \dashuline{tracejado}
+  \index{sublinhado!xout@\comm{dashuline}}%
+\end{tabbing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Texto com Caracteres Especiais}
+\index{texto!quotado@\eng{quotado}}%
+\index{texto!com caracteres especiais}%
+
+Alguns caracteres que precisam ser quotados ou utilizados com o
+comando \command{verb}:
+
+\begin{tabbing}
+  XXXXXXX \=XXXXXXX \=XXXXXXX \=XXXXXXX\kill
+  cmd           \>  saída  \>  cmd              \>  saída \\
+  \command{\$}  \>  \$     \>  \verb!\{!        \>  \{ \\
+  \command{\&}  \>  \&     \>  \verb!\}!        \>  \} \\
+  \command{\%}  \>  \%     \>  \verb|\verb!~!|  \>  \verb!~! \\
+  \command{\#}  \>  \#     \>  \verb|\verb!^!|  \>  \verb!^! \\
+  \command{\_}  \>  \_     \>  \verb|\verb!\!|  \>  \verb!\!
+\end{tabbing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{footnote@\eng{footnote}!dentro de (sub)secao@dentro de (sub)seção}%
+\subsection[Alguns Símbolos Especiais]{Alguns Símbolos
+Especiais\protect{\footnote{Exemplo de \eng{footnote} em
+\eng{(sub)Section}.}}}
+\index{texto!com simbolos especiais@com símbolos especiais}%
+
+\begin{tabbing}
+  XXXXXXXXX  \=XXXXXXXXX\kill
+  cmd                 \> Exemplo \\
+  \command{dag}       \> \dag \\
+  \command{ddag}      \> \ddag \\
+  \command{S}         \> \S \\
+  \command{P}         \> \P \\
+  \command{copyright} \> \copyright \\
+  \command{pounds}    \> \pounds \\
+  \command{TeX}       \> \TeX \\
+  \command{LaTeX}     \> \LaTeX \\
+  \command{LaTeXe}    \> \LaTeXe
+\end{tabbing}
+
+\index{colunas!onecolumn@\comm{onecolumn}}%
+%%% volta para o default uma coluna.
+\onecolumn
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-texto.tex ends here.

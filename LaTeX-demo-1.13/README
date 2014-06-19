@@ -1,0 +1,436 @@
+### $Id: README,v 1.20 2001/01/20 02:10:47 jessen Exp $
+
+DEFINIÇÃO
+
+  Este documento é um exemplo de uso de LaTeX2e.  O objetivo é ser,
+  através de exemplos, um guia para o usuário de LaTeX iniciante e
+  intermediário.  Pode servir também como um guia de referência rápida
+  para usuários avançados.
+
+ONDE OBTER A VERSÃO MAIS ATUAL DESSE DOCUMENTO
+
+  Homepage do LaTeX-demo
+  http://biquinho.furg.br/tex-br/doc/LaTeX-demo/
+
+  Todos os arquivos fonte:
+  http://biquinho.furg.br/tex-br/doc/LaTeX-demo/LaTeX-demo.tar.gz
+
+  Apenas os documentos em formato PDF:
+  http://biquinho.furg.br/tex-br/doc/LaTeX-demo/LaTeX-demo.pdf
+  http://biquinho.furg.br/tex-br/doc/LaTeX-demo/LaTeX-demo-src.pdf
+
+  Apenas os documentos em formato PostScript:
+  http://biquinho.furg.br/tex-br/doc/LaTeX-demo/LaTeX-demo-ps.tar.gz
+
+COMO USAR O LaTeX-Demo
+
+  * Se você for um usuário iniciante de LaTeX comece olhando o
+  conteúdo do diretório `templates'.  Há esqueletos paras as classes
+  `article', `report', `book', `letter' e `slides' que você pode usar
+  como base para seus próprios documentos.
+
+  * Compare a versão formatada (demo.{dvi,ps,pdf}) com os arquivos
+  fonte que geraram o documento (demo-src.{dvi,ps,pdf}).
+
+  * Consulte o Índice Remissivo por tópicos do seu interesse.
+
+  * Leia os comentários dos arquivos .tex.
+
+  * Use este documento como base para os seus próprios documentos,
+  simplesmente removendo as partes que não interessam.
+
+DESCRIÇÃO
+
+  São mostrados exemplos de:
+
+  * Geração de PDF com pdftex
+     Uso de fontes Type 1, package ae, compilação condicional
+     dependendo da saída, DVI ou PDF;
+     Criação de links e bookmarks no documento com o package hyperref;
+     Inclusão de figuras no formato PNG, JPEG e PDF;
+
+  * Acentuação e hifenização correta em Português
+     Package babel, font encoding T1 e acentos em latin1.
+
+  * Definição das dimensões do documento
+     Margens, header, footer, etc, através do package geometry.
+
+  * Criação de um package com definições do usuário
+     Comandos \newcommand, \newenvironment, etc.
+
+  * Sumário
+     Acrescentando lista de figuras/tabelas, índice, apêndice e
+     referências no sumário;
+     Reservando mais espaço para entradas com número de seção/subseção
+     muito longas.
+
+  * Processamento condicional com o package version
+
+  * Processamento condicional com o package ifthen
+     Comandos \ifthenelse e \whiledo.
+
+  * Footnotes
+     Uso de footnotes no título, dentro de seção, tabelas e em
+     captions;
+     Footnote em verbatim;
+     Alterando numeração dentro de minipage;
+     Eliminando a linha horizontal que separa os footnotes;
+     Duas (ou mais) entradas usando o mesmo íncice de footnote.
+
+  * Espaçamento
+     Entre linhas: Duplo, Um e meio, etc;
+     Alteração do espaçamento entre parágrafos.
+
+  * Sublinhado, sobrescrito, tracejado, etc. com o package ulem
+
+  * Notas nas Margens
+
+  * Símbolos especiais usando fontes Text Companion, Wasy, AMS, etc
+     Uso de grau, graus Celsius, ordinal masculino e feminino, etc.
+
+  * Listas
+     Enumerate usando numerais romanos e letras minúsculas e
+     maiúsculas;
+     Enumerate encadeado mostrando a profundidade de cada item
+     (2.1.1., etc);
+     Package enumerate.
+
+  * Múltiplas colunas com o package multicol
+
+  * Troca de tamanho, estilo e tipo de fontes
+
+  * Quotation e poesia
+
+  * Epígrafo
+     Citação/frase no início de uma seção/capítulo.
+
+  * Colunas
+
+  * Length commands
+     Comandos \the, \setlength, \addtolength, etc.
+
+  * Espaçamento vertical, horizontal e boxes
+
+  * Counters
+     Criando, mostrando e redefinindo counters;
+     Mudando o estilo de footnotes, numeração de figuras e tabelas,
+     etc;
+     Exemplo de um environment que usa counters.
+
+  * Tabelas
+     Posicionamento [H] com o package float;
+     Diminuição do tamanho e do espaçamento entre colunas;
+     Tabelas lado a lado;
+     Aumento da espessura das linhas da tabela;
+     Alteração da distância entre a tabela e seu caption;
+     Repetindo entradas em tabelas;
+     Alinhamento de colunas com `.' e `:';
+     Elevando uma entrada no meio de duas linhas com \raisebox;
+     Tabela muito longa com quebra de página usando o package
+     longtable;
+     Aumento do espaçamento entre as linhas da coluna;
+     Tabela com rotação de 90 graus com o package lscape.
+
+  * Gráficos
+     Inclusão de gráficos EPS com rotação, espelhamento, alteracao das
+     dimensões e a escala;
+     Posicionamento [H] com o package float;
+     Figura dentro de figura com o package subfigure;
+     Figuras lado a lado;
+     Figuras ao lado de texto com o package wrapfig;
+     Inclusão de figuras geradas no gnuplot;
+     Alteração da distância entre a figura e seu caption;
+     Substituição de texto em figuras EPS com o package
+     psfrag. (apenas na versão DVI)
+
+  * Cores
+
+  * Referências com \label, \ref e \pageref
+     Uso do label LastPage definido no package lastpage.
+
+  * Comandos \vref e \vpageref com o package varioref
+     Uso de referências como `na próxima página', `nesta página',
+     etc.
+
+  * Urls, pathnames e emails com o package url
+
+  * Inclusão de material verbatim
+     Uso de material verbatim dentro de \newenvironment.
+
+  * Pseudocódigo, Código Fonte e Algoritmos
+     Criação de um novo environment para inclusão de código fonte com
+     os packages float e fancyvrb;
+     Pseudocódigo com o package alltt;
+     Algoritmo com os packages algorithm e algorithmic.
+
+  * Formulas Matemáticas
+     Frações, raízes, módulo, fatoriais, binômios,
+     trigonometria, vetores, matrizes, determinantes, limites,
+     somatórios, produtórios, derivadas, integrais;
+     Ajuste manual de espaçamento em formulas matemáticas;
+     Teorema;
+     Unidades físicas em fórmulas e uso de \ensuremath em macros;
+     Uso de acentuação em math mode com o comando \text definido pelo
+     package amstext;
+     Uso dos comandos \left. e \right. para criar delimitadores
+     invisíveis possibilitando abertura e o fechamento de
+     parênteses/colchetes em linhas distintas;
+     Mínimos quadrados;
+     Multiplicação de matrizes;
+     Transformadas de Fourier e Laplace.
+
+  * Reações Químicas
+     Macro para representar isótopos.
+
+  * Referências bibliográficas com BibTeX
+     Uso de \cite, \nocite e \nocite{*};
+     Obtendo referências on-line em formato BibTeX.
+
+  * Construção de Índice Remissivo
+     Uso de \index e makeindex;
+     Customização do formato do Índice com introdução da letra a que
+     se refere cada seção;
+     Colocação de pontos entre a entrada e o número da página, no
+     mesmo estilo do sumário;
+     Customização de `Symbols' e `Numbers' para Português.
+
+  * Construção de Glossário
+     Definição de um package simples para a criação de glossário que
+     define os comandos \Glossary, \printglossary e o environment
+     theglossary;
+     São usados também os comandos \makeglossary bem como o programa
+     makeindex.
+
+  * Descrição de vários packages
+
+DISTRIBUIÇÃO
+
+  Este documento pode ser livremente copiado e modificado desde que
+  atendidas as seguintes condições:
+
+  É permitido fazer e distribuir cópias inalteradas deste documento,
+  completo ou em partes, contanto que a mensagem de copyright e esta
+  nota sobre a distribuição sejam mantidas em todas as cópias.  Se
+  este documento for distribuído apenas em partes, instruções de como
+  obtê-lo por completo devem ser incluídas.
+
+  É permitido fazer e distribuir cópias modificadas deste documento
+  sob as mesmas condições do item anterior, contanto que todo o
+  trabalho derivado seja distribuído sob estas mesmas condições.
+
+  É permitida a inclusão de exemplos de código LaTeX mostrados neste
+  trabalho em qualquer documento.  Tal uso é completamente livre e não
+  está sujeito à nenhuma restrição.
+
+  Por questões de conveniência e compatibilidade com distribuições
+  mais antigas de LaTeX alguns packages foram incluídos aos fontes
+  desse documento.  Os termos de distribuição acima não cobrem tais
+  packages -- nesses casos as licensas de seus autores devem ser
+  respeitadas.
+
+DESCRIÇÃO DOS ARQUIVOS
+
+  Cada arquivo disponível para download possui duas cópias: com e sem
+  número de versão.  O arquivo sem número de versão é sempre um link
+  simbólico para o seu correspondente mais atual com número de
+  versão.
+
+  O arquivo CHECKSUM contém assinaturas SHA-1 e MD5 dos arquivos
+  disponíveis para download para que se possa verificar a integridade
+  dos mesmos.
+
+  O arquivo `LaTeX-demo.tar.gz' contém todos os arquivos fonte para se
+  criar a versão final do documento:
+
+  README                  Este texto.
+  INSTALL                 Instruções para a geração do documento.
+
+  Makefile                Makefile para a criação de todos os documentos.
+                          Deve gerar os arquivos: demo.dvi, demo.ps,
+                          demo-src.dvi e demo-src.ps.
+
+  demo.tex                Arquivos principais do LaTeX-demo.  Estes
+  demo.sty                arquivos usam os demais arquivos que seguem.
+
+  demo-version.sty
+  makeglo.sty
+  makeglo.ist
+  demo-distrib.tex
+  demo-apendice.tex
+  demo-apendice-packages.tex
+  demo-biblio.tex
+  demo-boxes.tex
+  demo-center.tex
+  demo-codigo.tex
+  demo-colunas.tex
+  demo-cores.tex
+  demo-counter.tex
+  demo-espacamento.tex
+  demo-espaco.tex
+  demo-fontes.tex
+  demo-graphics.tex
+  demo-pdf-graphics.tex
+  demo-index.ist
+  demo-length.tex
+  demo-lists.tex
+  demo-matematica.tex
+  demo-quimica.tex
+  demo-package-fontes.tex
+  demo-poesia.tex
+  demo-quotation.tex
+  demo-referencias.tex
+  demo-simbolos.tex
+  demo-tables.tex
+  demo-texto.tex
+  demo-thanks.tex
+  demo-typed.tex
+  demo-url.tex
+  refs.bib
+
+  demo-src.tex            Documento que mostra todos os arquivos fonte
+  demo-src.sty            usados no documento LaTeX-demo.
+
+  gnuplot/                Diretório que contém o código que gera as
+                          figuras com gnuplot.  As figuras já estão
+                          geradas, portando não é necessário o uso do
+                          gnuplot.
+
+  xfig/                   Diretório que contém o código que gera as
+                          figuras com xfig.  As figuras já estão
+                          geradas, portando não é necessário o uso do
+                          xfig.
+
+  figures/                Diretório que contém as figuras (eps, jpg,
+                          png e pdf) incluídas pelo LaTeX-demo.
+
+  code/                   Diretório que contém os fragmentos de código
+                          incluídos pelo LaTeX-demo.
+
+  auto/                   Diretório usado pelo AUC TeX.  Não é
+                          necessário para a criação dos documentos.
+
+  templates/              Este diretório possui templates de várias
+  templates/README        classes de documentos LaTeX: article, book,
+  templates/Makefile      report, letter e slides.  Um template de
+  templates/report.tex    arquivo de referencias BibTeX tambem está
+  templates/article.tex   disponível.
+  templates/articletwocolumn.tex
+  templates/book.tex
+  templates/letter.tex
+  templates/slides.tex
+  templates/template.bib
+
+  fancyvrb.sty            O package fancyvrb não faz parte do
+                          documento, apenas foi incluído por questões
+                          de compatibilidade com distribuições mais
+                          antigas de LaTeX, onde geralmente ele não
+                          está presente.  É usado nos documentos
+                          `demo' e `demo-src'.
+
+  psfrag.sty              Esses dois arquivos fazem parte do package
+  psfrag.pro              psfrag, que foi incluído por questões de
+                          compatibilidade com distribuições mais
+                          antigas de LaTeX.
+
+  hyperref.sty            Versão recente do hyperref (6.71a) que corrige
+  pd1enc.def              vários bugs.  Estes arquivos foram incluídos
+  hpdftex.def             por questões de compatibilidade com
+                          distribuições mais antigas.
+
+  Todos os packages acima podem ser obtidos no CTAN, em
+  http://www.ctan.org/.
+
+POSSíVEIS PROBLEMAS
+
+  Caso voce obtenha, durante a geração da versão PDF desse documento,
+  o seguinte erro:
+
+    ! TeX capacity exceeded, sorry [pool size=xxxxx]
+
+    (onde xxxxx depende do seu sistema)
+
+  edite o arquivo `texmf.cnf', aumentando o valor de `pool_size' para
+  150000, por exemplo.
+
+  A fonte mais comum de problemas é a falta de packages, usados por
+  este documento, no seu sistema.  A solução é a instalação de uma
+  distribuição completa, como a teTeX.  Note que também é possível
+  copiar apenas os packages que estão faltando para o diretório onde
+  se encontram os arquivos deste documento.  Você encontra uma lista
+  de packages em:
+
+  ftp://ftp.dante.de/tex-archive/help/Catalogue/catalogue.html
+
+  Se você já usa teTeX e mesmo assim ocorre um erro informando que o
+  arquivo `a4wide.sty' não é encontrado, provavelmente sua versão é a
+  0.3.4.  Faça um upgrade para a versão 0.4 ou maior ou copie apenas
+  este arquivo.  Outra alternativa é pegar uma versão mais recente
+  deste documento.  As versões mais novas (> 1.4) usam por default o
+  package geometry para especificar as margens do documento.
+
+  Caso você obtenha os erros:
+
+    ! LaTeX Error: Command \square already defined.
+                   Or name \end... illegal, see p.192 of the manual.
+
+    ! Undefined control sequence.
+    <recently read> \textcentigrade
+
+  provavelmente você está usando uma versão mais nova de
+  LaTeX/packages (possivelmente teTeX 0.9) com uma versão antiga do
+  LaTeX-demo (< 1.11).  Pegue a versão mais recente do LaTeX-demo para
+  evitar esse erro.
+
+  Ao tentar visualizar os arquivos `.dvi' com o `xdvi' é possível que
+  você obtenha os seguintes warnings:
+
+    Note:  overstrike characters may be incorrect.
+    xdvi.bin:  special "papersize=597.50787pt,845.04684pt" not implemented
+    xdvi.bin:  special "papersize=597.50787pt,845.04684pt" not implemented
+
+  Esses warnings são normais em versões mais antigas de `xdvi' e não
+  devem trazer maiores problemas.  Você pode elimina-los instalando
+  uma versão mais recente de `xdvi'.
+
+  Se você está rodando LaTeX pela primeira vez ou não costuma usar as
+  fontes referenciadas neste documento é normal que a primeira vez que
+  for roda-lo o LaTeX demore muito tempo no processo de criação de
+  fontes.  Nas próximas vezes a compilação do documento será muito
+  mais rápida.
+
+  Note que para a criação de fontes ser efetuada com sucesso você
+  precisa que o diretório de fontes do seu sistema esteja com
+  permissões de escrita e leitura.  No caso do teTeX você pode
+  descobrir onde esse diretório reside rodando `texconfig'.  Alguns
+  diretórios típicos são `/var/tmp/texfonts', `/var/texfonts', etc.
+
+  As versões já formatadas, em PostScript e PDF, estão disponíveis
+  para o caso de você ter problemas na geração dos documentos.
+
+MODIFICANDO AS DIMENSÕES DOS DOCUMENTOS GERADOS
+
+  Por default os documentos são gerados para impressão em papel `A4'.
+  Se você desejar mudar essas dimensões para papel `letter', faça as
+  seguintes modificações nos arquivos `demo.sty' e `demo-src.sty':
+
+  Comente a linha:
+  \geometry{a4paper,left=1in,right=1in,top=1in,bottom=1in}
+
+  Descomente a linha:
+  %\geometry{letterpaper,left=1in,right=1in,top=1in,bottom=1in}
+
+  Depois disso é só refazer os documentos.
+
+DÚVIDAS/DIFICULDADES/SUGESTÕES/BUGS
+
+  Dúvidas, sugestões e bug reports são bem-vindos.  Se você usa algum
+  recurso nos seus documentos LaTeX que não é discutido aqui por favor
+  mande sua contribuição, assim como recursos que gostaria de
+  utilizar.
+
+  Por favor mande mail para: jessen@acm.org
+
+Happy LaTeXing,
+Klaus Steding-Jessen
+
+### README ends here.

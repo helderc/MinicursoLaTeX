@@ -1,0 +1,51 @@
+%%% -*-LaTeX-*-
+%%% demo-version.sty -- package com definição de copyright, data,
+%%% versão e palavras-chave do release.
+%%% Usado por demo e demo-src.
+%%% $Id: demo-version.sty,v 1.9 2001/01/20 02:34:24 jessen Exp $
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{demo-version}
+
+\newcommand{\demoreleasecopyright}%
+{Copyright \copyright{} 1998, 1999, 2000, 2001}
+
+\newcommand{\demoreleaseversion}{1.13}
+\newcommand{\demoreleasedate}{20 de janeiro de 2001}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% nomes do packages usados no LaTeX-demo
+\newcommand{\usedpackages}{ae, algorithm, algorithmic, alltt,
+  amsfonts, amstext, babel, color, enumerate, float, fancyvrb,
+  fontenc, geometry, graphicx, hyperref, ifthen, indentfirst,
+  inputenc, lastpage, longtable, lscape, makeidx, mathrsfs, multicol,
+  pifont, psfrag, setspace, showidx, subfigure, texnames, textcomp,
+  ulem, url, varioref, version, wasysym, wrapfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% palavras-chave usadas.
+%%% \keywords já é definido pelo package listings.
+\newcommand{\dockeywords}{\LaTeXe, examples, Portuguese, hyphenation,
+  T1 encoding, ISO-8859-1, PDF, packages, figures, tables, \BibTeX,
+  makeindex, glossary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% palavras-chave usadas. (em Inglês)
+\newcommand{\docpalavraschave}{\LaTeXe, exemplos, Português,
+  hifenização, \eng{encoding} T1, ISO-8859-1, PDF, \eng{pack\-ages},
+  figuras, tabelas, \BibTeX, makeindex, glossário}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% palavras-chave usadas pela versão PDF.
+\newcommand{\docpdfkeywords}{LaTeXe,examples,ISO-8859-1,packages,figures,%
+tables,BibTeX,makeindex,glossary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-version.sty ends here.

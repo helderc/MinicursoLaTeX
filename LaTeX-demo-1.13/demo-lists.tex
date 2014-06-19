@@ -1,0 +1,305 @@
+%%% -*-LaTeX-*-
+%%% demo-lists.tex -- exemplo de diversos tipos de listas.
+%%% $Id: demo-lists.tex,v 1.8 2001/01/12 02:19:15 jessen Exp $
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Listas}
+
+A seguinte seção mostra vários exemplos de listas com os
+\eng{environments} \environ{itemize}, \environ{enumerate},
+\environ{description}, \environ{list} e \environ{trivlist}.  Um
+exemplo de formato de lista criada com o comando
+\command{newenvironment}, \environ{Description}, também é mostrado.
+
+\subsection{itemize}
+\index{listas!environment@\eng{environment}!itemize@\env{itemize}}%
+\envidx{itemize}%
+
+\begin{itemize}
+\item foo
+\item bar
+\item baz
+\end{itemize}
+
+\Glossary{foo}{Denominação bastante geral usada como exemplo de nome
+  para qualquer coisa, especialmente programas e arquivos.  Primeira
+  da lista padrão de variáveis usadas em exemplos.  Veja também
+  ``bar'' e ``baz''.}%
+
+\Glossary{bar}{Segunda da lista padrão de variáveis usadas em
+  exemplos, depois de ``foo'' e antes de ``baz''.  Freqüentemente
+  concatenada com ``foo'' para produzir ``foobar''.}%
+
+\Glossary{baz}{Terceira da lista padrão de variáveis usadas em
+  exemplos.  Freqüentemente concatenada com ``foo'' para produzir
+  ``foobaz''.}%
+
+\begin{itemize}
+\item[baz] baz
+\item[foobar] foobar
+\item[foobaz] foobaz
+\end{itemize}
+
+\Glossary{foobar}{Outra variável muito comum usada em exemplos.  Veja
+  ``bar''.}%
+
+\Glossary{foobaz}{Outra variável muito comum usada em exemplos.  Veja
+  ``baz''.}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{enumerate}
+\label{subsec:enumerate}
+\index{listas!environment@\eng{environment}!enumerate@\env{enumerate}}%
+\envidx{enumerate}%
+
+É possível usar listas numeradas com numerais arábicos (\eng{default}):
+
+\begin{enumerate}
+\item foo
+\item bar
+  \label{list:bar}
+\item baz
+\end{enumerate}
+
+Numerais romanos em minúsculas:
+
+\index{listas!enumerate@\env{enumerate}!com num.\ romanos
+(minusculas)@com num.\ romanos (minúsculas)}%
+\index{enumerate@\env{enumerate}!com num.\ romanos (minusculas)@com
+num.\ romanos (minúsculas)}%
+%%% números romanos em minúsculas
+\renewcommand{\theenumi}{\roman{enumi}}
+\begin{enumerate}
+\item foo
+\item bar
+\item baz
+\end{enumerate}
+
+Numerais romanos em maiúsculas:
+
+\index{listas!enumerate@\env{enumerate}!com num.\ romanos
+(maiusculas)@com num.\ romanos (maiúsculas)}%
+\index{enumerate@\env{enumerate}!com num.\ romanos (maiusculas)@com
+num.\ romanos (maiúsculas)}%
+%%% algarismos romanos em maiúsculas
+\renewcommand{\theenumi}{\Roman{enumi}}
+\begin{enumerate}
+\item foo
+\item bar
+\item baz
+\end{enumerate}
+
+Letras minúsculas:
+
+\index{listas!enumerate@\env{enumerate}!com letras minusculas@com
+letras minúsculas}%
+\index{enumerate@\env{enumerate}!com letras minusculas@com letras
+minúsculas}%
+%%% letras minúsculas
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{enumerate}
+\item foo
+\item bar
+\item baz
+\end{enumerate}
+
+Letras maiúsculas:
+
+\index{listas!enumerate@\env{enumerate}!com letras maiusculas@com
+letras maiúsculas}%
+\index{enumerate@\env{enumerate}!com letras maiusculas@com letras
+maiúsculas}%
+%%% letras maiúsculas
+\renewcommand{\theenumi}{\Alph{enumi}}
+\begin{enumerate}
+\item foo
+\item bar
+\item baz
+\end{enumerate}
+
+O exemplo abaixo usa palavras na enumeração:
+
+\begin{enumerate}
+\item[baz] baz
+\item[foobar] foobar
+\item[foobaz] foobaz
+\end{enumerate}
+
+%%% volta ao default de numerais arábicos
+\renewcommand{\theenumi}{\arabic{enumi}}
+
+\index{listas!enumerate@\env{enumerate}!encadeado}%
+\index{enumerate@\env{enumerate}!encadeado}%
+
+O \eng{environment} \environ{enumerate} pode ser encadeado em até 4
+níveis de profundidade:
+
+\begin{enumerate}
+\item foo
+\item bar
+  \begin{enumerate}
+  \item foobar
+    \begin{enumerate}
+    \item foobaz
+      \begin{enumerate}
+      \item foobarbaz
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\index{listas!enumerate@\env{enumerate}!itens numerados por profundidade}%
+\index{enumerate@\env{enumerate}!itens numerados por profundidade}%
+
+O exemplo abaixo redefine a numeração de modo a mostrar a profundidade
+de cada item:
+
+%%% as redefinições abaixo foram colocadas dentro de um bloco (entre
+%%% `{' e `}' para restringir sua atuação.  Para que essas
+%%% modificações afetem todo o documento basta colocá-las no preâmbulo
+%%% do documento.
+
+{
+
+\makeatletter
+\renewcommand\theenumi{\@arabic\c@enumi}
+\renewcommand\theenumii{\@arabic\c@enumi.\@arabic\c@enumii}
+\renewcommand\theenumiii%
+{\@arabic\c@enumi.\@arabic\c@enumii.\@arabic\c@enumiii}
+\renewcommand\theenumiv%
+{\@arabic\c@enumi.\@arabic\c@enumii.\@arabic\c@enumiii.\@arabic\c@enumiv}
+
+%%% o último `.' depois do número pode ser removido retirando-o das 4
+%%% definições abaixo.
+\renewcommand\labelenumi{\theenumi.}
+\renewcommand\labelenumii{\theenumii.}
+\renewcommand\labelenumiii{\theenumiii.}
+\renewcommand\labelenumiv{\theenumiv.}
+
+\renewcommand\p@enumii{\p@enumi}
+\renewcommand\p@enumiii{\p@enumii}
+\renewcommand\p@enumiv{\p@enumiii}
+\makeatother
+
+\begin{enumerate}
+\item foo
+\item bar
+  \begin{enumerate}
+  \item foobar
+    \begin{enumerate}
+    \item foobaz
+      \begin{enumerate}
+      \item foobarbaz
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\eng{Package} \pack{enumerate}}
+\index{listas!package enumerate@\eng{package} \pack{enumerate}}%
+
+O \eng{package} \package{enumerate} provê ao \eng{environment}
+\environ{enumerate} um parâmetro opcional que determina o estilo do
+contador além de permitir que esse contador seja agrupado com texto.
+
+%%% Podem ser usados `A', `a', `I', `i', `1' para produzir,
+%%% respectivamente, \Alph, \alph, \Roman, \roman ou \arabic.  Para
+%%% evitar a expansão basta colocar dentro de `{' e `}'.
+
+\begin{enumerate}[(I)]
+
+\item foo
+
+  \begin{enumerate}[exemplo a)]
+
+  \item bar
+
+    \begin{enumerate}[{i}tem--1]
+
+    \item baz
+    \item foobar
+
+    \end{enumerate}
+
+  \item foobaz
+
+  \end{enumerate}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{description}
+\index{listas!environment@\eng{environment}!description@\env{description}}%
+\envidx{description}%
+
+\begin{description}
+\item foo
+\item bar
+\item baz
+\end{description}
+
+\begin{description}
+
+\item[Foo] Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+  bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla.
+
+\item[Foobar] Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+  bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla.
+
+\item[Foobaz] Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+  bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla.
+
+\end{description}
+
+\index{listas!environment@\eng{environment}!Description@\env{Description}}%
+O \eng{environment} \environ{Description} é similar ao
+\environ{description} mais permite maior controle sobre a tabulação.
+Esse \eng{environment} foi criado com o comando
+\command{newenvironment}.
+
+\begin{Description}{Foobaz}
+%%% também poderia ter sido usado:
+%\begin{Description}{\hspace{2cm}}
+
+\item[Foo] Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+  bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla.
+
+\item[Foobar] Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+  bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla.
+
+\item[Foobaz] Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+  bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla.
+
+\end{Description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{list}
+\index{listas!environment@\eng{environment}!list@\env{list}}%
+\envidx{list}%
+
+\begin{list}{\labelitemiii}{}
+\item foo
+\item bar
+\item baz
+\end{list}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{trivlist}
+\index{listas!environment@\eng{environment}!trivlist@\env{trivlist}}%
+\envidx{trivlist}%
+
+\begin{trivlist}
+\item foo
+\item bar
+\item baz
+\end{trivlist}
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-lists.tex ends here.

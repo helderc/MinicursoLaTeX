@@ -1,0 +1,107 @@
+%%% -*-LaTeX-*-
+%%% demo-typed.tex -- exemplo do environment vebatim, package
+%%% alltt e package fancyvrb para inclusão literal de material em
+%%% documentos.
+%%% $Id: demo-typed.tex,v 1.9 2001/01/12 02:25:41 jessen Exp $
+
+%%%  Veja também:
+%%%  fancyvrb CTAN:macros/latex/contrib/supported/fancyvrb/
+%%%
+%%%  Sophisticated handling of verbatim text including: verbatim commands in
+%%%  footnotes; a variety of verbatim environments with many
+%%%  parameters; ability to define new customized verbatim
+%%%  environments; save and restore verbatim text and environments;
+%%%  write and read files in verbatim mode; build ``example''
+%%%  environments (showing both result and verbatim text).
+
+\section{\eng{Typed text}}
+\label{sec:typed-text}
+\index{typed text@\eng{typed text}}%
+
+Esta seção mostra exemplos de inclusão literal de material em
+documentos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\eng{Typed text}---sem espaços}
+\index{typed text@\eng{typed text}!sem espacos@sem espaços}%
+\index{verbatim@\eng{verbatim}|see{\eng{typed text}}}%
+
+A forma mais simples é com o \eng{environment} \environ{verbatim},
+como mostrado abaixo:
+
+\begin{verbatim}
+;;; tex-mode.el --- tex, latex, and slitex mode commands.
+
+;; copyright (c) 1985, 86, 89, 92, 94, 95, 96, 1997
+;;       free software foundation, inc.
+
+;; maintainer: fsf
+;; keywords: tex
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\eng{Typed text}---com espaços}
+\index{typed text@\eng{typed text}!com espacos@com espaços}%
+
+O \eng{environment} \environ{verbatim*} faz o mesmo, mas evidenciando
+os espaços em branco:
+
+\begin{verbatim*}
+;;; tex-mode.el --- tex, latex, and slitex mode commands.
+
+;; copyright (c) 1985, 86, 89, 92, 94, 95, 96, 1997
+;;       free software foundation, inc.
+
+;; maintainer: fsf
+;; keywords: tex
+\end{verbatim*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\eng{Typed text}---\eng{package} \pack{alltt}}
+\label{subsec:alltt}
+\index{typed text@\eng{typed text}!package alltt@\eng{package}
+\pack{alltt}}%
+
+O \eng{package} \package{alltt} define o \eng{environment}
+\environ{alltt} que tem o mesmo efeito do \environ{verbatim}, mas
+permite inclusão de texto proveniente de arquivos.
+
+\begin{alltt}\input{code/prog1.el}\end{alltt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\eng{Typed text} com Moldura}
+\label{subsec:verbframe}
+
+É possível incluir o material dentro de uma moldura através do
+\eng{environment} \environ{Verbatim} com o parâmetro
+\verb!frame=single!.  Este \eng{environment} é definido pelo
+\eng{package} \package{fancyvrb}.
+
+%%% outros valores para frame= são: topline, botontline e lines.
+\begin{Verbatim}[frame=single]
+;;; tex-mode.el --- tex, latex, and slitex mode commands.
+
+;; copyright (c) 1985, 86, 89, 92, 94, 95, 96, 1997
+;;       free software foundation, inc.
+
+;; maintainer: fsf
+;; keywords: tex
+\end{Verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\eng{Typed text} dentro de footnotes}
+\label{subsec:verbfootnotes}
+
+\index{footnote@\eng{footnote}!com verbatim@com \verb+verbatim+}%
+\VerbatimFootnotes
+Após o uso do comando \command{VerbatimFootnotes}, material sem
+formatação também pode ser colocado dentro de \eng{footnotes}%
+\footnote{\verb!_Exemplo de texto verbatim em footnotes_!}.
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-typed.tex ends here.

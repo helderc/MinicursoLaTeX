@@ -1,0 +1,24 @@
+\begin{picture}(0,0)%
+\includegraphics{Figuras/Chapter3/fig9_ch3.pstex}%
+\end{picture}%
+\setlength{\unitlength}{4144sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(4991,4143)(667,-3474)
+\put(2342,-2807){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}${\bf pccw}$}}}}
+\put(2342,-62){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}${\bf nccw}$}}}}
+\put(3962,-62){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}${\bf pcw}$}}}}
+\put(3962,-2807){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}${\bf ncw}$}}}}
+\put(4907,-1412){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\em face}$_2$}}}}
+\put(1892,-2087){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\em ciclo}$_1$}}}}
+\put(4322,-2087){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\em ciclo}$_2$}}}}
+\put(3287,-1277){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}${\bf e}$}}}}
+\put(3204,-2687){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}${\bf v}_1$}}}}
+\put(3167,-182){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}${\bf v}_2$}}}}
+\put(1352,-1412){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\em face}$_1$}}}}
+\end{picture}%

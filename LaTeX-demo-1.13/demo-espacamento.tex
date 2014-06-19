@@ -1,0 +1,52 @@
+%%% -*-LaTeX-*-
+%%% demo-espacamento.tex -- exemplo de espaçamento vertical e horizontal.
+%%% $Id: demo-espacamento.tex,v 1.4 2000/08/02 01:17:42 jessen Exp $
+
+\section{Espaçamento}
+\index{espacamento@espaçamento|(}%
+
+\subsection{Espaçamento Vertical}
+\index{espacamento@espaçamento!vertical}%
+
+Espaçamento vertical pode ser feito com o comando \command{vspace}.
+\vspace{1cm}
+Aqui temos \unidade{1}{cm} entre esta linha e a de cima.
+
+\subsection{Espaçamento Horizontal}
+\index{espacamento@espaçamento!horizontal}%
+Espaços em branco podem ser feitos com o comando \command{hspace}.
+
+Por exemplo, aqui temos\hspace{3cm}\unidade{3}{cm} em branco.  Espaços
+também podem ser negativos, servindo como um \eng{backspace}, como
+aqui\hspace{-1cm}XXX.
+
+\subsubsection{hfill}
+
+\command{hfill} é um caso interessante de \command{hspace}, onde o espaço
+em branco é maximizado:
+
+Exemplo \hfill{} Exemplo.
+
+Exemplo \hfill{} Exemplo \hfill{} Exemplo.
+
+Exemplo \hfill{} Exemplo \hfill{} Exemplo \hfill{} Exemplo.
+
+\subsubsection{dotfill e hrulefill}
+
+\command{dotfill} e \command{hrulefill} funcionam de maneira análoga, mas
+em vez de espaços produzem pontos e uma linha horizontal, como no
+exemplo abaixo:
+
+Exemplo \dotfill{} Exemplo \dotfill{} Exemplo.
+
+Exemplo \hrulefill{} Exemplo \hrulefill{} Exemplo.
+
+\index{espacamento@espaçamento|)}%
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "demo.tex"
+%%% TeX-auto-save: t
+%%% End:
+
+%%% demo-espacamento.tex ends here.

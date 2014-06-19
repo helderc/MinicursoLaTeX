@@ -1,0 +1,60 @@
+\documentclass{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lipsum}
+
+\begin{document}
+
+\section{Ambiente de Listas: Itemize}
+O exemplo do ambiente de listas Itemize...
+
+\begin{itemize}
+	\item Primeira linha da minha lista
+	\item Segunda linha usando itemize
+\item sdklfjsld
+		\begin{itemize}
+			\item Linha 1 do subnivel.
+			\item Linha 2 do subnivel.
+			\begin {itemize}
+				\item Subsubnivel!
+			\end{itemize}
+		\end{itemize}
+	\item Terceira linha!
+\end{itemize}
+
+
+
+
+\section{Ambiente de Listas: Enumerate}
+Exemplo de lista utilizando o Enumerate.
+
+\begin{enumerate}
+	\item Minha primeira linha...
+		\begin{enumerate}
+			\item Subitem 1!
+			\item Subitem 2!
+			\begin{enumerate}
+				\item Subsubitem.
+			\end{enumerate}
+			\item Subitem 3!
+		\end{enumerate}
+	\item Segunda linha.
+	\item Terceira.
+\end{enumerate}
+
+
+
+\section{Ambiente de Listas: Description}
+Ambiente de listas Description.
+
+\begin{description}
+	\item[um] descrição de dois.
+	\begin{description}
+		\item[sub1] aqui é um subnivel!
+	\end{description}
+	\item[dois] descrição de três.
+\end{description}
+
+
+\end{document}

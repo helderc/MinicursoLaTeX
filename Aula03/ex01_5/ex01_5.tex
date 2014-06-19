@@ -1,0 +1,174 @@
+\documentclass{article} 
+%\documentclass[fleqn]{article}
+%\documentclass[leqno]{article}
+
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\newtheorem{Lem}{Lema}
+
+\begin{document}
+
+\section{InCírculo}
+
+Esta primitiva tem por finalidade verificar se o ponto \textbf{p}$_{4}$ 
+está no interior do círculo definido pelos pontos \textbf{p}$_{1}$, 
+\textbf{p}$_{2}$, \textbf{p}$_{3}$. Consideraremos \textbf{p}$_{1}$, 
+\textbf{p}$_{2}$, \textbf{p}$_{3}$, \textbf{p}$_{4}$ degenerados se
+\textbf{p}$_{1}$, \textbf{p}$_{2}$, \textbf{p}$_{3}$ coplanares ou
+\textbf{p}$_{1}$, \textbf{p}$_{2}$, \textbf{p}$_{3}$, \textbf{p}$_{4}$
+cocirculares. 
+Para mostrar se os pontos são cocirculares faremos \textbf{p}$_{1}' = 
+(\mathbf{p}_{1x}, \mathbf{p}_{1y}, \mathbf{p}_{1z})$,  com
+$\mathbf{p}_{1z}=\mathbf{p}_{1x}^{2}+ \mathbf{p}_{1y}^{2}$ e 
+assim por diante. Os pontos serão cocirculares se \textbf{p}$_{1}'$,
+\textbf{p}$_{2}'$, \textbf{p}$_{3}'$, \textbf{p}$_{4}'$ forem 
+coplanares. 
+Em outras palavras, \textbf{p}$_{4}'$ é combinação linear de 
+\textbf{p}$_{1}'$, \textbf{p}$_{2}'$, \textbf{p}$_{3}'$. 
+O resultado de \textit{InCirculo} é obtido, solucionando o seguinte 
+determinante:
+\\
+\begin{center}
+\textit{InCirculo }(\textbf{p}$_{1}$, \textbf{p}$_{2}$, 
+\textbf{p}$_{3}$, \textbf{p}$_{4}$) =$\left| 
+\begin{array}{cccc}
+\mathbf{p}_{1x} & \mathbf{p}_{1y} & \mathbf{p}_{1x}^{2}+\mathbf{p}_{1y}^{2} & 1 \\ 
+\mathbf{p}_{2x} & \mathbf{p}_{2y} & \mathbf{p}_{2x}^{2}+\mathbf{p}_{2y}^{2} & 1 \\ 
+\mathbf{p}_{3x} & \mathbf{p}_{3y} & \mathbf{p}_{3x}^{2}+\mathbf{p}_{3y}^{2} & 1 \\ 
+\mathbf{p}_{4x} & \mathbf{p}_{4y} & \mathbf{p}_{4x}^{2}+\mathbf{p}_{4y}^{2} & 1
+\end{array}
+\right| $
+\end{center}
+Se:
+
+\par \textit{InCirculo }(\textbf{p}$_{1}$, \textbf{p}$_{2}$, 
+	\textbf{p}$_{3}$, \textbf{p}$_{4}) = 0$ 
+	então os pontos são cocirculares;
+
+\par \textit{InCirculo }(\textbf{p}$_{1}$, \textbf{p}$_{2}$, 
+	\textbf{p}$_{3}$, \textbf{p}$_{4}) > 0$  
+	então $\mathbf{p}_{4}$ pertence ao exterior do círculo;
+
+\par \textit{InCirculo }(\textbf{p}$_{1}$, \textbf{p}$_{2}$, 
+	\textbf{p}$_{3}$, \textbf{p}$_{4}) < 0$ 
+	então $\mathbf{p}_{4}$
+	pertence ao interior do círculo;
+\\ \\
+Essa primitiva é baseada no seguinte lema:
+
+\begin{Lem}
+: O teste \textit{InCirculo}(.) é equivalente a:
+\end{Lem}
+
+\begin{equation}
+\textit{InCirculo } (\mathbf{p}_{1},\mathbf{p}_{2},\mathbf{p}_{3},
+\mathbf{p}_{4})=\left\vert 
+\begin{array}{cccc}
+\mathbf{p}_{1x} & \mathbf{p}_{1y} & \mathbf{p}_{1x}^{2}+\mathbf{p}_{1y}^{2} & 1 \\ 
+\mathbf{p}_{2x} & \mathbf{p}_{2y} & \mathbf{p}_{2x}^{2}+\mathbf{p}_{2y}^{2} & 1 \\ 
+\mathbf{p}_{3x} & \mathbf{p}_{3y} & \mathbf{p}_{3x}^{2}+\mathbf{p}_{3y}^{2} & 1 \\ 
+\mathbf{p}_{4x} & \mathbf{p}_{4y} & \mathbf{p}_{4x}^{2}+\mathbf{p}_{4y}^{2} & 1
+\end{array}
+\right\vert .
+\end{equation}
+
+
+{\bf Prova} 
+Para provar a validade desse resultado teremos que olhar para 
+equação do parabolóide $\Gamma$ representado no $R^{3}$ de 
+equação \ref{eq_paraboloid} e ilustrado na figura \ref{fig1}.
+
+Seja $H$ um plano não-vertical de equação \ref{eq_plano}, 
+a projeção $O_{xy}$ de $H\bigcap\Gamma$ no plano da origem a um 
+círculo de equação \ref{eq_circ}.
+
+Ver figura \ref{fig1} que contém a projeção mencionada.
+
+Seja $\mathbf{p} = (\mathbf{p}_x,\mathbf{p}_y)$ elevaremos o ponto 
+${\bf p}$ e obtemos um ${\mathbf{p'}}$ de equação \ref{eq_de_p}. 
+Essa transformação $\mathbf{p}\longrightarrow \mathbf{p'}$ é chamada 
+{\bf mapa de elevação}. A elevação dos pontos \textbf{p}$_{1}$, 
+\textbf{p}$_{2}$, \textbf{p}$_{3}$ e \textbf{p}$_{4}$ resulta 
+respectivamente nas equações \ref{eq_de_p1}, \ref{eq_de_p2}, \ref{eq_de_p3} 
+e \ref{eq_de_p4}. Assim se \textit{InCirculo }(\textbf{p}$_{1}$, 
+\textbf{p}$_{2}$, \textbf{p}$_{3}$, \textbf{p}$_{4}$) = 0, significa que
+$\det(Ccw(.))=0$ e o ponto \textbf{p}$_{4}' \in H$ e consequentemente
+\textbf{p}$_{4}$ é cocircular à circunferência definida por 
+\textbf{p}$_{1}$, \textbf{p}$_{2}$, \textbf{p}$_{3}$, caso 
+\textit{InCirculo }(\textbf{p}$_{1}$, \textbf{p}$_{2}$, \textbf{p}$_{3}$,
+\textbf{p}$_{4}$) $>0$ então $\det(Ccw(.))>0$ e o ponto \textbf{p}$_{4}'$
+está acima do plano $H$ e \textbf{p}$_{4}$ fora do círculo \textbf{p}$_{1}$,
+\textbf{p}$_{2}$, \textbf{p}$_{3}$, por último se 
+\textit{InCirculo }(\textbf{p}$_{1}$, \textbf{p}$_{2}$, \textbf{p}$_{3}$, 
+\textbf{p}$_{4}$) $<0$ então $\det(Ccw(.))<0$ e o ponto \textbf{p}$_{4}'$ 
+abaixo do plano $H$ e \textbf{p}$_{4}$ no interior do círculo 
+\textbf{p}$_{1}$, \textbf{p}$_{2}$, \textbf{p}$_{3}$.
+
+\begin{figure}[h]
+  \begin{center}
+    \leavevmode
+    \input{figura.pdf_t}
+    \caption{Parabolóide $\Gamma$ e a projeção da área interceptada pelo plano 
+		$H$ no $R^2$}
+    \label{fig1}
+  \end{center}
+\end{figure}
+
+\begin{equation} {\label{eq_paraboloid}}
+	\mathit{z} = x^2 + y^2 
+\end{equation}
+
+\begin{equation} {\label{eq_plano}}
+	\mathit{z} = \alpha x + \beta y + \gamma
+\end{equation}
+
+\begin{equation} {\label{eq_circ}}
+	\mathit{x^2} + \mathit{y^2} = \alpha x + \beta y + \gamma
+\end{equation}
+
+\begin{equation} {\label{eq_de_p}}
+	\mathbf{p'} = (\mathbf{p}_x,\mathbf{p}_y,{\mathbf{p}_x}^2+{\mathbf{p}_y}^2)
+\end{equation}
+
+\begin{equation} {\label{eq_de_p1}}
+	\mathbf{p}_{1}' = (\mathbf{p}_{1x},\mathbf{p}_{1y},{\mathbf{p}_{1x}}^2+{\mathbf{p}_{1y}}^2)
+\end{equation}
+
+\begin{equation} {\label{eq_de_p2}}
+	\mathbf{p}_2' = (\mathbf{p}_{2x},\mathbf{p}_{2y},{\mathbf{p}_{2x}}^2+{\mathbf{p}_{2y}}^2)
+\end{equation}
+
+\begin{equation} {\label{eq_de_p3}}
+	\mathbf{p}_3' = (\mathbf{p}_{3x},\mathbf{p}_{3y},{\mathbf{p}_{3x}}^2+{\mathbf{p}_{3y}}^2)
+\end{equation}
+
+\begin{equation} {\label{eq_de_p4}}
+	\mathbf{p}_4' = (\mathbf{p}_{4x},\mathbf{p}_{4y},{\mathbf{p}_{4x}}^2+{\mathbf{p}_{4y}}^2)
+\end{equation}
+
+Convém lembrar que o teste do \textit{InCirculo}, em uma situação
+geral, serve também para orientação de um ponto em relação à uma 
+esfera no $R^{3}$ e também no hiperplano. Dada uma sequência
+de $n+1$ pontos $(\mathbf{p}_{2},\ldots ,\mathbf{p}_{n+1})$, se 
+\textbf{p}$_{1}$ pertencer ao exterior da esfera, dizemos que 
+está orientado positivamente caso contrário, está orientado 
+negativamente, e o sinal do determinante indica, assim como no caso 
+do círculo, a orientação de \textbf{p}$_{1}$ e esse determinante no 
+espaço $R^{n}$ está ilustrado como abaixo:
+
+\begin{equation}
+	\left\vert 
+	\begin{array}{ccccc}
+		\mathbf{p}_{11} & \cdots & \mathbf{p}_{1n} & \mathbf{p}_{11}^{2}+\ldots +\mathbf{p}_{1n}^{2} & 1 \\ 
+		\mathbf{p}_{21} & \cdots & \mathbf{p}_{2n} & \mathbf{p}_{21}^{2}+\ldots +\mathbf{p}_{2n}^{2} & 1 \\ 
+		\vdots &  & \vdots & \vdots & \vdots \\ 
+		\mathbf{p}_{n+2,1} & \cdots & \mathbf{p}_{n+2,n} & \mathbf{p}_{n+2,1}^{2}+\ldots +\mathbf{p}_{n+2,n}^{2} & 1
+\end{array}
+	\right\vert
+\end{equation}
+
+\end{document}
